@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
-const SignUpForm = () => {
+const SignUpForm = ({ setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
+  const [full_name, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -15,15 +16,19 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, full_name, email, password));
       if (data) {
         setErrors(data)
-      }
+      } else setShowModal(false)
     }
   };
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
+  };
+  
+  const updateFullname = (e) => {
+    setFullname(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -39,7 +44,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/dashboard' />;
   }
 
   return (
@@ -50,12 +55,21 @@ const SignUpForm = () => {
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label>Username</label>
         <input
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
+        ></input>
+      </div>
+      <div>
+        <label>Full Name</label>
+        <input
+          type='text'
+          name='full_name'
+          onChange={updateFullname}
+          value={full_name}
         ></input>
       </div>
       <div>
@@ -83,7 +97,7 @@ const SignUpForm = () => {
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
+          // required={true}
         ></input>
       </div>
       <button type='submit'>Sign Up</button>
