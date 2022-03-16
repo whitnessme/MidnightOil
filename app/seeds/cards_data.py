@@ -51,77 +51,77 @@ hiragana_cards = [
 html_cards = [
     {
         "deck_id": 2,
-        "front": "<html>",
-        "back": "The HTML <html> element represents the root (top-level element) of an HTML document, so it is also referred to as the root element. All other elements must be descendants of this element."
+        "front": "html",
+        "back": "The HTML html element represents the root (top-level element) of an HTML document, so it is also referred to as the root element. All other elements must be descendants of this element."
     },
     {
         "deck_id": 2,
-        "front": "<head>",
-        "back": "The HTML <head> element contains machine-readable information (metadata) about the document, like its title, scripts, and style sheets."
+        "front": "head",
+        "back": "The HTML head element contains machine-readable information (metadata) about the document, like its title, scripts, and style sheets."
     },
     {
         "deck_id": 2,
-        "front": "<body>",
-        "back": "The HTML <body> Element represents the content of an HTML document. There can be only one body element in a document."
+        "front": "body",
+        "back": "The HTML body Element represents the content of an HTML document. There can be only one body element in a document."
     },
     {
         "deck_id": 2,
-        "front": "<link>",
+        "front": "link",
         "back": "The HTML External Resource Link element (link) specifies relationships between the current document and an external resource. This element is most commonly used to link to stylesheets, but is also used to establish site icons (both 'favicon' style icons and icons for the home screen and apps on mobile devices) among other things."
     },
     {
         "deck_id": 2,
-        "front": "<title>",
+        "front": "title",
         "back": "The HTML Title element (title) defines the document's title that is shown in a browser's title bar or a page's tab."
     },
     {
         "deck_id": 2,
-        "front": "<footer>",
+        "front": "footer",
         "back": "The HTML footer element represents a footer for its nearest sectioning content or sectioning root element. A footer typically contains information about the author of the section, copyright data or links to related documents."
     },
     {
         "deck_id": 2,
-        "front": "<header>",
+        "front": "header",
         "back": "The HTML header element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements."
     },
     {
         "deck_id": 2,
-        "front": "<h1>, <h2>... <h6>",
+        "front": "h1, h2... h6",
         "back": "The HTML h1-h6 elements represent six levels of section headings. h1 is the highest section level and h6 is the lowest."
     },
     {
         "deck_id": 2,
-        "front": "<main>",
+        "front": "main",
         "back": "The HTML main element represents the dominant content of the body of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application."
     },
     {
         "deck_id": 2,
-        "front": "<nav>",
+        "front": "nav",
         "back": "The HTML nav element represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes."
     },
     {
         "deck_id": 2,
-        "front": "<a>",
+        "front": "a",
         "back": "The HTML a element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address."
     },
     {
         "deck_id": 2,
-        "front": "<div>",
+        "front": "div",
         "back": "The HTML Content Division element (div) is the generic container for flow content. It has no effect on the content or layout until styled using CSS."
     },
     {
         "deck_id": 2,
-        "front": "<ol>",
+        "front": "ol",
         "back": "The HTML ol element represents an ordered list of items — typically rendered as a numbered list."
     },
     {
         "deck_id": 2,
-        "front": "<ul>",
+        "front": "ul",
         "back": "The HTML ul element represents an unordered list of items, typically rendered as a bulleted list."
     },
     {
         "deck_id": 2,
-        "front": "<li>",
+        "front": "li",
         "back": "The HTML li element is used to represent an item in a list."
     }
 ]

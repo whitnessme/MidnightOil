@@ -31,5 +31,6 @@ class StudySession(db.Model):
             "four_count": self.four_count,
             "five_count": self.five_count,
             "created_at": self.created_at,
-            "updated_at": self.updated_at
+            "updated_at": self.updated_at,
+            "Deck": self.deck.to_dict()
         }

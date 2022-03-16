@@ -14,6 +14,9 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    
+    deck = db.relationship("Deck", back_populates="user", cascade="all, delete")
+    # deck_owner = db.relationship("Deck", back_populates="owner", cascade="all, delete")
 
     @property
     def password(self):
