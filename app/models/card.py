@@ -1,13 +1,15 @@
 from .db import db
+from .deck import Deck
+from datetime import datetime
 
 class Card(db.Model):
     __tablename__ = 'cards'
     
     id = db.Column(db.Integer, primary_key=True)
-    deck_id = db.Column(db.Integer, db.ForeignKey('deck.id'), nullable=False)
+    deck_id = db.Column(db.Integer, db.ForeignKey('decks.id'), nullable=False)
     front = db.Column(db.Text,  nullable=False)
     back = db.Column(db.Text,  nullable=False)
-    seen = db.Column(db.Boolean, nullable=False, default=false)
+    seen = db.Column(db.Boolean, nullable=False, default=False)
     curr_rating = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())

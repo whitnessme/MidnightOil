@@ -1,12 +1,13 @@
 from .db import db
+from datetime import datetime
 
 class Deck(db.Model):
     __tablename__ = 'decks'
     
     id = db.Column(db.Integer, primary_key=True)
-    owner_id = db.Column(db.Integer,  db.ForeignKey('user.id'), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    share = db.Column(db.Boolean, nullable=False, default=false)
+    owner_id = db.Column(db.Integer,  db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    share = db.Column(db.Boolean, nullable=False, default=False)
     name = db.Column(db.String(100), nullable=False)
     about = db.Column(db.Text)
     last_study_date = db.Column(db.Date)
