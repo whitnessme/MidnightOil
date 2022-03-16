@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User, Deck, db
-# import form once done
+from app.models import Deck, db
+from app.forms.deck_form import DeckForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
 deck_routes = Blueprint('deck_routes', __name__)
@@ -30,9 +30,9 @@ def create_deck():
     
     if form.validate_on_submit():
         deck = Deck(
-            user_id=data['user_id']
-            share=data['share']
-            name=data['name']
+            user_id=data['user_id'],
+            share=data['share'],
+            name=data['name'],
             about=data['about']
         )
         db.session.add(deck)
