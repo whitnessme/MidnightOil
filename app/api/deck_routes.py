@@ -1,11 +1,74 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User, Deck, db
-# import form once done
+from app.models import Deck, db
+from app.forms.deck_form import DeckForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
-# GET
+deck_routes = Blueprint('deck_routes', __name__)
+
+# GET all decks by user
+@deck_routes.route('/all/users/<int:id>')
+@login_required
+def user_decks(id):
+    user_decks = Deck.query.filter(Deck.user_id == id).all()
+    return {"user_decks": [deck.to_dict() for deck in user_decks]}
+
+# GET one deck by deck.id
+@deck_routes.route('/<int:id>')
+@login_required
+def one_deck(id):
+    one_deck = Deck.query.get(id)
+    return {"one_deck": one_deck.to_dict()}
 
 # POST
+@deck_routes.route('/', methods=["POST"])
+@login_required
+def create_deck():
+    form = DeckForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    data = form.data
+    
+    if form.validate_on_submit():
+        deck = Deck(
+            user_id=data['user_id'],
+            share=data['share'],
+            name=data['name'],
+            about=data['about']
+        )
+        db.session.add(deck)
+        db.session.commit()
+        return deck.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 
 # PUT
+@deck_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def edit_deck(id):
+    form = DeckForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    data = form.data
+    
+    if form.validate_on_submit():
+        deck = Deck.query.get(id)
+        
+        deck.user_id=data['user_id']
+        deck.share=data['share']
+        deck.name=data['name']
+        deck.about=data['about']
+      
+        db.session.commit()
+        return deck.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+# DELETE
+@deck_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_deck(id):
+  deck = Deck.query.get(id)
+  deleted_deck = deck.to_dict()
+  
+  db.session.delete(deck)
+  db.session.commit()
+  
+  return deleted_deck
