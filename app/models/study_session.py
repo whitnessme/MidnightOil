@@ -1,10 +1,12 @@
 from .db import db
+from .deck import Deck
+from datetime import datetime
 
 class StudySession(db.Model):
     __tablename__ = 'study_sessions'
     
     id = db.Column(db.Integer, primary_key=True)
-    deck_id = db.Column(db.Integer, db.ForeignKey('deck.id'), nullable=False)
+    deck_id = db.Column(db.Integer, db.ForeignKey('decks.id'), nullable=False)
     round_count = db.Column(db.Integer, nullable=False, default=0)
     flips_count = db.Column(db.Integer, nullable=False, default=0)
     one_count = db.Column(db.Integer, nullable=False, default=0)
@@ -15,7 +17,7 @@ class StudySession(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
-    deck = db.relationship("Deck", back_populates="cards")
+    deck = db.relationship("Deck", back_populates="study_sessions")
 
     def to_dict(self):
         return {
@@ -29,5 +31,6 @@ class StudySession(db.Model):
             "four_count": self.four_count,
             "five_count": self.five_count,
             "created_at": self.created_at,
-            "updated_at": self.updated_at
+            "updated_at": self.updated_at,
+            "Deck": self.deck.to_dict()
         }
