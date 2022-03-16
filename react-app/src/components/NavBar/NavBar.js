@@ -1,16 +1,17 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
-import LoginFormModal from './LoginFormModal';
-import SignupFormModal from './SignupFormModal';
+import LogoutButton from '../auth/LogoutButton';
+import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal';
+import './NavBar.css'
 
 const NavBar = () => {
   return (
     <nav>
       <ul>
         <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
+          <NavLink to='/dashboard' exact={true} activeClassName='active'>
             Home
           </NavLink>
         </li>
