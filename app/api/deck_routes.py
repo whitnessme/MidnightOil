@@ -23,9 +23,52 @@ def one_deck(id):
 # POST
 @deck_routes.route('/', methods=["POST"])
 @login_required
-
+def create_deck():
+    form = DeckForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    data = form.data
+    
+    if form.validate_on_submit():
+        deck = Deck(
+            user_id=data['user_id']
+            share=data['share']
+            name=data['name']
+            about=data['about']
+        )
+        db.session.add(deck)
+        db.session.commit()
+        return deck.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 # PUT
+@deck_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def edit_deck(id):
+    form = DeckForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    data = form.data
+    
+    if form.validate_on_submit():
+        deck = Deck.query.get(id)
+        
+        deck.user_id=data['user_id']
+        deck.share=data['share']
+        deck.name=data['name']
+        deck.about=data['about']
+      
+        db.session.commit()
+        return deck.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # DELETE
+@deck_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_deck(id):
+  deck = Deck.query.get(id)
+  deleted_deck = deck.to_dict()
+  
+  db.session.delete(deck)
+  db.session.commit()
+  
+  return deleted_deck
