@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import DecksList from '../Decks/DecksList';
 import UserBar from './UserBar';
 
+import './Dashboard.css'
+
 import { loadUserDecks } from '../../store/decks';
 
 const Dashboard = () => {
@@ -16,7 +18,7 @@ const Dashboard = () => {
     }, [dispatch, user])
 
     return (
-        <div>
+        <div className='dashboard-container'>
             <h2>Welcome back!</h2>
             <UserBar user={user}/>
             <DecksList decks={decks} />
