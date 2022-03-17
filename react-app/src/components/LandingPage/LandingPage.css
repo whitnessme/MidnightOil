@@ -1,0 +1,17 @@
+.landing-page-container {
+    width: 100vw;
+    height: 94vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://64.media.tumblr.com/d803aba3a63c34b7b792a826e33383be/tumblr_ptxrsfi56z1rrnekqo1_1280.jpg");
+}
+
+.welcome-msg {
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+    font-size: 100px;
+    color: white;
+    width: 850px;
+}

@@ -123,6 +123,11 @@ video {
   vertical-align: baseline;
 }
 
+html {
+    height: 100%;
+    width: 100%;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -139,6 +144,7 @@ section {
 }
 body {
   line-height: 1;
+  height: 100%;
 }
 ol,
 ul {
