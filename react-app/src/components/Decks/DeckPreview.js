@@ -1,8 +1,17 @@
+import './DeckPreview.css'
 
-const DeckPreview = () => {
+const DeckPreview = ({ deck }) => {
     return (
-        <div>
-            <p>Displays single deck</p>
+        <div className="deck-preview-container">
+            <h4>{deck.name}</h4>
+            <ul>
+                <li>
+                    <p>{deck.about}</p>
+                </li>
+                <li>
+                    <p>{deck.size}</p>
+                </li>
+            </ul>
         </div>
     )
 }

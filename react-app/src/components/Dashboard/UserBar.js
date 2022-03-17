@@ -1,8 +1,8 @@
 
-const UserBar = () => {
+const UserBar = ({ user }) => {
     return (
         <div>
-            <p>userbar</p>
+            <p>{user.full_name}</p>
         </div>
     )
 }
