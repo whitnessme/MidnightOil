@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 
 const LoginForm = ({ setShowModal }) => {
@@ -9,13 +9,18 @@ const LoginForm = ({ setShowModal }) => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const onLogin = async (e) => {
+
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
-    } else setShowModal(false)
+    } else {
+      setShowModal(false)
+      history.push('/dashboard')
+    }
   };
 
   const updateEmail = (e) => {
@@ -31,34 +36,37 @@ const LoginForm = ({ setShowModal }) => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <>
+    <h2 className='modal-header'>Log In</h2>
+    <form className='login-signup-form' onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
-        ))}
+          ))}
       </div>
-      <div>
+      <div className='input-label-div'>
         <label htmlFor='email'>Email</label>
         <input
           name='email'
           type='text'
-          placeholder='Email'
+          // placeholder='Email'
           value={email}
           onChange={updateEmail}
-        />
+          />
       </div>
-      <div>
+      <div className='input-label-div'>
         <label htmlFor='password'>Password</label>
         <input
           name='password'
           type='password'
-          placeholder='Password'
+          // placeholder='Password'
           value={password}
           onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
+          />
       </div>
+      <button type='submit'>Login</button>
     </form>
+    </>
   );
 };
 

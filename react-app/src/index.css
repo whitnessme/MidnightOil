@@ -1,5 +1,38 @@
 /* TODO Add site wide styles */
 
+.modal-header {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 30px;
+}
+
+/* .login-signup-form {
+    text-align: center;
+} */
+
+.input-label-div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.input-label-div > label {
+    font-size: 14px;
+    color: gray;
+    border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+input {
+    padding: 7px 0px;
+    border: 0px;
+    border-bottom: 3px solid rgb(192, 192, 192);
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 3px solid rgb(71, 129, 204);
+}
+
 /* CSS Reset */
 
 html,
