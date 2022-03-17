@@ -13,7 +13,7 @@ const LoginForm = ({ setShowModal }) => {
 
   const onLogin = async (e) => {
 
-    e.preventDefault();
+    e?.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
@@ -22,6 +22,11 @@ const LoginForm = ({ setShowModal }) => {
       history.push('/dashboard')
     }
   };
+
+  const handleDemo = () => {
+    setEmail("demo@aa.io");
+    setPassword("password");
+  }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -64,7 +69,10 @@ const LoginForm = ({ setShowModal }) => {
           onChange={updatePassword}
           />
       </div>
+      <div className='login-buttons'>
       <button type='submit'>Login</button>
+      <button onClick={handleDemo} >Demo</button>
+      </div>
     </form>
     </>
   );
