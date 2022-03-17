@@ -1,0 +1,44 @@
+/* .dashboard-container {
+    width: 95%;
+    margin: auto;
+} */
+
+.user-bar-container {
+    display: flex;
+    background-color: gray;
+    flex-direction: row;
+    align-items: center;
+    height: 200px;
+    width: 100%
+}
+
+.user-icon {
+    width: 80px;
+    margin-left: 10px;
+    height: 80px;
+    padding: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.user-full-name {
+    margin-left: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+.decks-list-header {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+}
+
+.create-deck-button, .view-decks-button{
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    justify-content: center;
+    background-color: rgb(206, 154, 154);
+}

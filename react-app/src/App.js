@@ -7,6 +7,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import LandingPage from './components/LandingPage';
+import Dashboard from './components/Dashboard';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,7 +38,7 @@ function App() {
           <LandingPage />
         </Route>
         <ProtectedRoute path='/dashboard' exact={true}>
-          <h1>Dashboard</h1>
+          <Dashboard />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

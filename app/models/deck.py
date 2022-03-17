@@ -24,7 +24,7 @@ class Deck(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "owner_id": self.owner_id,
+            # "owner_id": self.owner_id,
             "user_id": self.user_id,
             "share": self.share,
             "name": self.name,
@@ -34,8 +34,8 @@ class Deck(db.Model):
             "points": self.points,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
-            "User": self.user.to_dict(),
-            "Owner": self.owner.to_dict(),
+            # "User": self.user.to_dict(),
+            # "Owner": self.owner.to_dict(),
             "Cards": [card.to_dict() for card in self.cards],
-            "Study_Sessions": [session.to_dict() for session in self.study_sessions]
+            # "Study_Sessions": [session.to_dict() for session in self.study_sessions]
         }
