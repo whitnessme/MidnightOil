@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
 const SignUpForm = ({ setShowModal }) => {
@@ -12,6 +12,7 @@ const SignUpForm = ({ setShowModal }) => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -19,7 +20,10 @@ const SignUpForm = ({ setShowModal }) => {
       const data = await dispatch(signUp(username, full_name, email, password));
       if (data) {
         setErrors(data)
-      } else setShowModal(false)
+      } else {
+        setShowModal(false)
+        history.push('/dashboard')
+      }
     }
   };
 
@@ -48,22 +52,25 @@ const SignUpForm = ({ setShowModal }) => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <>
+    <h2 className='modal-header'>Get Started</h2>
+    <form className='login-signup-form' onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
+      <div className='input-label-div'>
         <label>Username</label>
         <input
           type='text'
           name='username'
+          // placeholder='username'
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
-      <div>
+      <div className='input-label-div'>
         <label>Full Name</label>
         <input
           type='text'
@@ -72,7 +79,7 @@ const SignUpForm = ({ setShowModal }) => {
           value={full_name}
         ></input>
       </div>
-      <div>
+      <div className='input-label-div'>
         <label>Email</label>
         <input
           type='text'
@@ -81,7 +88,7 @@ const SignUpForm = ({ setShowModal }) => {
           value={email}
         ></input>
       </div>
-      <div>
+      <div className='input-label-div'>
         <label>Password</label>
         <input
           type='password'
@@ -90,7 +97,7 @@ const SignUpForm = ({ setShowModal }) => {
           value={password}
         ></input>
       </div>
-      <div>
+      <div className='input-label-div'>
         <label>Repeat Password</label>
         <input
           type='password'
@@ -100,8 +107,9 @@ const SignUpForm = ({ setShowModal }) => {
           // required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button type='submit'>Sign up</button>
     </form>
+    </>
   );
 };
 
