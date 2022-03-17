@@ -19,7 +19,6 @@ const Dashboard = () => {
 
     return (
         <div className='dashboard-container'>
-            <h2>Welcome back!</h2>
             <UserBar user={user}/>
             <DecksList decks={decks} />
         </div>
