@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import DeckPage from './components/DeckPage/index'
 import { authenticate } from './store/session';
 import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/dashboard' exact={true}>
           <Dashboard />
+        </ProtectedRoute>
+        <ProtectedRoute path='/decks/:deckId'>
+          <DeckPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

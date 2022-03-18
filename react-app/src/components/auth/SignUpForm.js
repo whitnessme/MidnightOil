@@ -70,7 +70,7 @@ const SignUpForm = ({ setShowModal }) => {
           value={username}
         ></input>
           <span className='required-icon'>
-              <i class="fa-solid fa-asterisk"></i>
+              <i className="fa-solid fa-asterisk"></i>
           </span>
       </div>
       <div className='input-label-div'>
@@ -82,7 +82,7 @@ const SignUpForm = ({ setShowModal }) => {
           value={full_name}
         ></input>
           <span className='required-icon'>
-              <i class="fa-solid fa-asterisk"></i>
+              <i className="fa-solid fa-asterisk"></i>
           </span>
       </div>
       <div className='input-label-div'>
@@ -94,7 +94,7 @@ const SignUpForm = ({ setShowModal }) => {
           value={email}
         ></input>
           <span className='required-icon'>
-              <i class="fa-solid fa-asterisk"></i>
+              <i className="fa-solid fa-asterisk"></i>
           </span>
       </div>
       <div className='input-label-div'>
@@ -106,7 +106,7 @@ const SignUpForm = ({ setShowModal }) => {
           value={password}
         ></input>
           <span className='required-icon'>
-              <i class="fa-solid fa-asterisk"></i>
+              <i className="fa-solid fa-asterisk"></i>
           </span>
       </div>
       <div className='input-label-div'>
@@ -119,7 +119,7 @@ const SignUpForm = ({ setShowModal }) => {
           // required={true}
         ></input>
           <span className='required-icon'>
-              <i class="fa-solid fa-asterisk"></i>
+              <i className="fa-solid fa-asterisk"></i>
           </span>
       </div>
       <button type='submit'>Sign up</button>

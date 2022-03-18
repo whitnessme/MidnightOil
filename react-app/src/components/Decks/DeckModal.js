@@ -19,7 +19,7 @@ function DeckModal({ type, deck }) {
               <p>Edit</p>
         </div>
         <div className='delete-deck-button' onClick={handleDelete}>
-          <i class="fa-solid fa-trash-can"></i>
+          <i className="fa-solid fa-trash-can"></i>
         </div>
     </div>
   )
@@ -28,13 +28,13 @@ function DeckModal({ type, deck }) {
     <>
         {type === "create" ?
           <div onClick={() => setShowModal(true)} className="create-deck-button">
-            <i class="fa-solid fa-plus"></i>
+            <i className="fa-solid fa-plus"></i>
             <p>Create</p>
           </div>
           :
           <>
             <div className='more-options' onClick={() => setShowOptions(true)}>
-              <i class="fa-solid fa-ellipsis"></i>
+              <i className="fa-solid fa-ellipsis"></i>
             </div>
             {showOptions && options}
 

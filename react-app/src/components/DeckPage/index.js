@@ -1,7 +1,7 @@
 
 const DeckPage = () => {
     return (
-        null
+        <h1>Deck Page!</h1>
     )
 }
 
