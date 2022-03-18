@@ -4,7 +4,7 @@ from app.models import card, db
 from app.forms.card_form import CardForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
-card_routes = Blueprint('card_routes', __front__)
+card_routes = Blueprint('card_routes', __name__)
 
 # GET all cards by deck
 @card_routes.route('/all/decks/<int:id>')
