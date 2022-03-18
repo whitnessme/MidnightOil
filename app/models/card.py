@@ -26,4 +26,5 @@ class Card(db.Model):
             "curr_rating": self.curr_rating,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
+            "Deck": self.deck
         }
