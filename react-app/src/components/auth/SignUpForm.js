@@ -21,7 +21,6 @@ const SignUpForm = ({ setShowModal }) => {
       if (data) {
         setErrors(data)
       } else {
-        setShowModal(false)
         history.push('/dashboard')
       }
     }
