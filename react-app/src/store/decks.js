@@ -55,6 +55,7 @@ export const loadDeck = (id) => async (dispatch) => {
 };
 
 export const createADeck = (deck) => async (dispatch) => {
+    console.log(deck)
 	const res = await fetch('/api/decks/', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
@@ -70,8 +71,8 @@ export const createADeck = (deck) => async (dispatch) => {
 	}
 };
 
-export const editADeck = (deck) => async (dispatch) => {
-	const res = await fetch(`/api/decks/${deck.id}`, {
+export const editADeck = (deckId, deck) => async (dispatch) => {
+	const res = await fetch(`/api/decks/${deckId}`, {
 		method: 'PUT',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(deck),
@@ -86,8 +87,8 @@ export const editADeck = (deck) => async (dispatch) => {
 	}
 };
 
-export const deleteADeck = (deck) => async (dispatch) => {
-	const response = await fetch(`/api/decks/${deck.id}`, {
+export const deleteADeck = (deckId, deck) => async (dispatch) => {
+	const response = await fetch(`/api/decks/${deckId}`, {
 		method: 'DELETE',
 		body: JSON.stringify(deck),
 	});
@@ -126,7 +127,7 @@ const decksReducer = (state = initialState, action) => {
             
         case CREATE_DECK:
             newState = {...state};
-            newState.all = { [action.newDeck.id]: action.newDeck };
+            newState.all = { ...state.all, [action.newDeck.id]: action.newDeck };
             newState.one = { [action.newDeck.id]: action.newDeck };
             return newState;
 
@@ -141,7 +142,7 @@ const decksReducer = (state = initialState, action) => {
             return newState;
 
         case DELETE_DECK:
-            newState = {... state};
+            newState = {...state};
             delete newState.all[action.deleteDeck.id];
             delete newState.one[action.deleteDeck.id];
             return newState;

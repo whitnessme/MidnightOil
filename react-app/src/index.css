@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .input-label-div > label {
@@ -22,15 +23,31 @@
     border-bottom: 1px solid rgb(216, 216, 216);
 }
 
-input {
+input, textarea {
     padding: 7px 0px;
     border: 0px;
     border-bottom: 3px solid rgb(192, 192, 192);
+    margin-bottom: 10px;
 }
 
-input:focus {
+input:focus, textarea:focus {
     outline: none;
     border-bottom: 3px solid rgb(71, 129, 204);
+}
+
+textarea {
+  height: 150px;
+}
+
+.fa-asterisk {
+  font-size: 7px;
+  color: red;
+}
+
+.required-icon {
+  position: absolute;
+  right: -10px;
+  bottom: 20px;
 }
 
 /* CSS Reset */

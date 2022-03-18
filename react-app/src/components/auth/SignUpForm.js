@@ -69,6 +69,9 @@ const SignUpForm = ({ setShowModal }) => {
           onChange={updateUsername}
           value={username}
         ></input>
+          <span className='required-icon'>
+              <i class="fa-solid fa-asterisk"></i>
+          </span>
       </div>
       <div className='input-label-div'>
         <label>Full Name</label>
@@ -78,6 +81,9 @@ const SignUpForm = ({ setShowModal }) => {
           onChange={updateFullname}
           value={full_name}
         ></input>
+          <span className='required-icon'>
+              <i class="fa-solid fa-asterisk"></i>
+          </span>
       </div>
       <div className='input-label-div'>
         <label>Email</label>
@@ -87,6 +93,9 @@ const SignUpForm = ({ setShowModal }) => {
           onChange={updateEmail}
           value={email}
         ></input>
+          <span className='required-icon'>
+              <i class="fa-solid fa-asterisk"></i>
+          </span>
       </div>
       <div className='input-label-div'>
         <label>Password</label>
@@ -96,6 +105,9 @@ const SignUpForm = ({ setShowModal }) => {
           onChange={updatePassword}
           value={password}
         ></input>
+          <span className='required-icon'>
+              <i class="fa-solid fa-asterisk"></i>
+          </span>
       </div>
       <div className='input-label-div'>
         <label>Repeat Password</label>
@@ -106,6 +118,9 @@ const SignUpForm = ({ setShowModal }) => {
           value={repeatPassword}
           // required={true}
         ></input>
+          <span className='required-icon'>
+              <i class="fa-solid fa-asterisk"></i>
+          </span>
       </div>
       <button type='submit'>Sign up</button>
     </form>
