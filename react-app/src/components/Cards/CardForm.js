@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { Redirect, useHistory } from 'react-router-dom';
-import { createACard, editACard } from '../../store/cards';
+import { editACard } from '../../store/cards';
 import { loadCard } from '../../store/cards';
 
 const CardForm = ({ setShowModal, cardId }) => {
@@ -15,7 +15,7 @@ const CardForm = ({ setShowModal, cardId }) => {
 
   useEffect(() => {
     dispatch(loadCard(cardId))
-}, [dispatch, cardId])
+    }, [dispatch, cardId])
 
   useEffect(() => {
       if (card) {
@@ -24,12 +24,48 @@ const CardForm = ({ setShowModal, cardId }) => {
       }
   }, [])
 
-const handleSubmit = async (e) => {
-    e?.preventDefault();
-    const data = await dispatch(editADeck(deck.id, {front, back, deck_id: +deckId}))
-    if (data.errors) {
-        setErrors(data)
-    } else {
-        setShowModal(false)
+    const handleSubmit = async (e) => {
+        e?.preventDefault();
+        const data = await dispatch(editACard(deck.id, {front, back, deck_id: +deckId}))
+        if (data.errors) {
+            setErrors(data)
+        } else {
+            setShowModal(false)
+        }
     }
+
+    return (
+        <>
+            <h2 className='modal-header'>Edit Card</h2>
+            <form className='create-deck-form' onSubmit={handleSubmit}>
+                <div>
+                    {errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
+
+                <div className='input-label-div'>
+                    <label>Front</label>
+                    <textarea
+                    type='text'
+                    name='front'
+                    onChange={(e) => setFront(e.target.value)}
+                    value={front}
+                    ></textarea>
+                </div>
+                <div className='input-label-div'>
+                    <label>Back</label>
+                    <textarea
+                    type='text'
+                    name='back'
+                    onChange={(e) => setBack(e.target.value)}
+                    value={back}
+                    ></textarea>
+                </div>
+                <button type='submit'>Continue</button>
+            </form>
+        </>
+    )
 }
+
+export default CardForm;

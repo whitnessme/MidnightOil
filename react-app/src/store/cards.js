@@ -29,7 +29,7 @@ const remove = (deleteCard) => ({
   deleteCard,
 });
 
-export const loadUserCards = (deckId) => async (dispatch) => {
+export const loadDeckCards = (deckId) => async (dispatch) => {
   const res = await fetch(`/api/cards/all/decks/${deckId}`);
   if (res.ok) {
     const cards = await res.json();
