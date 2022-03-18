@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { authenticate } from './store/session';
+
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import DeckPage from './components/DeckPage/index'
-import { authenticate } from './store/session';
 import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
+import UnauthPage from './components/UnauthPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,6 +46,9 @@ function App() {
         <ProtectedRoute path='/decks/:deckId'>
           <DeckPage />
         </ProtectedRoute>
+        <Route path='/unauthorized'>
+          <UnauthPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
