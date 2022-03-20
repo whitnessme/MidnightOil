@@ -21,6 +21,7 @@
 }
 
 .card-front, .card-back {
+    box-sizing: border-box;
     width: 500px;
     height: 200px;
     display: flex;
@@ -30,6 +31,7 @@
     border-right: 2px solid rgb(207, 207, 207);
     border-top: 2px solid rgb(207, 207, 207);
     border-bottom: 2px solid rgb(207, 207, 207);
+    padding: 20px;
 }
 
 .card-front {
