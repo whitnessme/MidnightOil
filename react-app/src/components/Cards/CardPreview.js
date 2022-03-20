@@ -3,12 +3,11 @@ import CardEditModal from './CardEditModal'
 import './CardPreview.css'
 
 const CardPreview = ({ card, idx }) => {
-    const [borderColor, setBorderColor] = useState('none');
+    const [borderColor, setBorderColor] = useState('#CCCCCC');
 
     useEffect(() => {
-        console.log(card?.curr_rating)
         if (card?.curr_rating) {
-
+            setBorderColor(ratingColors[card.curr_rating])
         }
     }, [card])
 
@@ -25,7 +24,7 @@ const CardPreview = ({ card, idx }) => {
             <div className='card-number-preview-container'>
                 <p className='card-number-label'>{idx}</p>
             </div>
-            <div className='front-back-together'>
+            <div className='front-back-together' style={{ "borderBottom": `5px solid ${borderColor}`}}>
                 <div className="card-front">
                     <p>{card?.front}</p>
                 </div>
@@ -33,7 +32,7 @@ const CardPreview = ({ card, idx }) => {
                     <p>{card?.back}</p>
                 </div>
             </div>
-            <CardEditModal />
+            <CardEditModal cardId={card?.id} />
         </div>
     )
 }

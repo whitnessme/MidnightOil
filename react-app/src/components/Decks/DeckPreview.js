@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './DeckPreview.css'
 
 const DeckPreview = ({ deck }) => {
-    console.log(deck.id)
 
     return (
         <div className="deck-preview-container">

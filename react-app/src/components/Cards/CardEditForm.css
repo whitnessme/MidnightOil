@@ -6,16 +6,19 @@
 }
 
 .rating-option {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60px;
     height: 50px;
     font-size: 20px;
+    filter: opacity(0.7);
 }
 
 .rating-option:hover {
-    color: white
+    color: white;
+    filter: opacity(1.0);
 }
 
 .rating-1 {
@@ -36,4 +39,10 @@
     background-color: #00A9DB;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.selected-rating {
+    filter: opacity(1.0);
+    border: 2px solid rgba(0, 0, 0, 0.363);
+    color: white;
 }

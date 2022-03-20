@@ -55,7 +55,6 @@ export const loadDeck = (id) => async (dispatch) => {
 };
 
 export const createADeck = (deck) => async (dispatch) => {
-    console.log(deck)
 	const res = await fetch('/api/decks/', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },

@@ -1,0 +1,36 @@
+
+
+.left-col-create-container {
+    box-sizing: border-box;
+    width: 300px;
+    background-color: rgba(195, 223, 255, 0.562);
+    /* height: 100%; */
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.left-col-header {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid grey;
+}
+
+.sides-card {
+    width: 700px;
+    height: 210px;
+}
+
+.mini-card-container {
+    box-sizing: border-box;
+    border-left: 10px solid #A0B0C5;
+    width: 280px;
+    height: 115px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.mini-card-num {
+    display: flex;
+    align-items: center;
+}

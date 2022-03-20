@@ -8,6 +8,8 @@ import CardsButtons from "../Cards/CardsButtons";
 import CardsListTab from "./CardsListTab";
 import CreateCardsTab from "./CreateCardsTab";
 
+import './DeckPage.css'
+
 const DeckPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -15,9 +17,10 @@ const DeckPage = () => {
 
     const deck = useSelector((state) => state.decks?.one[deckId])
     const currUser = useSelector((state) => state.session?.user)
-    console.log(deck?.Cards)
+
     const [showCardsListTab, setShowCardsListTab] = useState(true);
     const [showCreateCardsTab, setShowCreateCardsTab] = useState(false);
+    const [hideOverflow, setHideOverflow] = useState("auto")
     
     useEffect( () => {
         (async () => {
@@ -31,14 +34,14 @@ const DeckPage = () => {
     // Only user's who own the deck can access the deck's page:
 
     return (
-        <div className="deck-page-container">
+        <div className="deck-page-container" style={{ "overflow": `${hideOverflow}` }}>
             <DeckHeader deck={deck} />
-            <CardsButtons setShowCardsListTab={setShowCardsListTab} setShowCreateCardsTab={setShowCreateCardsTab} />
+            <CardsButtons setHideOverflow={setHideOverflow} setShowCardsListTab={setShowCardsListTab} setShowCreateCardsTab={setShowCreateCardsTab} />
             {showCardsListTab &&
-                <CardsListTab cards={deck?.Cards} />
+                <CardsListTab />
             }
             {showCreateCardsTab &&
-                <CreateCardsTab cards={deck?.Cards} />
+                <CreateCardsTab />
             }
         </div>
     )

@@ -33,7 +33,8 @@ def create_card():
         card = card(
             deck_id=data['deck_id'],
             front=data['front'],
-            back=data['back']
+            back=data['back'],
+            curr_rating=""
         )
         db.session.add(card)
         db.session.commit()
@@ -55,6 +56,7 @@ def edit_card(id):
         card.deck_id=data['deck_id']
         card.front=data['front']
         card.back=data['back']
+        card.curr_rating=data["curr_rating"]
       
         db.session.commit()
         return card.to_dict()

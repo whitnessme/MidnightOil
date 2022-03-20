@@ -17,7 +17,7 @@
     justify-content: center;
     box-shadow: 0 2px 4px rgba(100, 100, 100, 0.11);
     border-radius: 10px;
-    
+    border: 1px solid #ddd;
 }
 
 .card-front, .card-back {
@@ -28,14 +28,14 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-    border-right: 2px solid rgb(207, 207, 207);
-    border-top: 2px solid rgb(207, 207, 207);
-    border-bottom: 2px solid rgb(207, 207, 207);
+    /* border-right: 2px solid rgb(207, 207, 207); */
+    /* border-top: 2px solid rgb(207, 207, 207); */
+    /* border-bottom: 2px solid rgb(207, 207, 207); */
     padding: 20px;
 }
 
 .card-front {
-    border-left: 2px solid rgb(207, 207, 207);
+    border-right: 2px solid rgb(207, 207, 207);
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
 }
