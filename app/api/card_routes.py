@@ -3,6 +3,7 @@ from flask_login import login_required
 from app.models import Card, db
 from app.forms.card_form import CardForm
 from app.api.auth_routes import validation_errors_to_error_messages
+from sqlalchemy import desc
 
 card_routes = Blueprint('card_routes', __name__)
 

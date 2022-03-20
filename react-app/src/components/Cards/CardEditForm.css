@@ -1,0 +1,39 @@
+.select-confidence-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+.rating-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.rating-option:hover {
+    color: white
+}
+
+.rating-1 {
+    background-color: #CA0081;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.rating-2 {
+    background-color: #ffa500;
+}
+.rating-3 {
+    background-color: #FFDA00;
+}
+.rating-4 {
+    background-color: #60B024;
+}
+.rating-5 {
+    background-color: #00A9DB;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

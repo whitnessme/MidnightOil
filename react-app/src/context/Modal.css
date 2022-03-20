@@ -23,4 +23,5 @@
     background-color:white;
     border-radius: 24px;
     padding: 50px 100px;
+    max-height: 100vh;
   }

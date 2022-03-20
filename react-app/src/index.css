@@ -37,6 +37,7 @@ input:focus, textarea:focus {
 
 textarea {
   height: 150px;
+  resize: none;
 }
 
 .fa-asterisk {

@@ -10,8 +10,10 @@ function CardEditModal({ cardId }) {
 
     return (
         <>
-            <div onClick={() => setShowModal(true)} className="edit-card-button">
-                <p>Edit</p>
+            <div className='single-card-edit-options-container'>
+                <div className='pencil-icon'>
+                    <i onClick={() => setShowModal(true)} className="fa-solid fa-pencil"></i>
+                </div>
             </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>

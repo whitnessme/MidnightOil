@@ -1,7 +1,12 @@
+import CardPreview from "../Cards/CardPreview"
 
-const CardsListTab = () => {
+const CardsListTab = ({ cards }) => {
     return (
-        null
+        <div className="cards-list-tab-container">
+            {cards?.map((card, i) => (
+                <CardPreview card={card} idx={i + 1} />
+            ))}
+        </div>
     )
 }
 
