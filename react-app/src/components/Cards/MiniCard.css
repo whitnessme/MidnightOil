@@ -1,0 +1,29 @@
+.mini-card {
+    width: 230px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-faces {
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.top-mini {
+    border-bottom: 4px solid #f5f5f5;
+}
+
+.bottom-mini > p {
+    color: rgb(161, 161, 161);
+}
+
+.mini-info {
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { loadDeckCards } from "../../store/cards";
+import { loadDeckCards, loadCard } from "../../store/cards";
 // import LeftCardsCol from '../Cards/LeftCardsCol';
 import CreateCardForm from '../Cards/CreateCardForm';
 import MiniCard from "../Cards/MiniCard";
@@ -11,8 +11,11 @@ const CreateCardsTab = () => {
     const dispatch = useDispatch()
     const { deckId } = useParams()
 
-    const cards = useSelector((state) => Object.values(state?.cards?.all))
+    const [selectedId, setSelectedId] = useState()
+    console.log(selectedId)
 
+    const cards = useSelector((state) => Object.values(state?.cards?.all))
+    const selectedCard = useSelector((state) => state?.cards?.one)
 
     useEffect(() => {
         (async () => {
@@ -21,6 +24,20 @@ const CreateCardsTab = () => {
             }
         })()
     }, [])
+
+    useEffect(() => {
+        if (cards) {
+            setSelectedId(cards[0].id)
+        }
+    }, [])
+
+    useEffect(() => {
+        (async () => {
+            if (selectedId) {
+                await dispatch(loadCard(selectedId))
+            }
+        })()
+    }, [selectedId])
 
     return (
         <div className="create-tab-container">
@@ -32,7 +49,7 @@ const CreateCardsTab = () => {
                     </div>
                 </div>
                 {cards?.map((card, i) => (
-                    <div className="mini-card-container">
+                    <div onClick={() => setSelectedId(card.id)} className="mini-card-container">
                         <div className="mini-card-num">
                             <p>{i+1}</p>
                         </div>
@@ -40,7 +57,7 @@ const CreateCardsTab = () => {
                     </div>
                 ))}
             </div>
-            <CreateCardForm />
+            <CreateCardForm card={selectedCard} />
         </div>
     )
 }

@@ -1,7 +1,16 @@
+import './MiniCard.css'
 
-const MiniCard = () => {
+const MiniCard = ({ card }) => {
+
     return (
-        null
+        <div className="mini-card">
+            <div className='mini-faces top-mini'>
+                <p className='mini-info'>{card?.front}</p>
+            </div>
+            <div className='mini-faces bottom-mini'>
+                <p className='mini-info'>{card?.back}</p>
+            </div>
+        </div>
     )
 }
 
