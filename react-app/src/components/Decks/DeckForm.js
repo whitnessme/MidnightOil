@@ -56,7 +56,7 @@ const DeckForm = ({ setShowModal, type, deck }) => {
                     value={name}
                     ></input>
                     <span className='required-icon'>
-                        <i class="fa-solid fa-asterisk"></i>
+                        <i className="fa-solid fa-asterisk"></i>
                     </span>
                 </div>
                 <div className='input-label-div'>

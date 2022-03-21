@@ -1,0 +1,62 @@
+.cards-list-tab-container {
+    background-color: rgb(241, 241, 241);
+    padding: 50px;
+}
+
+.single-card-preview {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.front-back-together {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(100, 100, 100, 0.11);
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.card-front, .card-back {
+    box-sizing: border-box;
+    width: 500px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    /* border-right: 2px solid rgb(207, 207, 207); */
+    /* border-top: 2px solid rgb(207, 207, 207); */
+    /* border-bottom: 2px solid rgb(207, 207, 207); */
+    padding: 20px;
+}
+
+.card-front {
+    border-right: 2px solid rgb(207, 207, 207);
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.card-back {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-number-preview-container {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color:rgb(160, 160, 160);
+    margin-right: 20px;
+}
+
+.single-card-edit-options-container {
+    display: flex;
+    color:rgb(160, 160, 160);
+    align-items: center;
+    font-size: 20px;
+    margin-left: 20px;
+}

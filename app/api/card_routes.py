@@ -3,6 +3,7 @@ from flask_login import login_required
 from app.models import Card, db
 from app.forms.card_form import CardForm
 from app.api.auth_routes import validation_errors_to_error_messages
+from sqlalchemy import desc
 
 card_routes = Blueprint('card_routes', __name__)
 
@@ -32,7 +33,8 @@ def create_card():
         card = card(
             deck_id=data['deck_id'],
             front=data['front'],
-            back=data['back']
+            back=data['back'],
+            curr_rating=""
         )
         db.session.add(card)
         db.session.commit()
@@ -54,6 +56,7 @@ def edit_card(id):
         card.deck_id=data['deck_id']
         card.front=data['front']
         card.back=data['back']
+        card.curr_rating=data["curr_rating"]
       
         db.session.commit()
         return card.to_dict()

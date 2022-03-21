@@ -1,5 +1,6 @@
 from .db import db
 from datetime import datetime
+from sqlalchemy import desc
 
 class Deck(db.Model):
     __tablename__ = 'decks'
@@ -18,7 +19,7 @@ class Deck(db.Model):
     
     user = db.relationship("User", back_populates="deck", foreign_keys=[user_id])
     # owner = db.relationship("User", back_populates="deck_owner", foreign_keys=[owner_id])
-    cards = db.relationship("Card", back_populates="deck", cascade="all, delete")
+    cards = db.relationship("Card", back_populates="deck", order_by="asc(Card.id)", cascade="all, delete")
     study_sessions = db.relationship("StudySession", back_populates="deck", cascade="all, delete")
     
     def to_dict(self):

@@ -12,15 +12,13 @@ const LoginForm = ({ setShowModal }) => {
   const history = useHistory()
 
   const onLogin = async (e) => {
-
     e?.preventDefault();
-    const data = await dispatch(login(email, password));
-    if (data) {
-      setErrors(data);
-    } else {
-      setShowModal(false)
-      history.push('/dashboard')
-    }
+    dispatch(login(email, password)).then((res) => {
+      if (res) {
+        setErrors(res);
+      } else {
+        history.push('/dashboard')
+      }})
   };
 
   const handleDemo = () => {
