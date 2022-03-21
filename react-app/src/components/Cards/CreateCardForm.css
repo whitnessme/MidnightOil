@@ -1,0 +1,26 @@
+.create-card-form-container {
+    flex: 1 1 auto;
+    background-color: rgb(241, 241, 241);
+}
+
+.q-a-cards-container {
+    border: 1px solid gray;
+    border-radius: 10px;
+    max-width: 700px;
+    min-width: 500px;
+    height: 500px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.sides-card {
+    background-color: transparent;
+    flex: 1 1 auto;
+}
+
+.q-front {
+    border-bottom: 6px solid #f0f0f0;
+}

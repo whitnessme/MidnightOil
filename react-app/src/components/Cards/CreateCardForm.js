@@ -1,9 +1,10 @@
+import './CreateCardForm.css'
 
-const CreateCardForm = () => {
+const CreateCardForm = ({card, selectedNum}) => {
     return (
         <div className="create-card-form-container">
             <div>
-                <p>Card #</p>
+                <p>Card {selectedNum}</p>
             </div>
             <div className="q-a-cards-container">
                 <div className="sides-card q-front">

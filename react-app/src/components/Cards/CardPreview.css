@@ -1,6 +1,7 @@
 .cards-list-tab-container {
     background-color: rgb(241, 241, 241);
     padding: 50px;
+    overflow-y: scroll;
 }
 
 .single-card-preview {

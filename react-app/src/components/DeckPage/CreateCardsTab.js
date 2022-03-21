@@ -12,6 +12,8 @@ const CreateCardsTab = () => {
     const { deckId } = useParams()
 
     const [selectedId, setSelectedId] = useState()
+    const [selectedNum, setSelectedNum] = useState(1)
+
     console.log(selectedId)
 
     const cards = useSelector((state) => Object.values(state?.cards?.all))
@@ -49,7 +51,10 @@ const CreateCardsTab = () => {
                     </div>
                 </div>
                 {cards?.map((card, i) => (
-                    <div onClick={() => setSelectedId(card.id)} className="mini-card-container">
+                    <div onClick={() => {
+                        setSelectedId(card.id)
+                        setSelectedNum(i + 1)
+                        }} className="mini-card-container">
                         <div className="mini-card-num">
                             <p>{i+1}</p>
                         </div>
@@ -57,7 +62,7 @@ const CreateCardsTab = () => {
                     </div>
                 ))}
             </div>
-            <CreateCardForm card={selectedCard} />
+            <CreateCardForm card={selectedCard} selectedNum={selectedNum} />
         </div>
     )
 }
