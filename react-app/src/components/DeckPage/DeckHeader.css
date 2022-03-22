@@ -1,5 +1,68 @@
 .little-icon {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     object-fit: contain;
+}
+
+.deck-header-container {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.back-link,
+.deck-info-container,
+.deck-header-container,
+.cards-buttons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cards-buttons-container {
+    justify-content: center;
+    background-color: rgba(5, 101, 156, 0.08);
+    border-bottom: 1px solid rgba(46, 64, 86, 0.26);
+}
+
+.cards-buttons-container > button {
+    height: 40px;
+    width: 50%;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+.not-selected-button {
+    border-bottom: 8px solid rgba(18, 57, 108, 0) !important;
+}
+
+.not-selected-button:hover {
+    border-bottom: 8px solid rgba(18, 57, 108, 0.164) !important;
+    color: rgb(137, 180, 194);
+}
+
+.selected-button {
+    border-bottom: 8px solid rgba(18, 57, 108, 0.36) !important;
+}
+
+.back-link {
+    text-decoration: none;
+}
+
+.back-link > p {
+    font-size: 14px;
+    padding: 0px 2px;
+    color: rgb(155, 155, 155);
+}
+
+.back-link > i {
+    padding: 0px 5px;
+    padding-left: 10px;
+    color: rgb(182, 182, 182);
+}
+
+.deck-name {
+    font-size: 25px;
+    padding: 0px 10px;
 }

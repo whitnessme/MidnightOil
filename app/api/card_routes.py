@@ -28,13 +28,13 @@ def create_card():
     form = CardForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
-    
+    print(data)
     if form.validate_on_submit():
-        card = card(
+        card = Card(
             deck_id=data['deck_id'],
             front=data['front'],
             back=data['back'],
-            curr_rating=""
+            curr_rating=data['curr_rating']
         )
         db.session.add(card)
         db.session.commit()

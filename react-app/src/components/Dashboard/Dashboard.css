@@ -1,7 +1,6 @@
-/* .dashboard-container {
-    width: 95%;
-    margin: auto;
-} */
+.dashboard-container {
+    flex: 1 1 auto;
+}
 
 .user-bar-container {
     display: flex;

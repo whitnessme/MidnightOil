@@ -34,7 +34,7 @@ const DeckPage = () => {
     // Only user's who own the deck can access the deck's page:
 
     return (
-        <div className="deck-page-container" style={{ "overflow": `${hideOverflow}` }}>
+        <div className="deck-page-container">
             <DeckHeader deck={deck} />
             <CardsButtons setHideOverflow={setHideOverflow} setShowCardsListTab={setShowCardsListTab} setShowCreateCardsTab={setShowCreateCardsTab} />
             {showCardsListTab &&

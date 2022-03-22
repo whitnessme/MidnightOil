@@ -2,10 +2,12 @@
 
 .left-col-create-container {
     box-sizing: border-box;
-    width: 320px;
+    width: 25%;
+    max-width: 320px;
     background-color: rgba(195, 223, 255, 0.562);
     /* height: 100%; */
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .left-col-header {

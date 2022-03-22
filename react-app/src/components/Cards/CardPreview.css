@@ -1,6 +1,7 @@
 .cards-list-tab-container {
     background-color: rgb(241, 241, 241);
     padding: 50px;
+    overflow-y: scroll;
 }
 
 .single-card-preview {
@@ -55,8 +56,10 @@
 
 .single-card-edit-options-container {
     display: flex;
-    color:rgb(160, 160, 160);
+    flex-direction: column;
+    justify-content: space-around;
+    color:rgb(175, 175, 175);
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
     margin-left: 20px;
 }
