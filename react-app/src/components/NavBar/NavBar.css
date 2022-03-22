@@ -1,6 +1,7 @@
 .logo-icon {
     width: 40px;
     height: 40px;
+    filter: invert(1);
 }
 
 nav {
@@ -8,7 +9,9 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     margin: auto;
-    width: 90%;
+    width: 100%;
+    height: 60px;
+    background-color: #324054;
 }
 
 .nav-right-side {
