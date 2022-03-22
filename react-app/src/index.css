@@ -57,6 +57,14 @@ textarea {
   bottom: 20px;
 }
 
+p, pre, textarea, input {
+  font-family: Garamond, serif
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
 /* CSS Reset */
 
 html,

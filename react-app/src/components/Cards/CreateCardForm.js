@@ -53,6 +53,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId}) => {
             <form onSubmit={handleSubmit} className="q-a-cards-container">
                 <div className="sides-card q-front">
                 <textarea
+                    id="front-textarea"
                     type='text'
                     name='front'
                     onChange={(e) => setFront(e.target.value)}
@@ -61,6 +62,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId}) => {
                 </div>
                 <div className="sides-card q-back">
                     <textarea
+                        id="back-textarea"
                         type='text'
                         name='back'
                         onChange={(e) => setBack(e.target.value)}

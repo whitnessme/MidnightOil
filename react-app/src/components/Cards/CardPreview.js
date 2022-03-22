@@ -26,13 +26,13 @@ const CardPreview = ({ card, idx }) => {
             </div>
             <div className='front-back-together' style={{ "borderBottom": `5px solid ${borderColor}`}}>
                 <div className="card-front">
-                    <p>{card?.front}</p>
+                    <pre>{card?.front}</pre>
                 </div>
                 <div className="card-back">
-                    <p>{card?.back}</p>
+                    <pre>{card?.back}</pre>
                 </div>
             </div>
-            <CardEditModal cardId={card?.id} />
+            <CardEditModal cardId={card?.id} card={card} />
         </div>
     )
 }

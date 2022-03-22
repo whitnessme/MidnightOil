@@ -20,6 +20,10 @@
 .sides-card {
     background-color: transparent;
     flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
 }
 
 .q-front {
@@ -30,4 +34,15 @@
     position: absolute;
     top: -15px;
     right: -55px;
+}
+
+#front-textarea, #back-textarea {
+    box-sizing: border-box;
+    width: 100%;
+    /* height: 100%; */
+    border: none;
+    padding: 30px;
+    background-color: transparent;
+    text-align: center;
+    font-size: 18px;
 }
