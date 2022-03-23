@@ -35,8 +35,5 @@ class Deck(db.Model):
             "points": self.points,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
-            # "User": self.user.to_dict(),
-            # "Owner": self.owner.to_dict(),
             "Cards": [card.to_dict() for card in self.cards],
-            # "Study_Sessions": [session.to_dict() for session in self.study_sessions]
         }
