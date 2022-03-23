@@ -17,8 +17,8 @@ const SignUpForm = ({ setShowModal }) => {
   const onSignUp = async (e) => {
     e.preventDefault();
       const data = await dispatch(signUp(username, full_name, email, password, repeatPassword));
-      if (data.errors) {
-        setErrors(data.errors)
+      if (data) {
+          setErrors(data)
       } else {
         history.push('/dashboard')
       }
