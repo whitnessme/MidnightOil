@@ -44,7 +44,7 @@ const CardEditForm = ({ setShowModal, cardId }) => {
         e?.preventDefault();
         const data = await dispatch(editACard(card?.id, {front, back, curr_rating: rating, deck_id: +deckId}))
         if (data.errors) {
-            setErrors(data)
+            setErrors(data.errors)
         } else {
             setShowModal(false)
         }

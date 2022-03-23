@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Email, ValidationError, EqualTo, Length
 from app.models import User
 
 
@@ -18,12 +18,22 @@ def username_exists(form, field):
     user = User.query.filter(User.username == username).first()
     if user:
         raise ValidationError('Username is already in use.')
+    
+def two_words(form, field):
+    full_name = field.data
+    if len(full_name.split()) < 2:
+        raise ValidationError('Full name must have at least two words')
 
-
+# def validate_passwords(form, field):
+#     print(field.data, form.confirm.data)
+#     if field.data != form.confirm.data:
+#         raise ValidationError('Passwords must match')
+    
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired("Please enter a username"), username_exists])
+        'username', validators=[DataRequired("Please enter a username"), Length(min=3, max=50, message="Username must be 3-50 characters long"), username_exists])
     full_name = StringField(
-        'full_name', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired("Please enter a valid email"), user_exists])
-    password = StringField('password', validators=[DataRequired("Please enter a password")])
+        'full_name', validators=[DataRequired("Please enter your full name"), Length(min=2, max=50, message="Full name must be 2-50 characters long"), two_words])
+    email = StringField('email', validators=[DataRequired("Please enter your email address"), Email(granular_message=True), user_exists])
+    password = StringField('password', validators=[DataRequired("Please enter a password"), Length(min=6, max=50, message="Password must be 6-50 characters long"), EqualTo("confirm", message="Passwords must match")])
+    confirm = StringField('confirm', validators=[DataRequired("Please confirm password")])
