@@ -33,14 +33,14 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId}) => {
             console.log(front,back,deckId)
             const data = await dispatch(createACard({front, back, deck_id: +deckId}))
             if (data.errors) {
-                setErrors(data)
+                setErrors(data.errors)
             } 
         } else {
             e?.preventDefault();
             console.log(front,back,deckId, card.curr_rating)
             const data = await dispatch(editACard(card?.id, {front, back, deck_id: +deckId}))
             if (data.errors) {
-              setErrors(data)
+              setErrors(data.errors)
             }
         }
     }

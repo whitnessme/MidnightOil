@@ -3,19 +3,13 @@ from wtforms import StringField, TextAreaField, BooleanField, IntegerField
 from wtforms.validators import DataRequired, ValidationError, Length
 from app.models import Deck
 
-def deck_exists(form, field):
-    def cb(deck):
-        print("hello??", deck.user_id, form.user_id.data)
-        if deck.user_id == form.user_id.data:
-            return True
-        else:
-            return False
-        
+def deck_exists(form, field): 
     name = field.data
     decks = Deck.query.filter(Deck.name == name).all()
-    result = filter(cb, decks)
-    if result:
-        raise ValidationError("You already have a deck with this name")
+    for deck in decks:
+        if deck.user_id == form.user_id.data:
+            raise ValidationError("You already have a deck with this name")
+   
 
 class DeckForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired('Please enter a name for your deck.'), Length(min=2, max=50, message="Deck names must be between 2-50 characters"), deck_exists])

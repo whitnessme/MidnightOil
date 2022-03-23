@@ -23,15 +23,17 @@ const DeckForm = ({ setShowModal, type, deck }) => {
           e?.preventDefault();
           const data = await dispatch(createADeck({name, about, user_id: +userId}))
           if (data.errors) {
-            setErrors(data)
+              console.log(errors)
+            setErrors(data.errors)
           } else {
+              console.log("hello?")
               setShowModal(false)
           }
         } else {
           e?.preventDefault();
           const data = await dispatch(editADeck(deck.id, {name, about, user_id: +userId}))
           if (data.errors) {
-            setErrors(data)
+              setErrors(data.errors)
           } else {
             setShowModal(false)
         }
@@ -43,7 +45,7 @@ const DeckForm = ({ setShowModal, type, deck }) => {
             <h2 className='modal-header'>{type === "create" ? "Create New Deck" : "Edit Deck"}</h2>
             <form className='create-deck-form' onSubmit={handleSubmit}>
                 <div>
-                    {errors.map((error, ind) => (
+                    {errors && errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}
                 </div>
