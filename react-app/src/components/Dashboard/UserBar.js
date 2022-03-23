@@ -2,7 +2,7 @@
 const UserBar = ({ user }) => {
     return (
         <div className="user-bar-container">
-            <img alt="squire person icon" className="user-icon" src="https://cdn-icons-png.flaticon.com/512/571/571064.png"></img>
+            <img alt="squire person icon" className="user-icon" src="../../../../static/knight_painting_crop.png"></img>
             <h2 className="user-full-name">{user.full_name}</h2>
         </div>
     )

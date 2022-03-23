@@ -13,8 +13,11 @@ const NavBar = () => {
   return (
     <nav>
       <div className='nav-left-side'>
-          <NavLink to='/dashboard' exact={true} activeClassName='active'>
-            <img alt="oil lamp icon" className='logo-icon' src='../../../../static/oil-lamp-1.png'></img>
+          <NavLink className='logo-link' to='/dashboard' exact={true} activeClassName='active'>
+            <img alt="oil lamp icon"
+            className='logo-icon'
+            src='../../../../static/oil-lamp-1.png'></img>
+          <h1 className='app-name'>Midnight Oil</h1>
           </NavLink>
       </div>
       <ul className='nav-right-side'>

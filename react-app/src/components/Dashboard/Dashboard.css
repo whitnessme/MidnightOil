@@ -8,14 +8,13 @@
     flex-direction: row;
     align-items: center;
     height: 150px;
-    width: 100%
+    width: 100%;
 }
 
 .user-icon {
     width: 80px;
     margin-left: 10px;
     height: 80px;
-    padding: 8px;
     background-color: white;
     border-radius: 50%;
 }
