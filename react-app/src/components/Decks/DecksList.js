@@ -10,7 +10,7 @@ const DecksList = ({ decks }) => {
         <div>
             <div className="decks-list-header">
                 <div className="view-decks-button">
-                    <p>Decks</p>
+                    <p id="decks-button">Decks</p>
                 </div>
                 <DeckModal type='create' />
             </div>

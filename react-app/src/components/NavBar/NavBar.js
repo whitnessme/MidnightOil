@@ -14,7 +14,7 @@ const NavBar = () => {
     <nav>
       <div className='nav-left-side'>
           <NavLink to='/dashboard' exact={true} activeClassName='active'>
-            <img alt="oil lamp icon" className='logo-icon' src='https://cdn.iconscout.com/icon/free/png-256/diya-33-1101846.png'></img>
+            <img alt="oil lamp icon" className='logo-icon' src='../../../../static/oil-lamp-1.png'></img>
           </NavLink>
       </div>
       <ul className='nav-right-side'>

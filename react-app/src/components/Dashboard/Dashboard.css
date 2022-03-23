@@ -4,10 +4,10 @@
 
 .user-bar-container {
     display: flex;
-    background-color: gray;
+    background-color: #324054;
     flex-direction: row;
     align-items: center;
-    height: 200px;
+    height: 150px;
     width: 100%
 }
 
@@ -23,21 +23,40 @@
 .user-full-name {
     margin-left: 10px;
     color: white;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: 100;
 }
 
 .decks-list-header {
     display: flex;
     flex-direction: row;
-    width: 80%;
     margin: auto;
     justify-content: center;
+    background-color: #324054;
 }
 
 .create-deck-button, .view-decks-button{
     display: flex;
     flex-direction: row;
-    width: 500px;
+    width: 50%;
     justify-content: center;
-    background-color: rgb(206, 154, 154);
+    color: #EEEEEE;
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+#create-button, #decks-button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.view-decks-button {
+    border-bottom: 8px solid #888;
+}
+
+.create-deck-button {
+    border-bottom: 8px solid rgba(136, 136, 136, 0);
 }

@@ -10,9 +10,12 @@ const LandingPage = () => {
         return <Redirect to='/dashboard' />;
     }
 
+    const msg = "Ready to burn \nsome midnight oil?"
+
     return (
         <div className='landing-page-container'>
-            <h2 className='welcome-msg'>Ready to burn some midnight oil?</h2>
+            <pre className='welcome-msg'>{msg}</pre>
+            <h4 className='slogan'>Flashcards for adventurers!</h4>
         </div>
     )
 }
