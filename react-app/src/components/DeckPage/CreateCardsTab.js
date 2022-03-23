@@ -42,7 +42,7 @@ const CreateCardsTab = () => {
     }, [])
 
     useEffect(() => {
-        if (cards) {
+        if (cards.length) {
             setSelectedId(cards[0].id)
         }
     }, [])
