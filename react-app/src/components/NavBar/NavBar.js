@@ -5,8 +5,6 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import { useSelector } from 'react-redux';
 
-import 'react-app/src/images/oil-lamp-1.png'
-
 import './NavBar.css'
 
 const NavBar = () => {
@@ -16,7 +14,7 @@ const NavBar = () => {
     <nav>
       <div className='nav-left-side'>
           <NavLink to='/dashboard' exact={true} activeClassName='active'>
-            <img alt="oil lamp icon" className='logo-icon' src='react-app/src/images/oil-lamp-1.png'></img>
+            <img alt="oil lamp icon" className='logo-icon' src='../../../../static/oil-lamp-1.png'></img>
           </NavLink>
       </div>
       <ul className='nav-right-side'>
