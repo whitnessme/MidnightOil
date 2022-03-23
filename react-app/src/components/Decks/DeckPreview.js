@@ -6,21 +6,21 @@ const DeckPreview = ({ deck }) => {
 
     return (
         <div className="deck-preview-container">
-            <h4>{deck.name}</h4>
             <ul className='left-side-preview'>
-                <li>
-                    <p>{deck.about}</p>
+                <li className='li-info'>
+                    <h4>{deck.name}</h4>
+                    {/* <p>{deck.about}</p> */}
                 </li>
-                <li>
+                <li className='li-info'>
                     <p>{deck.size}</p>
                 </li>
             </ul>
             <ul className='right-side-preview'>
-                <li>
+                <li className='li-button'>
                     <DeckModal deck={deck} type="edit" />
                 </li>
-                <li>
-                    <Link to={`/decks/${deck?.id}`}>
+                <li className='li-button'>
+                    <Link className='deck-details-button' to={`/decks/${deck?.id}`}>
                         <i className="fas fa-chevron-right"></i>
                     </Link>
                 </li>

@@ -46,6 +46,10 @@ textarea {
   resize: none;
 }
 
+button {
+  font-family:'Montserrat', sans-serif;
+}
+
 .fa-asterisk {
   font-size: 7px;
   color: red;
@@ -63,6 +67,11 @@ p, pre, textarea, input {
 
 pre {
   white-space: pre-wrap;
+}
+
+h1,h2,h3,h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
 }
 
 /* CSS Reset */
