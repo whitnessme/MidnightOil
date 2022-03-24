@@ -68,8 +68,8 @@ const LoginForm = ({ setShowModal }) => {
           />
       </div>
       <div className='login-buttons'>
-      <button type='submit'>Login</button>
-      <button onClick={handleDemo} >Demo</button>
+      <button className="dark-buttons" type='submit'>Login</button>
+      <button className="dark-buttons" onClick={handleDemo} >Demo</button>
       </div>
     </form>
     </>

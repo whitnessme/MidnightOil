@@ -88,7 +88,9 @@ const CardEditForm = ({ setShowModal, cardId }) => {
                         <li className={(rating === 5 ? " selected-rating" : '') + ' rating-option rating-5' } onClick={() => setRating(5)}>5</li>
                     </ul>
                 </div>
-                <button type='submit'>Continue</button>
+                <div className='button-container'>
+                    <button className="dark-buttons" type='submit'>Continue</button>
+                </div>
             </form>
         </>
     )

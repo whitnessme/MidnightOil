@@ -11,7 +11,7 @@ const LogoutButton = () => {
     history.push('/');
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return <button className="dark-buttons" onClick={onLogout}>Logout</button>;
 };
 
 export default LogoutButton;

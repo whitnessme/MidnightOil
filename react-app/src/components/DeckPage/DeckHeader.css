@@ -1,12 +1,16 @@
 .little-icon {
-    width: 35px;
-    height: 35px;
+    width: 65px;
+    height: 60px;
     object-fit: contain;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    object-fit:fill;
+    filter: sepia(.4);
 }
 
 .deck-header-container {
-    margin-top: 10px;
-    margin-bottom: 15px;
+    /* margin-top: 10px; */
+    margin-bottom: 5px;
 }
 
 .back-link,
@@ -34,15 +38,19 @@
 }
 
 .not-selected-button {
+    border-radius: none;
+    color: rgb(18, 57, 108) !important;
     border-bottom: 8px solid rgba(18, 57, 108, 0) !important;
 }
 
 .not-selected-button:hover {
     border-bottom: 8px solid rgba(18, 57, 108, 0.164) !important;
-    color: rgb(137, 180, 194);
+    color: rgb(137, 180, 194) !important;
 }
 
 .selected-button {
+    border-radius: none;
+    color: rgb(18, 57, 108) !important;
     border-bottom: 8px solid rgba(18, 57, 108, 0.36) !important;
 }
 
