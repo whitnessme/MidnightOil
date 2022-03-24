@@ -48,8 +48,13 @@ textarea {
   resize: none;
 }
 
+.fa-pencil, .fa-trash-can, .li-button {
+  cursor: pointer;
+}
+
 button {
   font-family:'Montserrat', sans-serif;
+  cursor: pointer;
 }
 
 .dark-buttons {
@@ -72,6 +77,22 @@ button {
   position: absolute;
   right: -10px;
   bottom: 20px;
+}
+
+.errors-div > div {
+  color: rgb(253, 24, 24);
+  padding: 2px;
+  font-size: 13px;
+}
+
+.errors-div {
+  margin-bottom: 15px;
+}
+
+.edit-card-errors {
+  position: absolute;
+  top: 5px;
+  right: 35%;
 }
 
 p, pre, textarea, input {

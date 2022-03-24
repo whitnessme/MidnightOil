@@ -13,10 +13,29 @@
 .left-col-header {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin: 10px;
     padding-bottom: 15px;
     margin-bottom: 20px;
     border-bottom: 1px solid grey;
+    color:rgb(94, 94, 94)
+}
+
+.left-col-header > p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.add-mini-card-button {
+    /* margin-right: 6px; */
+    padding: 7px;
+    cursor: pointer;
+}
+
+.add-mini-card-button:hover {
+    background-color: #ccb578;
+    border-radius: 50%;
+    color: white;
 }
 
 .sides-card {

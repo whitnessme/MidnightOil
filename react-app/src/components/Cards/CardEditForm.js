@@ -54,7 +54,7 @@ const CardEditForm = ({ setShowModal, cardId }) => {
         <>
             <h2 className='modal-header'>Edit Card</h2>
             <form className='create-deck-form' onSubmit={handleSubmit}>
-                <div>
+                <div className='errors-div'>
                     {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}

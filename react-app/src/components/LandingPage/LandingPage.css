@@ -1,6 +1,7 @@
 .landing-page-container {
     width: 100vw;
-    height: 94vh;
+    position: relative;
+    height: 95vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

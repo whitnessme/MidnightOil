@@ -66,6 +66,11 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setSh
         <div className="create-card-form-container">
             <div>
                 <p className='card-num'>Card {selectedNum}</p>
+            <div className='errors-div edit-card-errors'>
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+          ))}
+      </div>
             </div>
             <form onSubmit={handleSubmit} className="q-a-cards-container">
                 <div className="sides-card q-front">
