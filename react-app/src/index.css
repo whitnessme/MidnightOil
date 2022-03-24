@@ -74,6 +74,16 @@ button {
   bottom: 20px;
 }
 
+.errors-div > div {
+  color: rgb(253, 24, 24);
+  padding: 2px;
+  font-size: 13px;
+}
+
+.errors-div {
+  margin-bottom: 15px;
+}
+
 p, pre, textarea, input {
   font-family: Garamond, serif;
   font-size: 18px;

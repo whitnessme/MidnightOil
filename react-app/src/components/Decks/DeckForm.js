@@ -44,7 +44,7 @@ const DeckForm = ({ setShowModal, type, deck }) => {
         <>
             <h2 className='modal-header'>{type === "create" ? "Create New Deck" : "Edit Deck"}</h2>
             <form className='create-deck-form' onSubmit={handleSubmit}>
-                <div>
+                <div className='errors-div'>
                     {errors && errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}
