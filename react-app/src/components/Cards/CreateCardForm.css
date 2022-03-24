@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 10px auto;
+    margin: 0px auto;
     position: relative;
 }
 
@@ -31,9 +31,23 @@
 }
 
 #save-create-button {
+    border: none;
+    color: #bd9321;
+    background-color: transparent;
     position: absolute;
-    top: -15px;
-    right: -55px;
+    /* border-bottom: 1px solid rgba(28, 54, 126, 0.281); */
+    top: -38px;
+    padding: 7px 9px;
+    border-radius: 5px;
+    right: -58px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+#save-create-button:hover {
+    background-color: #c9b88b;
+    color: white;
 }
 
 #front-textarea, #back-textarea {
@@ -47,4 +61,11 @@
     background-color: transparent;
     text-align: center;
     font-size: 18px;
+}
+
+.card-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    padding: 10px;
+    color: rgb(189, 189, 189);
 }

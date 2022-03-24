@@ -64,7 +64,7 @@
     /* max-height: 500px; */
 }
 
-.edit-deck-button > i {
+.single-pencil {
     padding: 10px;
     color:rgba(46, 64, 86, 0.26)
 }
