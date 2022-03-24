@@ -39,3 +39,12 @@ nav {
     margin-left: 10px;
     color: rgba(0, 0, 0, 0.521);
 }
+
+.about-links {
+    color: #324054;
+    margin: 0px 5px;
+    font-size: 24px;
+}
+
+.about-links > i {
+}
