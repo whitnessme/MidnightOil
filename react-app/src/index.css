@@ -48,8 +48,13 @@ textarea {
   resize: none;
 }
 
+.fa-pencil, .fa-trash-can, .li-button {
+  cursor: pointer;
+}
+
 button {
   font-family:'Montserrat', sans-serif;
+  cursor: pointer;
 }
 
 .dark-buttons {
