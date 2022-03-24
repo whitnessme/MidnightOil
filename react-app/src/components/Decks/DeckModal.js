@@ -18,7 +18,7 @@ function DeckModal({ type, deck, deleteDeck }) {
     <div className='options-container'>
         <div onClick={() => setShowModal(true)} className="edit-deck-button">
               <p>Edit</p>
-        </div>       
+        </div>
         <div className='delete-deck-button' onClick={handleDelete}>
           <i className="fa-solid fa-trash-can"></i>
         </div>
