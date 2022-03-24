@@ -44,7 +44,7 @@ const DeckPage = () => {
                     <div className="details-about-title-div">
                         <p className="small-header">About</p>
                         <div className="deck-modal-edit">
-                        <DeckModal deck={deck} type="edit" />
+                        <DeckModal deck={deck} type="edit" deleteDeck={true} />
                         </div>
                     </div>
                     <div className="details-about-info-div">

@@ -32,9 +32,15 @@ const DeckPreview = ({ deck, idx }) => {
             </ul>
             <ul className='right-side-preview'>
                 <li className='li-button'>
-                    <DeckModal deck={deck} type="edit" deleteDeck={false} />
+                    <div className='hover-right-li'>
+                        <DeckModal deck={deck} type="edit" deleteDeck={false} />
+                    </div>
                 </li>
-                <li className='li-button'>
+                <li className='li-button hover-li'>
+                    <div className='info-bubble'>
+                        <p>View deck details</p>
+                        <div className='down-triangle'></div>
+                    </div>
                     <Link className='deck-details-button' to={`/decks/${deck?.id}`}>
                         <i className="fas fa-chevron-right"></i>
                     </Link>

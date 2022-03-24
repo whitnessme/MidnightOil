@@ -1,3 +1,59 @@
 .options-container {
-    
+    position: absolute;
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    top: 70px;
+    padding: 8px 15px;
+    background-color: #ffcf75;
+    display: none;
+    left: -23px;
+}
+
+.li-button {
+    position: relative;
+}
+
+.delete-deck-button {
+    padding-left: 6px;
+    color: rgb(167, 47, 0);
+}
+
+.triangle {
+    position: absolute;
+    top: -7px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 11px solid #ffcf75;
+}
+
+.down-triangle {
+    position: absolute;
+    top: -7px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 11px solid #ffcf75;
+}
+
+.bubble-icon {
+    padding: 5px;
+}
+
+.edit-deck-button {
+    color: rgb(129, 146, 168);
+}
+
+.hover-right-li:hover > .options-container {
+    display: flex;
+}
+
+.hover-right-li {
+    position: relative;
+    padding: 30px 10px;
 }
