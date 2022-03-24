@@ -1,7 +1,6 @@
 import { useState } from "react"
 
-const CardsButtons = ({ setShowCardsListTab, setShowCreateCardsTab, setHideOverflow }) => {
-    const [selected, setSelected] = useState("preview");
+const CardsButtons = ({ setShowCardsListTab, setShowCreateCardsTab, setHideOverflow, selected, setSelected }) => {
 
     const handlePreviewClick = (e) => {
         e.preventDefault()

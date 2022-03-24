@@ -74,6 +74,19 @@ h1,h2,h3,h4 {
   font-weight: 500;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #b9b9b9;
+  opacity: .7; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #b9b9b9;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #b9b9b9;
+}
+
 /* CSS Reset */
 
 html,

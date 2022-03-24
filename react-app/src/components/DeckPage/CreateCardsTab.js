@@ -13,19 +13,13 @@ const CreateCardsTab = () => {
 
     const newCardRef = useRef(null);
 
+    
     const [selectedId, setSelectedId] = useState()
     const [selectedNum, setSelectedNum] = useState(1)
     const [showCreate, setShowCreate] = useState(false)
     const [showEdit, setShowEdit] = useState(true)
 
-
-    console.log(selectedId)
-
     const cards = useSelector((state) => Object.values(state?.cards?.all))
-
-    // const scrollToNewCard = () => {
-    //         newCardRef.current.scrollIntoView()
-    // }
 
     useEffect(() => {
         if (newCardRef.current) {
@@ -44,6 +38,10 @@ const CreateCardsTab = () => {
     useEffect(() => {
         if (cards.length) {
             setSelectedId(cards[0].id)
+        } else {
+            setShowCreate(true)
+            setShowEdit(false)
+            setSelectedId(0)
         }
     }, [])
 
@@ -63,7 +61,7 @@ const CreateCardsTab = () => {
                     <div onClick={() => {
                         setShowCreate(true)
                         setShowEdit(false)
-                        // scrollToNewCard()
+                        setSelectedId(0)
                     }} className="add-mini-card-button">
                         <i className="fa-solid fa-plus"></i>
                     </div>
@@ -74,8 +72,12 @@ const CreateCardsTab = () => {
                         setSelectedNum(i + 1)
                         setShowEdit(true)
                         setShowCreate(false)
-                        }} className="mini-card-container">
+                        }} className="mini-card-container"
+                        style={{ "border-left": selectedId === card.id? "10px solid #A0B0C5" : "10px solid #a0b0c500"}}
+                        // {selected === "preview" ? "selected-button" : "not-selected-button"}
+                        >
                         <div className="mini-card-num">
+                            {console.log(card.id, selectedId)}
                             <p>{i+1}</p>
                         </div>
                         <MiniCard card={card} />
@@ -91,7 +93,7 @@ const CreateCardsTab = () => {
                 }
             </div>
             {showEdit &&
-            <CreateCardForm cardId={selectedId} deckId={deckId} selectedNum={selectedNum} type="edit" />
+                <CreateCardForm cardId={selectedId} deckId={deckId} selectedNum={selectedNum} type="edit" />
             }
             {showCreate &&
                 <CreateCardForm type="create" deckId={deckId} selectedNum={cards?.length + 1} />

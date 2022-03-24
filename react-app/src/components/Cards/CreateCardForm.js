@@ -5,7 +5,6 @@ import './CreateCardForm.css'
 
 const CreateCardForm = ({cardId, selectedNum, type, deckId}) => {
     const dispatch = useDispatch();
-    console.log(type)
     const [errors, setErrors] = useState([]);
     const [front, setFront] = useState('');
     const [back, setBack] = useState('');
@@ -30,14 +29,12 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId}) => {
     const handleSubmit = async (e) => {
         if (type === "create") {
             e?.preventDefault();
-            console.log(front,back,deckId)
             const data = await dispatch(createACard({front, back, deck_id: +deckId}))
             if (data.errors) {
                 setErrors(data.errors)
             } 
         } else {
             e?.preventDefault();
-            console.log(front,back,deckId, card.curr_rating)
             const data = await dispatch(editACard(card?.id, {front, back, deck_id: +deckId}))
             if (data.errors) {
               setErrors(data.errors)
@@ -54,6 +51,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId}) => {
                 <div className="sides-card q-front">
                 <textarea
                     id="front-textarea"
+                    placeholder='Start typing here'
                     type='text'
                     name='front'
                     onChange={(e) => setFront(e.target.value)}
@@ -63,6 +61,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId}) => {
                 <div className="sides-card q-back">
                     <textarea
                         id="back-textarea"
+                        placeholder='Start typing here'
                         type='text'
                         name='back'
                         onChange={(e) => setBack(e.target.value)}

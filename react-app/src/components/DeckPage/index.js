@@ -20,7 +20,8 @@ const DeckPage = () => {
 
     const [showCardsListTab, setShowCardsListTab] = useState(true);
     const [showCreateCardsTab, setShowCreateCardsTab] = useState(false);
-    const [hideOverflow, setHideOverflow] = useState("auto")
+    const [hideOverflow, setHideOverflow] = useState("auto");
+    const [selected, setSelected] = useState("preview");
     
     useEffect( () => {
         (async () => {
@@ -36,9 +37,9 @@ const DeckPage = () => {
     return (
         <div className="deck-page-container">
             <DeckHeader deck={deck} />
-            <CardsButtons setHideOverflow={setHideOverflow} setShowCardsListTab={setShowCardsListTab} setShowCreateCardsTab={setShowCreateCardsTab} />
+            <CardsButtons selected={selected} setSelected={setSelected} setHideOverflow={setHideOverflow} setShowCardsListTab={setShowCardsListTab} setShowCreateCardsTab={setShowCreateCardsTab} />
             {showCardsListTab &&
-                <CardsListTab />
+                <CardsListTab setSelected={setSelected} setShowCardsListTab={setShowCardsListTab} setShowCreateCardsTab={setShowCreateCardsTab} />
             }
             {showCreateCardsTab &&
                 <CreateCardsTab />
