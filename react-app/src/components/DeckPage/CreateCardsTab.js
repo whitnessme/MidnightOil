@@ -96,7 +96,7 @@ const CreateCardsTab = () => {
                 <CreateCardForm cardId={selectedId} deckId={deckId} selectedNum={selectedNum} type="edit" />
             }
             {showCreate &&
-                <CreateCardForm type="create" deckId={deckId} selectedNum={cards?.length + 1} />
+                <CreateCardForm type="create" setShowEdit={setShowEdit} setShowCreate={setShowCreate} deckId={deckId} selectedNum={cards?.length + 1} setSelectedId={setSelectedId} />
             }
         </div>
     )

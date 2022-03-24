@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { createACard, editACard, loadCard } from '../../store/cards';
 import './CreateCardForm.css'
 
-const CreateCardForm = ({cardId, selectedNum, type, deckId}) => {
+const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setShowCreate, setShowEdit}) => {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
     const [front, setFront] = useState('');
@@ -32,7 +32,11 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId}) => {
             const data = await dispatch(createACard({front, back, deck_id: +deckId}))
             if (data.errors) {
                 setErrors(data.errors)
-            } 
+            } else {
+                setSelectedId(data.id)
+                setShowCreate(false)
+                setShowEdit(true)
+            }
         } else {
             e?.preventDefault();
             const data = await dispatch(editACard(card?.id, {front, back, deck_id: +deckId}))
