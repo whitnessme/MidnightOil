@@ -1,6 +1,7 @@
 .create-card-form-container {
     flex: 1 1 auto;
     background-color: rgb(241, 241, 241);
+    position: relative;
 }
 
 .q-a-cards-container {

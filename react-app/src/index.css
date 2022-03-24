@@ -84,6 +84,12 @@ button {
   margin-bottom: 15px;
 }
 
+.edit-card-errors {
+  position: absolute;
+  top: 5px;
+  right: 35%;
+}
+
 p, pre, textarea, input {
   font-family: Garamond, serif;
   font-size: 18px;
