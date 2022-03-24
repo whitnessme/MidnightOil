@@ -19,7 +19,7 @@ const DeckPreview = ({ deck, idx }) => {
             <ul className='left-side-preview'>
                 <li className='deck-image'>
                     <div>
-                        <img src={`../../../../static/${img}`}></img>
+                        <img alt="oil lamp drawing" src={`../../../../static/${img}`}></img>
                     </div>
                 </li>
                 <li className='li-info'>
@@ -32,7 +32,7 @@ const DeckPreview = ({ deck, idx }) => {
             </ul>
             <ul className='right-side-preview'>
                 <li className='li-button'>
-                    <DeckModal deck={deck} type="edit" />
+                    <DeckModal deck={deck} type="edit" deleteDeck={false} />
                 </li>
                 <li className='li-button'>
                     <Link className='deck-details-button' to={`/decks/${deck?.id}`}>

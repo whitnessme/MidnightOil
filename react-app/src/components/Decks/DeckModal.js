@@ -4,7 +4,7 @@ import { Modal } from '../../context/Modal';
 import { deleteADeck } from '../../store/decks';
 import DeckForm from './DeckForm';
 
-function DeckModal({ type, deck }) {
+function DeckModal({ type, deck, deleteDeck }) {
   const [showModal, setShowModal] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const dispatch = useDispatch()
@@ -14,14 +14,16 @@ function DeckModal({ type, deck }) {
   }
 
   const options = (
+    <>
     <div className='options-container'>
         <div onClick={() => setShowModal(true)} className="edit-deck-button">
               <p>Edit</p>
-        </div>
+        </div>       
         <div className='delete-deck-button' onClick={handleDelete}>
           <i className="fa-solid fa-trash-can"></i>
         </div>
     </div>
+    </>
   )
 
   return (
@@ -33,10 +35,18 @@ function DeckModal({ type, deck }) {
           </div>
           :
           <>
-            <div className='more-options' onClick={() => setShowOptions(true)}>
+            {!deleteDeck ?
+              <div onClick={() => setShowModal(true)} className="edit-deck-button">
+                <i className="fa-solid fa-pencil"></i>
+              </div>
+            :
+            <>
+              <div className='more-options' onClick={() => setShowOptions(true)}>
               <i className="fa-solid fa-ellipsis"></i>
             </div>
             {showOptions && options}
+            </>
+            }
 
           </>
             }

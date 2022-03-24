@@ -7,6 +7,7 @@ import DeckHeader from './DeckHeader'
 import CardsButtons from "../Cards/CardsButtons";
 import CardsListTab from "./CardsListTab";
 import CreateCardsTab from "./CreateCardsTab";
+import DeckModal from "../Decks/DeckModal";
 
 import './DeckPage.css'
 
@@ -38,6 +39,23 @@ const DeckPage = () => {
         <div className="deck-page-container">
             <DeckHeader deck={deck} />
             <CardsButtons selected={selected} setSelected={setSelected} setHideOverflow={setHideOverflow} setShowCardsListTab={setShowCardsListTab} setShowCreateCardsTab={setShowCreateCardsTab} />
+            {!showCardsListTab && !showCreateCardsTab &&
+                <div className="deck-page-details-tab">
+                    <div className="details-about-title-div">
+                        <p className="small-header">About</p>
+                        <div className="deck-modal-edit">
+                        <DeckModal deck={deck} type="edit" />
+                        </div>
+                    </div>
+                    <div className="details-about-info-div">
+                        {deck?.about &&
+                        <>
+                            <pre className="about-pre">{deck?.about}</pre>
+                        </>
+                        }
+                    </div>
+                </div>
+            }
             {showCardsListTab &&
                 <CardsListTab setSelected={setSelected} setShowCardsListTab={setShowCardsListTab} setShowCreateCardsTab={setShowCreateCardsTab} />
             }

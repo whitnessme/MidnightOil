@@ -59,3 +59,7 @@
 .create-deck-button {
     border-bottom: 8px solid rgba(136, 136, 136, 0);
 }
+
+.create-deck-button:hover {
+    border-bottom: 8px solid rgba(136, 136, 136, 0.5);
+}
