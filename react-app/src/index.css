@@ -12,9 +12,11 @@
     font-size: 30px;
 }
 
-/* .login-signup-form {
-    text-align: center;
-} */
+.button-container, .login-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
 .input-label-div {
     display: flex;
@@ -50,6 +52,17 @@ button {
   font-family:'Montserrat', sans-serif;
 }
 
+.dark-buttons {
+  font-family:'Montserrat', sans-serif;
+  border: none;
+  background-color: #324054;
+  color: white;
+  font-weight: 300;
+  padding: 5px 10px;
+  margin: 0px 10px;
+  border-radius: 5px;
+}
+
 .fa-asterisk {
   font-size: 7px;
   color: red;
@@ -62,7 +75,9 @@ button {
 }
 
 p, pre, textarea, input {
-  font-family: Garamond, serif
+  font-family: Garamond, serif;
+  font-size: 18px;
+  line-height: 1.4;
 }
 
 pre {

@@ -14,7 +14,7 @@ const DeckHeader = ({ deck }) => {
                 </div>
             </div>
             <div className='deck-info-container'>
-                <img alt="feather in ink jar" className='little-icon' src='https://icon-library.com/images/feather-icon-png/feather-icon-png-15.jpg'></img>
+                <img alt="oil lamp" className='little-icon' src='../../../../static/oil-lamp-3.png'></img>
                 <p className='deck-name'>{deck?.name}</p>
                 {/* <div className='deck-about-div'>
                     <p>{deck?.about}</p>

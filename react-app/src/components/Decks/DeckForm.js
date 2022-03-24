@@ -70,7 +70,9 @@ const DeckForm = ({ setShowModal, type, deck }) => {
                     value={about}
                     ></textarea>
                 </div>
-                <button type='submit'>Continue</button>
+                <div className='button-container'>
+                <button className="dark-buttons" type='submit'>Continue</button>
+                </div>
             </form>
         </>
     )

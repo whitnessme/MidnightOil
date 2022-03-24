@@ -119,7 +119,9 @@ const SignUpForm = ({ setShowModal }) => {
               <i className="fa-solid fa-asterisk"></i>
           </span>
       </div>
-      <button type='submit'>Sign up</button>
+      <div className='button-container'>
+      <button className="dark-buttons" type='submit'>Sign up</button>
+      </div>
     </form>
     </>
   );

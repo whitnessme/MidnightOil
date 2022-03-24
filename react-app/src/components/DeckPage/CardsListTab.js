@@ -30,7 +30,7 @@ const CardsListTab = ({ setSelected, setShowCardsListTab, setShowCreateCardsTab 
             <div className="cards-list-tab-container">
                 <div className="no-cards-div">
                     <p>No cards yet!</p>
-                    <button onClick={handleCreate}>Create the first card!</button>
+                    <button className="dark-buttons" onClick={handleCreate}>Create the first card!</button>
                 </div>
             </div>
         )

@@ -8,7 +8,7 @@ function SignupFormModal() {
 
   return (
     <>
-      <button id='signup'
+      <button className="dark-buttons" id='signup'
         onClick={() => setShowModal(true)}>Get Started</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
