@@ -27,7 +27,7 @@ const DeckPreview = ({ deck, idx }) => {
                     {/* <p>{deck.about}</p> */}
                 </li>
                 <li className='li-info'>
-                    <p>{deck.size}</p>
+                    <p>{deck.Cards.length}</p>
                 </li>
             </ul>
             <ul className='right-side-preview'>
