@@ -20,7 +20,8 @@ const DeckPreview = ({ deck, idx }) => {
     let img = imgs[idx % imgs.length]
 
     return (
-        <div onClick={handleMainClick} className="deck-preview-container">
+        <div  className="deck-preview-container">
+            <div onClick={handleMainClick} className='invisible-click'></div>
             <ul className='left-side-preview'>
                 <li className='deck-image'>
                     <div>

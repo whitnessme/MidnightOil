@@ -63,3 +63,41 @@
 .create-deck-button:hover {
     border-bottom: 8px solid rgba(136, 136, 136, 0.5);
 }
+
+.no-decks-div {
+    padding: 50px;
+    text-align: center;
+}
+
+.no-cards-div {
+    text-align: center;
+}
+
+.no-thing-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.no-decks-img {
+    object-fit: cover;
+    width: 100%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 110px;
+    margin-bottom: 10px;
+    filter: brightness(2);
+    object-position: 55% 45%;
+    border-radius: 10px;
+}
+
+.no-cards-img {
+    object-fit: cover;
+    width: 100%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 110px;
+    margin-bottom: 10px;
+    object-position: 50% 69%;
+    border-radius: 10px;
+
+}
