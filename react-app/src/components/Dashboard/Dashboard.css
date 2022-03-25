@@ -24,6 +24,7 @@
     color: white;
     font-size: 30px;
     font-weight: 100;
+    text-transform: capitalize;
 }
 
 .decks-list-header {
@@ -58,6 +59,8 @@
 
 .create-deck-button {
     border-bottom: 8px solid rgba(136, 136, 136, 0);
+    display: flex;
+    align-items: center;
 }
 
 .create-deck-button:hover {

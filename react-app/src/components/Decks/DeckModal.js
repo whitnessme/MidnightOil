@@ -33,8 +33,8 @@ function DeckModal({ type, deck, deleteDeck }) {
     <>
         {type === "create" ?
           <div onClick={() => setShowModal(true)} className="create-deck-button">
-            <i className="fa-solid fa-plus"></i>
             <p id='create-button'>Create</p>
+            <i className="fa-solid fa-plus plus-deck"></i>
           </div>
           :
           <>
