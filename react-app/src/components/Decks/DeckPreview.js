@@ -1,8 +1,13 @@
 import DeckModal from './DeckModal';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './DeckPreview.css'
 
 const DeckPreview = ({ deck, idx }) => {
+    const history = useHistory();
+
+    const handleMainClick = () => {
+        history.push(`/decks/${deck?.id}`)
+    }
 
     let imgs = [
         "oil-lamp-2.png",
@@ -15,7 +20,7 @@ const DeckPreview = ({ deck, idx }) => {
     let img = imgs[idx % imgs.length]
 
     return (
-        <div className="deck-preview-container">
+        <div onClick={handleMainClick} className="deck-preview-container">
             <ul className='left-side-preview'>
                 <li className='deck-image'>
                     <div>
@@ -38,7 +43,7 @@ const DeckPreview = ({ deck, idx }) => {
                 </li>
                 <li className='li-button hover-li'>
                     <div className='info-bubble'>
-                        <p>View deck details</p>
+                        <p>View deck</p>
                         <div className='down-triangle'></div>
                     </div>
                     <Link className='deck-details-button' to={`/decks/${deck?.id}`}>

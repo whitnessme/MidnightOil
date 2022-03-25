@@ -106,8 +106,8 @@
 .hover-li:hover .info-bubble {
     position: absolute;
     display: flex;
-    width: 80px;
-    right: -30px;
+    width: 60px;
+    right: -20px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -120,7 +120,7 @@
 
 .info-bubble > p {
     font-family: 'Montserrat', sans-serif;
-    font-size: 9px;
+    font-size: 10px;
 }
 
 .down-triangle {
