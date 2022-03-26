@@ -21,20 +21,17 @@ const DeckPage = () => {
 
     const [showCardsListTab, setShowCardsListTab] = useState(true);
     const [showCreateCardsTab, setShowCreateCardsTab] = useState(false);
-    const [hideOverflow, setHideOverflow] = useState("auto");
+    // const [hideOverflow, setHideOverflow] = useState("auto");
     const [selected, setSelected] = useState("preview");
     
     useEffect( () => {
         (async () => {
             await dispatch(loadDeck(deckId)).then((res) => {
-                console.log(res)
                 if (!res) history.push('/unauthorized')
             })
         })()
-    }, [deckId])
+    }, [dispatch, deckId, history])
 
-    // console.log(deck)
-    // console.log(currUser)
     
     
     if (deck && currUser?.id !== deck?.user_id) {
@@ -46,7 +43,7 @@ const DeckPage = () => {
     return (
         <div className="deck-page-container">
             <DeckHeader deck={deck} />
-            <CardsButtons selected={selected} setSelected={setSelected} setHideOverflow={setHideOverflow} setShowCardsListTab={setShowCardsListTab} setShowCreateCardsTab={setShowCreateCardsTab} />
+            <CardsButtons selected={selected} setSelected={setSelected} setShowCardsListTab={setShowCardsListTab} setShowCreateCardsTab={setShowCreateCardsTab} />
             {!showCardsListTab && !showCreateCardsTab &&
                 <div className="deck-page-details-tab">
                     <div className="details-about-title-div">

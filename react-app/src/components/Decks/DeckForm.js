@@ -16,17 +16,15 @@ const DeckForm = ({ setShowModal, type, deck }) => {
           setName(deck.name)
           setAbout(deck.about)
       }
-  }, [])
+  }, [deck])
 
   const handleSubmit = async (e) => {
       if (type === "create") {
           e?.preventDefault();
           const data = await dispatch(createADeck({name, about, user_id: +userId}))
           if (data.errors) {
-              console.log(errors)
             setErrors(data.errors)
           } else {
-              console.log("hello?")
               setShowModal(false)
           }
         } else {

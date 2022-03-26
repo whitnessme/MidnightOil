@@ -15,16 +15,6 @@ const CardEditForm = ({ setShowModal, cardId }) => {
   const card = useSelector((state) => state.cards?.one[cardId])
   const deckId = useSelector((state) => state.cards?.one[cardId]?.deck_id)
 
-
-
-  const ratingColors = {
-      1: "#CA0081",
-      2: "#ffa500",
-      3: "#FFDA00",
-      4: "#60B024",
-      5: "#00A9DB",
-  }
-
   const dispatch = useDispatch();
 
   useEffect(() => {

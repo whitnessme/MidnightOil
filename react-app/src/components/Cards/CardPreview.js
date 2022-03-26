@@ -5,19 +5,20 @@ import './CardPreview.css'
 const CardPreview = ({ card, idx }) => {
     const [borderColor, setBorderColor] = useState('#CCCCCC');
 
+    
     useEffect(() => {
+        const ratingColors = {
+            1: "#CA0081",
+            2: "#ffa500",
+            3: "#FFDA00",
+            4: "#60B024",
+            5: "#00A9DB",
+        }
         if (card?.curr_rating) {
             setBorderColor(ratingColors[card.curr_rating])
         }
     }, [card])
 
-    const ratingColors = {
-        1: "#CA0081",
-        2: "#ffa500",
-        3: "#FFDA00",
-        4: "#60B024",
-        5: "#00A9DB",
-    }
 
     return (
         <div className="single-card-preview large-preview">

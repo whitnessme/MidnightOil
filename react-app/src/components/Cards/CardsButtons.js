@@ -1,4 +1,3 @@
-import { useState } from "react"
 
 const CardsButtons = ({ setShowCardsListTab, setShowCreateCardsTab, setHideOverflow, selected, setSelected }) => {
 
@@ -6,7 +5,7 @@ const CardsButtons = ({ setShowCardsListTab, setShowCreateCardsTab, setHideOverf
         e.preventDefault()
         setShowCreateCardsTab(false)
         setShowCardsListTab(true)
-        setHideOverflow("auto")
+        // setHideOverflow("auto")
         setSelected("preview")
     }
     
@@ -14,7 +13,7 @@ const CardsButtons = ({ setShowCardsListTab, setShowCreateCardsTab, setHideOverf
         e.preventDefault()
         setShowCardsListTab(false)
         setShowCreateCardsTab(true)
-        setHideOverflow("hidden")
+        // setHideOverflow("hidden")
         setSelected("edit")
     }
     

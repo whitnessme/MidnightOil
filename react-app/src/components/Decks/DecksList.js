@@ -1,10 +1,8 @@
-import { useState } from "react";
 import DeckModal from "./DeckModal";
 import DeckPreview from "./DeckPreview"
 
 const DecksList = ({ decks }) => {
-    const [showCreateModal, setShowCreateModal] = useState();
-
+    
     return (
         <div>
             <div className="decks-list-header">

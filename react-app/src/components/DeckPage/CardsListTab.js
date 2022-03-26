@@ -23,7 +23,7 @@ const CardsListTab = ({ setSelected, setShowCardsListTab, setShowCreateCardsTab 
                 await dispatch(loadDeckCards(deckId))
             }
         })()
-    }, [])
+    }, [dispatch, deckId])
 
     if (!cards.length) {
         return (
@@ -40,7 +40,7 @@ const CardsListTab = ({ setSelected, setShowCardsListTab, setShowCreateCardsTab 
     return (
         <div className="cards-list-tab-container">
             {cards?.map((card, i) => (
-                <CardPreview card={card} idx={i + 1} />
+                <CardPreview key={`card${i}`} card={card} idx={i + 1} />
             ))}
         </div>
     )

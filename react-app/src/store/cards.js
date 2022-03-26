@@ -37,7 +37,7 @@ export const loadDeckCards = (deckId) => async (dispatch) => {
     return cards.deck_cards;
   } else {
     const errors = await res.json();
-    console.log(errors.errors);
+    // console.log(errors.errors);
   }
 };
 
@@ -49,7 +49,7 @@ export const loadCard = (id) => async (dispatch) => {
     return card.one_card;
   } else {
     const errors = await res.json();
-    console.log(errors.errors);
+    // console.log(errors.errors);
   }
 };
 
@@ -96,7 +96,7 @@ export const deleteACard = (cardId, card) => async (dispatch) => {
     return deleteCard;
   } else {
     const errors = await response.json();
-    console.log(errors.errors);
+    // console.log(errors.errors);
   }
 };
 

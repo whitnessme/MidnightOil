@@ -18,7 +18,6 @@ def user_decks(id):
 @login_required
 def one_deck(id):
     one_deck = Deck.query.get(id)
-    print("HERE", one_deck)
     if one_deck is not None:
         return {"one_deck": one_deck.to_dict()}
     else:

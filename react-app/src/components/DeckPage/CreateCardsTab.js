@@ -33,7 +33,7 @@ const CreateCardsTab = () => {
                 await dispatch(loadDeckCards(deckId))
             }
         })()
-    }, [])
+    }, [dispatch, deckId])
 
     useEffect(() => {
         if (cards.length) {
@@ -43,7 +43,7 @@ const CreateCardsTab = () => {
             setShowEdit(false)
             setSelectedId(0)
         }
-    }, [])
+    }, [cards])
 
     useEffect(() => {
         (async () => {
@@ -51,13 +51,13 @@ const CreateCardsTab = () => {
                 await dispatch(loadCard(selectedId))
             }
         })()
-    }, [selectedId])
+    }, [dispatch, selectedId])
 
     return (
         <div className="create-tab-container">
             <div className='left-col-create-container'>
                 <div className='left-col-header'>
-                    <p>{"CARDS " + `(${cards?.length})`}</p>
+                    <p>{`CARDS (${cards?.length})`}</p>
                     <div onClick={() => {
                         setShowCreate(true)
                         setShowEdit(false)
@@ -73,11 +73,11 @@ const CreateCardsTab = () => {
                         setShowEdit(true)
                         setShowCreate(false)
                         }} className="mini-card-container"
-                        style={{ "border-left": selectedId === card.id? "10px solid #A0B0C5" : "10px solid #a0b0c500"}}
+                        key={`card${card.id}`}
+                        style={{ "bordereft": selectedId === card.id? "10px solid #A0B0C5" : "10px solid #a0b0c500"}}
                         // {selected === "preview" ? "selected-button" : "not-selected-button"}
                         >
                         <div className="mini-card-num">
-                            {console.log(card.id, selectedId)}
                             <p>{i+1}</p>
                         </div>
                         <MiniCard card={card} />

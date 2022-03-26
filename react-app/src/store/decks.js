@@ -38,21 +38,19 @@ export const loadUserDecks = (userId) => async (dispatch) => {
         return decks.user_decks;
     } else {
         const errors = await res.json();
-		console.log(errors.errors);
+		// console.log(errors.errors);
     }
 };
 
 export const loadDeck = (id) => async (dispatch) => {
     const res = await fetch(`/api/decks/${id}`);
-    console.log(await res.json)
     if (res.ok) {
-        console.log("HELLLO")
         const deck = await res.json();
         dispatch(load_one(deck.one_deck));
         return deck.one_deck;
     } else {
         const errors = await res.json();
-		console.log(errors.errors);
+		// console.log(errors.errors);
     }
 };
 
@@ -99,7 +97,7 @@ export const deleteADeck = (deckId, deck) => async (dispatch) => {
 		return deleteDeck;
 	} else {
 		const errors = await response.json();
-		console.log(errors.errors);
+		// console.log(errors.errors);
 	}
 };
 

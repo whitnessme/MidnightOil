@@ -8,7 +8,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setSh
     const [errors, setErrors] = useState([]);
     const [front, setFront] = useState('');
     const [back, setBack] = useState('');
-    const [rating, setRating] = useState();
+    // const [rating, setRating] = useState();
 
     const [saved, setSaved] = useState(false)
 
@@ -29,13 +29,15 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setSh
             if (card) {
                 setFront(card.front)
                 setBack(card.back)
-              if (card.curr_rating) setRating(card.curr_rating)
+            //   if (card.curr_rating) setRating(card.curr_rating)
           }
         }, [card])
 
         useEffect(() => {
-            if ( card && card?.front !== front || card?.back !== back) {
-                setSaved("Save")
+            if (card) {
+                if (card?.front !== front || card?.back !== back) {
+                    setSaved("Save")
+                }
             }
         }, [front, back, card])        
 

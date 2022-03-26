@@ -8,7 +8,7 @@ import './DeckModal.css'
 
 function DeckModal({ type, deck, deleteDeck }) {
   const [showModal, setShowModal] = useState(false);
-  const [showOptions, setShowOptions] = useState(false);
+  // const [showOptions, setShowOptions] = useState(false);
   const dispatch = useDispatch()
 
   const handleDelete = () => {
@@ -45,7 +45,7 @@ function DeckModal({ type, deck, deleteDeck }) {
              }
              {!deleteDeck &&
                <>
-               <div className='more-options' onClick={() => setShowOptions(true)}>
+               <div className='more-options'>
                <i className="fa-solid fa-ellipsis"></i>
                </div>
                {options}

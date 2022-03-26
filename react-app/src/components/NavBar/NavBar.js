@@ -24,12 +24,12 @@ const NavBar = () => {
         {!user ?
         <>
         <li>
-            <a className='about-links' target="_blank" href='https://github.com/whitnessme/MidnightOil'>
+            <a className='about-links' target="_blank" rel="noreferrer" href='https://github.com/whitnessme/MidnightOil'>
               <i className="fa-brands fa-github-square"></i>
             </a>
           </li>
           <li>
-            <a className='about-links' target="_blank" href='https://www.linkedin.com/in/whitneylynnminson/'>
+            <a className='about-links' target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/whitneylynnminson/'>
               <i className="fa-brands fa-linkedin"></i>
             </a>
           </li>
@@ -43,12 +43,12 @@ const NavBar = () => {
         :
         <>
           <li>
-            <a className='about-links' target="_blank" href='https://github.com/whitnessme/MidnightOil'>
+            <a className='about-links' target="_blank" rel="noreferrer" href='https://github.com/whitnessme/MidnightOil'>
               <i className="fa-brands fa-github-square"></i>
             </a>
           </li>
           <li>
-            <a className='about-links' target="_blank" href='https://www.linkedin.com/in/whitneylynnminson/'>
+            <a className='about-links' target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/whitneylynnminson/'>
               <i className="fa-brands fa-linkedin"></i>
             </a>
           </li>
