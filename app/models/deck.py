@@ -9,7 +9,7 @@ class Deck(db.Model):
     # owner_id = db.Column(db.Integer,  db.ForeignKey('users.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     share = db.Column(db.Boolean, nullable=False, default=False)
-    name = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(50), nullable=False)
     about = db.Column(db.Text)
     last_study_date = db.Column(db.Date)
     size = db.Column(db.Integer, default=0)
