@@ -43,7 +43,9 @@ const CreateCardsTab = () => {
             setShowEdit(false)
             setSelectedId(0)
         }
-    }, [cards])
+    }, [])
+
+    console.log(selectedId)
 
     useEffect(() => {
         (async () => {
@@ -74,7 +76,7 @@ const CreateCardsTab = () => {
                         setShowCreate(false)
                         }} className="mini-card-container"
                         key={`card${card.id}`}
-                        style={{ "bordereft": selectedId === card.id? "10px solid #A0B0C5" : "10px solid #a0b0c500"}}
+                        style={{ "borderLeft": selectedId === card.id? "10px solid #A0B0C5" : "10px solid #a0b0c500"}}
                         // {selected === "preview" ? "selected-button" : "not-selected-button"}
                         >
                         <div className="mini-card-num">

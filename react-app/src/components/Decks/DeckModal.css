@@ -47,6 +47,11 @@
 
 .edit-deck-button {
     color: rgb(129, 146, 168);
+    opacity: .7;
+}
+
+.edit-deck-button:hover {
+    opacity: 1;
 }
 
 .hover-right-li:hover > .options-container {

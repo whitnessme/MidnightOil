@@ -99,10 +99,12 @@ p, pre, textarea, input {
   font-family: Garamond, serif;
   font-size: 18px;
   line-height: 1.4;
+  word-wrap: break-word;
 }
 
 pre {
   white-space: pre-wrap;
+  overflow: auto;
 }
 
 h1,h2,h3,h4 {

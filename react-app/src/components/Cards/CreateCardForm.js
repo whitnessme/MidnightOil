@@ -10,7 +10,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setSh
     const [back, setBack] = useState('');
     // const [rating, setRating] = useState();
 
-    const [saved, setSaved] = useState(false)
+    const [saved, setSaved] = useState("Save")
 
     const card = useSelector((state) => state.cards?.one[cardId])
 

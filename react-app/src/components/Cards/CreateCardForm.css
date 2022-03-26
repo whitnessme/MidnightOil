@@ -42,9 +42,9 @@
     padding: 7px 9px;
     border-radius: 5px;
     right: -58px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 16px !important;
 }
 
 #save-create-button:hover {
@@ -54,15 +54,18 @@
 
 #front-textarea, #back-textarea {
     box-sizing: border-box;
+    position: relative;
     width: 100%;
-    /* height: 100%; */
     height: auto;
-    overflow:hidden;
+    min-height: 150px;
+    overflow: hidden;
+    /* word-break: break-word; */
     border: none;
-    padding: 30px;
+    padding: 30px 30px;
     background-color: transparent;
     text-align: center;
     font-size: 18px;
+    margin-bottom: 0px;
 }
 
 .card-num {
