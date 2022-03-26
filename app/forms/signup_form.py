@@ -31,9 +31,9 @@ def two_words(form, field):
     
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired("Please enter a username"), Length(min=3, max=50, message="Username must be 3-50 characters long"), username_exists])
+        'username', validators=[DataRequired("Please enter a username"), Length(min=3, max=40, message="Username must be 3-40 characters long"), username_exists])
     full_name = StringField(
-        'full_name', validators=[DataRequired("Please enter your full name"), Length(min=2, max=50, message="Full name must be 2-50 characters long"), two_words])
+        'full_name', validators=[DataRequired("Please enter your full name"), Length(min=2, max=40, message="Full name must be 2-40 characters long"), two_words])
     email = StringField('email', validators=[DataRequired("Please enter your email address"), Email(granular_message=True), user_exists])
     password = StringField('password', validators=[DataRequired("Please enter a password"), Length(min=6, max=50, message="Password must be 6-50 characters long"), EqualTo("confirm", message="Passwords must match")])
     confirm = StringField('confirm', validators=[DataRequired("Please confirm password")])

@@ -18,6 +18,7 @@ def user_decks(id):
 @login_required
 def one_deck(id):
     one_deck = Deck.query.get(id)
+    print("ONE", one_deck)
     return {"one_deck": one_deck.to_dict()}
 
 # POST

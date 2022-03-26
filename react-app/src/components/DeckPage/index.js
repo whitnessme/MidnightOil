@@ -26,11 +26,15 @@ const DeckPage = () => {
     
     useEffect( () => {
         (async () => {
-            await dispatch(loadDeck(deckId))
+            await dispatch(loadDeck(deckId)).then((res) => console.log(res))
         })()
-    }, [])
+    }, [deckId])
+
+    console.log(deck)
+    console.log(currUser)
     
-    if (deck && currUser?.id !== deck?.user_id) {
+    
+    if (!currUser || !deck || currUser?.id !== deck?.user_id) {
         history.push('/unauthorized')
     }
     // Only user's who own the deck can access the deck's page:
