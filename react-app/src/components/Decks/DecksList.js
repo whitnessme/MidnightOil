@@ -13,9 +13,19 @@ const DecksList = ({ decks }) => {
                 </div>
                 <DeckModal type='create' />
             </div>
-            {decks?.map((deck, i) => (
-                <DeckPreview key={`deck-${deck.id}`} idx={i} deck={deck} />
-            ))}
+            {decks?.length ?
+            <>
+                {decks?.map((deck, i) => (
+                    <DeckPreview key={`deck-${deck.id}`} idx={i} deck={deck} />
+                    ))}
+            </>
+            :
+            <div className="no-decks-div">
+                <img className="no-decks-img" alt="1840s painting reading by candlelight" src="../../../../static/1840s-petrus-van-schendel-reading-by-candlelight-date-unknown-1.jpg" ></img>
+                <p className="no-thing-text">You don't have any decks!</p>
+                <p>Press + above to create a new deck!</p>
+            </div>
+            }
         </div>
     )
 }

@@ -64,3 +64,11 @@
     font-size: 18px;
     margin-left: 20px;
 }
+
+.pencil-icon, .delete-deck-button {
+    opacity: .6;
+}
+
+.pencil-icon:hover, .delete-deck-button:hover {
+    opacity: 1;
+}

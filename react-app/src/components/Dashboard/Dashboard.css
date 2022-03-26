@@ -12,9 +12,10 @@
 }
 
 .user-icon {
-    width: 80px;
-    margin-left: 10px;
-    height: 80px;
+    width: 120px;
+    margin-left: 25px;
+    margin-right: 5px;
+    height: 120px;
     background-color: white;
     border-radius: 50%;
 }
@@ -24,6 +25,7 @@
     color: white;
     font-size: 30px;
     font-weight: 100;
+    text-transform: capitalize;
 }
 
 .decks-list-header {
@@ -58,8 +60,58 @@
 
 .create-deck-button {
     border-bottom: 8px solid rgba(136, 136, 136, 0);
+    display: flex;
+    align-items: center;
 }
 
 .create-deck-button:hover {
     border-bottom: 8px solid rgba(136, 136, 136, 0.5);
+}
+
+.no-decks-div, .not-auth-div {
+    padding: 50px;
+    text-align: center;
+}
+
+.no-cards-div {
+    text-align: center;
+}
+
+.no-thing-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.no-decks-img {
+    object-fit: cover;
+    width: 100%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 110px;
+    margin-bottom: 10px;
+    filter: brightness(2);
+    object-position: 55% 45%;
+    border-radius: 10px;
+}
+
+.no-cards-img, .not-found-img {
+    object-fit: cover;
+    width: 100%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 110px;
+    margin-bottom: 10px;
+    object-position: 50% 69%;
+    border-radius: 10px;
+}
+
+.not-found-img {
+    object-fit: cover;
+    width: 100%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 200px;
+    margin-bottom: 10px;
+    object-position: 50% 50%;
+    border-radius: 10px;
 }

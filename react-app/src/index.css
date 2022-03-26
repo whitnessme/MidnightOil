@@ -64,7 +64,7 @@ button {
   color: white;
   font-weight: 300;
   padding: 5px 10px;
-  margin: 0px 10px;
+  margin: 0px 5px;
   border-radius: 5px;
 }
 
@@ -108,6 +108,17 @@ pre {
 h1,h2,h3,h4 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
+}
+
+.head-back-msg {
+  color: rgb(170, 170, 170);
+  cursor: pointer;
+}
+
+.head-back-msg:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 202, 123);
+  color: rgb(116, 116, 116);
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

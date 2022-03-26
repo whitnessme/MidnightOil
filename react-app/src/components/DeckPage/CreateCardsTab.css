@@ -44,6 +44,7 @@
 }
 
 .mini-card-container {
+    cursor: pointer;
     box-sizing: border-box;
     border-left: 10px solid #A0B0C5;
     width: 280px;
@@ -54,6 +55,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.mini-card-container:hover {
+    border-left: 10px solid #a0b0c5a4 !important;
 }
 
 .mini-card-num {

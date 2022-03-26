@@ -10,7 +10,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: auto;
+    /* margin: auto; */
     width: 100%;
     height: 50px;
     background-color: #ffa60096

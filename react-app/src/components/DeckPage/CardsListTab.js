@@ -29,7 +29,8 @@ const CardsListTab = ({ setSelected, setShowCardsListTab, setShowCreateCardsTab 
         return (
             <div className="cards-list-tab-container">
                 <div className="no-cards-div">
-                    <p>No cards yet!</p>
+                    <img className="no-cards-img" alt="1840s painting reading by candlelight" src="../../../../static/2013_CSK_08889_0026_000(follower_of_petrus_van_schendel_the_love_letter014947).jpg" ></img>
+                    <p className="no-thing-text">No cards in this deck!</p>
                     <button className="dark-buttons" onClick={handleCreate}>Create the first card!</button>
                 </div>
             </div>
