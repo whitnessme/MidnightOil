@@ -18,8 +18,11 @@ def user_decks(id):
 @login_required
 def one_deck(id):
     one_deck = Deck.query.get(id)
-    print("ONE", one_deck)
-    return {"one_deck": one_deck.to_dict()}
+    print("HERE", one_deck)
+    if one_deck is not None:
+        return {"one_deck": one_deck.to_dict()}
+    else:
+        return {'errors': ['Unauthorized']}, 401
 
 # POST
 @deck_routes.route('/', methods=["POST"])

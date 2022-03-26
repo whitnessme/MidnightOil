@@ -44,8 +44,9 @@ export const loadUserDecks = (userId) => async (dispatch) => {
 
 export const loadDeck = (id) => async (dispatch) => {
     const res = await fetch(`/api/decks/${id}`);
-    console.log(res)
+    console.log(await res.json)
     if (res.ok) {
+        console.log("HELLLO")
         const deck = await res.json();
         dispatch(load_one(deck.one_deck));
         return deck.one_deck;
