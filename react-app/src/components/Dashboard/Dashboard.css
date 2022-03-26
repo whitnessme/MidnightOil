@@ -67,7 +67,7 @@
     border-bottom: 8px solid rgba(136, 136, 136, 0.5);
 }
 
-.no-decks-div {
+.no-decks-div, .not-auth-div {
     padding: 50px;
     text-align: center;
 }
@@ -93,7 +93,7 @@
     border-radius: 10px;
 }
 
-.no-cards-img {
+.no-cards-img, .not-found-img {
     object-fit: cover;
     width: 100%;
     min-width: 300px;
@@ -102,5 +102,15 @@
     margin-bottom: 10px;
     object-position: 50% 69%;
     border-radius: 10px;
+}
 
+.not-found-img {
+    object-fit: cover;
+    width: 100%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 200px;
+    margin-bottom: 10px;
+    object-position: 50% 50%;
+    border-radius: 10px;
 }

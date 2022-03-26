@@ -49,6 +49,9 @@ function App() {
         <Route path='/unauthorized'>
           <UnauthPage />
         </Route>
+        <Route>
+          <UnauthPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
