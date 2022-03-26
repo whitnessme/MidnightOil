@@ -27,7 +27,8 @@ const DeckPage = () => {
     useEffect( () => {
         (async () => {
             await dispatch(loadDeck(deckId)).then((res) => {
-                if (!res) history.push('/unauthorized')
+                // console.log(res)
+                if (res.errors) history.push('/unauthorized')
             })
         })()
     }, [dispatch, deckId, history])
