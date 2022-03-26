@@ -53,9 +53,13 @@ const DeckPage = () => {
                         </div>
                     </div>
                     <div className="details-about-info-div">
-                        {deck?.about &&
+                        {deck?.about ?
                         <>
                             <pre className="about-pre">{deck?.about}</pre>
+                        </>
+                        :
+                        <>
+                            <pre id="no-about" className="about-pre">No description, press the pencil to add one!</pre>
                         </>
                         }
                     </div>

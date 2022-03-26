@@ -64,6 +64,11 @@
     /* max-height: 500px; */
 }
 
+#no-about {
+    font-size: 15px;
+    color: lightgray;
+}
+
 .single-pencil {
     padding: 10px;
     color:rgba(46, 64, 86, 0.26)
