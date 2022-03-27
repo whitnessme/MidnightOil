@@ -22,6 +22,7 @@
  ![Landing Page](https://user-images.githubusercontent.com/89945390/160303192-652f894a-7515-427d-8d1e-563e12128bdb.png)
  -----------------------------
  - User Sign-up and Log in
+  
 ![Login Modal](https://user-images.githubusercontent.com/89945390/160303251-006cfe61-73e8-4436-bb10-45d140cfa5f7.png)
  -----------------------------
  - Decks
