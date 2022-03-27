@@ -1,4 +1,7 @@
-# MidnightOil
+ ![Landing Page](https://user-images.githubusercontent.com/89945390/160303192-652f894a-7515-427d-8d1e-563e12128bdb.png)
+ 
+ 
+# Midnight Oil
 
 [MidnightOil](https://burn-midnight-oil.herokuapp.com/), a clone of [Brainscape](https://www.brainscape.com/) and [Anki](https://apps.ankiweb.net/), is based off the phrase "burning the midnight oil", meaning to study late into the night. It is a flashcard making and studying application with the theme of late Renaissance battle adventures as you progress your mastery level of the decks/cards you make (*The study feature itself is still in progress*). The phrase originated in the 1630s, at the very end of the Renaissance and entering a transitioning time into the Modern era, so the app tries to tie in the past with it's graphics--depictions of oil lamps and Baroque-style paintings of reading by candlelight--and with Modern design elements. 
 
@@ -18,9 +21,6 @@
 
 ## Features
 
- - Landing Page
- ![Landing Page](https://user-images.githubusercontent.com/89945390/160303192-652f894a-7515-427d-8d1e-563e12128bdb.png)
- -----------------------------
  - User Sign-up and Log in
   
 ![Login Modal](https://user-images.githubusercontent.com/89945390/160303251-006cfe61-73e8-4436-bb10-45d140cfa5f7.png)
