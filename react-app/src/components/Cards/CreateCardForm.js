@@ -22,6 +22,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setSh
     useEffect(() => {
         if(cardId) {
             dispatch(loadCard(cardId))
+            setErrors([])
         }
         }, [dispatch, cardId])
     
@@ -29,6 +30,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setSh
             if (card) {
                 setFront(card.front)
                 setBack(card.back)
+                setErrors([])
             //   if (card.curr_rating) setRating(card.curr_rating)
           }
         }, [card])
