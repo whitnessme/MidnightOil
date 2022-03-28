@@ -44,6 +44,10 @@
     font-weight: 600;
     padding-right: 15px;
 }
+.li-length {
+    font-family: Garamond, serif;
+    color: rgb(185, 185, 185);
+}
 
 .li-button {
     display: flex;

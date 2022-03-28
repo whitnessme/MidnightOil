@@ -32,8 +32,13 @@ const DeckPreview = ({ deck, idx }) => {
                     <h4>{deck.name}</h4>
                     {/* <p>{deck.about}</p> */}
                 </li>
-                <li className='li-info'>
-                    <p>{deck.Cards.length}</p>
+                <li className='li-info li-length'>
+                    <p>{deck.Cards.length > 2 ? `${deck.Cards.length} cards`
+                    :
+                    deck.Cards.length === 1 ? `1 card`
+                    :
+                    'No cards in this deck'
+                    }</p>
                 </li>
             </ul>
             <ul className='right-side-preview'>
