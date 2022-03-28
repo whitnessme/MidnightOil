@@ -16,30 +16,71 @@
 
  - **Backend:** Python, Flask, WTForms
  - **Frontend:** JavaScript, React/Redux, AJAX
- - **Database:** SQLAlchemy
+ - **Database:** PostgresSQL/SQLAlchemy
  - **Design and Styling:** HTML/CSS
 
 ## Features
 
- - User Sign-up and Log in
+### User Sign Up and Log In
   
-![Login Modal](https://user-images.githubusercontent.com/89945390/160303251-006cfe61-73e8-4436-bb10-45d140cfa5f7.png)
+![Screenshot 2022-03-27 180339](https://user-images.githubusercontent.com/89945390/160309892-5e254ead-472a-4891-b99f-f857f764d854.png)
+
+---
+
+![Screenshot 2022-03-27 180407](https://user-images.githubusercontent.com/89945390/160309910-857c3829-c0b3-4721-8e4e-0250bf24b664.png)
+
  -----------------------------
- - Decks
-     - *Brief walkthrough:*
+### Decks
+ - *Brief walkthrough:*
 ![dashboard gif](https://user-images.githubusercontent.com/89945390/160302939-ad41b6dd-9728-437b-99cf-b8adc15bacdd.gif)
-    - *Screenshots:*
-    ![Screenshot 2022-03-27 154915](https://user-images.githubusercontent.com/89945390/160304572-bf099694-9880-40c6-912d-01a11b59534c.png)
-    ![Screenshot 2022-03-27 155101](https://user-images.githubusercontent.com/89945390/160304516-9c2838bf-b068-4e30-9d56-95c6fc5584bb.png)
-   ![Screenshot 2022-03-27 155007](https://user-images.githubusercontent.com/89945390/160304535-0a837654-0950-4949-b2cd-74dad0443dd1.png) ![Screenshot 2022-03-27 155025](https://user-images.githubusercontent.com/89945390/160304551-b552d68e-485e-47ed-bda8-81f97890c003.png)    
+----------------------------
+
+- *Screenshots:*
+![Screenshot 2022-03-27 154915](https://user-images.githubusercontent.com/89945390/160304572-bf099694-9880-40c6-912d-01a11b59534c.png)
+
+---
+
+![Screenshot 2022-03-27 175911](https://user-images.githubusercontent.com/89945390/160309642-60b28f60-a576-4d36-b67a-030bf4cd7f8a.png)
+
+---
+
+![Screenshot 2022-03-27 155007](https://user-images.githubusercontent.com/89945390/160304535-0a837654-0950-4949-b2cd-74dad0443dd1.png) ![Screenshot 2022-03-27 155025](https://user-images.githubusercontent.com/89945390/160304551-b552d68e-485e-47ed-bda8-81f97890c003.png)
+
+---
+
+![Screenshot 2022-03-27 180147](https://user-images.githubusercontent.com/89945390/160309795-49b05d15-c713-440a-aa7b-5ca299f9ee2e.png)
+
 -----------------------------
- - Cards
-     - *Brief walkthrough:*
+### Cards
+ - *Brief walkthrough:*
 ![cards_gif](https://user-images.githubusercontent.com/89945390/160303601-6c84bd3d-867e-49db-83c8-18a87b1865b2.gif)
-    - *Screenshots:*
- ![Screenshot 2022-03-27 154447](https://user-images.githubusercontent.com/89945390/160304701-5f8fdef0-edf4-4158-b6b2-7f1a582b37a2.png)
-![Screenshot 2022-03-27 154707](https://user-images.githubusercontent.com/89945390/160304646-6fd20ee1-1e7e-414b-900c-e62bde48fb79.png)
-![Screenshot 2022-03-27 154643](https://user-images.githubusercontent.com/89945390/160304641-f83db6da-97dc-4b8d-a9c9-47a6044ef58d.png)![Screenshot 2022-03-27 154515](https://user-images.githubusercontent.com/89945390/160304674-d6a294f8-d49e-445b-8db1-802dba8c98b9.png)
+
+---------------------------
+
+- *Screenshots:*
+
+![Screenshot 2022-03-27 154447](https://user-images.githubusercontent.com/89945390/160304701-5f8fdef0-edf4-4158-b6b2-7f1a582b37a2.png)
+
+---
+
+![Screenshot 2022-03-27 175747](https://user-images.githubusercontent.com/89945390/160309541-d88f5eff-7e47-4072-b705-1296a1fbc4ae.png)
+
+---
+
+![Screenshot 2022-03-27 154643](https://user-images.githubusercontent.com/89945390/160304641-f83db6da-97dc-4b8d-a9c9-47a6044ef58d.png)
+
+---
+
+![Screenshot 2022-03-27 154515](https://user-images.githubusercontent.com/89945390/160304674-d6a294f8-d49e-445b-8db1-802dba8c98b9.png)
+
+---
+
+![Screenshot 2022-03-27 171615](https://user-images.githubusercontent.com/89945390/160308902-971dd523-a14b-4192-b40f-78945dc57c1d.png)
+
+-----------------------------
+### 404 Page
+
+![Screenshot 2022-03-27 174425](https://user-images.githubusercontent.com/89945390/160308862-41b49f7b-713f-4d95-ac53-2abd07f32f9a.png)
 
 -----------------------------
 ## Future Features
