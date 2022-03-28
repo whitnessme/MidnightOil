@@ -74,6 +74,7 @@ const CreateCardsTab = () => {
                         setSelectedNum(i + 1)
                         setShowEdit(true)
                         setShowCreate(false)
+                        
                         }} className="mini-card-container"
                         key={`card${card.id}`}
                         style={{ "borderLeft": selectedId === card.id? "10px solid #A0B0C5" : "10px solid #a0b0c500"}}
