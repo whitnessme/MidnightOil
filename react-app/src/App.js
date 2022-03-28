@@ -5,8 +5,8 @@ import { authenticate } from './store/session';
 
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+// import UsersList from './components/UsersList';
+// import User from './components/User';
 import DeckPage from './components/DeckPage/index'
 import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
@@ -31,22 +31,22 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <ProtectedRoute path='/users' exact={true} >
+        {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <Route path='/' exact={true} >
           <LandingPage />
         </Route>
         <ProtectedRoute path='/dashboard' exact={true}>
           <Dashboard />
         </ProtectedRoute>
-        <ProtectedRoute path='/decks/:deckId'>
+        <ProtectedRoute path='/decks/:deckId(\\d+)' exact={true}>
           <DeckPage />
         </ProtectedRoute>
-        <Route path='/unauthorized'>
+        <Route path='/unauthorized' exact={true}>
           <UnauthPage />
         </Route>
         <Route>
