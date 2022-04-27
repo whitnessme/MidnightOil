@@ -15,8 +15,15 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     
-    deck_user = db.relationship("Deck", back_populates="user", cascade="all, delete", lazy='dynamic')
-    deck_owner = db.relationship("Deck", back_populates="owner", cascade="all, delete", lazy='dynamic')
+    deck_user = db.relationship("Deck",
+                                foreign_keys='Deck.user_id',
+                                back_populates="user",
+                                lazy='dynamic')
+    
+    deck_owner = db.relationship("Deck",
+                                 foreign_keys='Deck.owner_id',
+                                 back_populates="owner",
+                                 lazy='dynamic')
 
     @property
     def password(self):

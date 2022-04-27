@@ -17,8 +17,8 @@ class Deck(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     
-    user = db.relationship("User", back_populates="deck_user", foreign_keys=[user_id])
-    owner = db.relationship("User", back_populates="deck_owner", foreign_keys=[owner_id])
+    user = db.relationship("User",  foreign_keys=[user_id], back_populates="deck_user")
+    owner = db.relationship("User", foreign_keys=[owner_id], back_populates="deck_owner")
     
     cards = db.relationship("Card", back_populates="deck", order_by="asc(Card.id)", cascade="all, delete")
     study_sessions = db.relationship("StudySession", back_populates="deck", cascade="all, delete")
