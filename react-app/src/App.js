@@ -47,7 +47,7 @@ function App() {
         <ProtectedRoute path='/decks/:deckId(\d+)' exact={true}>
           <DeckPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/decks/:deckId(\d+)/study/:studyId(\d+)' exact={true}>
+        <ProtectedRoute path='/decks/:deckId(\d+)/study' exact={true}>
           <StudyPage />
         </ProtectedRoute>
         <Route path='/unauthorized' exact={true}>

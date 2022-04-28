@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { loadDeck } from "../../store/decks";
+import ProgressBar from './ProgressBar';
+import ProgressShapes from './ProgressShapes';
 
 
 const StudyPage = () => {
     const dispatch = useDispatch();
-    const { deckId, studyId } = useParams();
+    const { deckId } = useParams();
     const history = useHistory();
 
     const deck = useSelector((state) => state.decks?.one[deckId])
@@ -25,7 +27,11 @@ const StudyPage = () => {
     }
 
     return (
-        null
+        <div className='study-page-div'>
+            <h2>STUDY</h2>
+            <ProgressBar />
+            <ProgressShapes />
+        </div>
     )
 }
 
