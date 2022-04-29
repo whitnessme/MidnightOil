@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { loadDeck } from "../../store/decks";
+import FlipCard from './FlipCard';
 import ProgressBar from './ProgressBar';
-import ProgressShapes from './ProgressShapes';
+import "./StudyPage.css"
 
 
 const StudyPage = () => {
@@ -30,7 +31,7 @@ const StudyPage = () => {
         <div className='study-page-div'>
             <h2>STUDY</h2>
             <ProgressBar />
-            <ProgressShapes />
+            <FlipCard />
         </div>
     )
 }
