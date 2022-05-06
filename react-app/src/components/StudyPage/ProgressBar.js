@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProgressImage from "./ProgressImage";
 import ProgressShapes from "./ProgressShapes";
+import './ProgressBar.css'
 
 const ProgressBar = () => {
 
