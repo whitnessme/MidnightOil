@@ -6,7 +6,7 @@ class Deck(db.Model):
     __tablename__ = 'decks'
     
     id = db.Column(db.Integer, primary_key=True)
-    # owner_id = db.Column(db.Integer,  db.ForeignKey('users.id'), nullable=False)
+    owner_id = db.Column(db.Integer,  db.ForeignKey('users.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     share = db.Column(db.Boolean, nullable=False, default=False)
     name = db.Column(db.String(50), nullable=False)
@@ -17,15 +17,16 @@ class Deck(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     
-    user = db.relationship("User", back_populates="deck", foreign_keys=[user_id])
-    # owner = db.relationship("User", back_populates="deck_owner", foreign_keys=[owner_id])
+    user = db.relationship("User",  foreign_keys=[user_id], back_populates="deck_user")
+    owner = db.relationship("User", foreign_keys=[owner_id], back_populates="deck_owner")
+    
     cards = db.relationship("Card", back_populates="deck", order_by="asc(Card.id)", cascade="all, delete")
     study_sessions = db.relationship("StudySession", back_populates="deck", cascade="all, delete")
     
     def to_dict(self):
         return {
             "id": self.id,
-            # "owner_id": self.owner_id,
+            "owner_id": self.owner_id,
             "user_id": self.user_id,
             "share": self.share,
             "name": self.name,

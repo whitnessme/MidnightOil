@@ -11,6 +11,7 @@ import DeckPage from './components/DeckPage/index'
 import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
 import UnauthPage from './components/UnauthPage';
+import StudyPage from './components/StudyPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -45,6 +46,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/decks/:deckId(\d+)' exact={true}>
           <DeckPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/decks/:deckId(\d+)/study' exact={true}>
+          <StudyPage />
         </ProtectedRoute>
         <Route path='/unauthorized' exact={true}>
           <UnauthPage />

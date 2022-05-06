@@ -6,7 +6,7 @@ const DeckPreview = ({ deck, idx }) => {
     const history = useHistory();
 
     const handleMainClick = () => {
-        history.push(`/decks/${deck?.id}`)
+        history.push(`/decks/${deck?.id}/study`)
     }
 
     let imgs = [
