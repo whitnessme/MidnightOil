@@ -10,7 +10,8 @@ class Card(db.Model):
     front = db.Column(db.Text,  nullable=False)
     back = db.Column(db.Text,  nullable=False)
     seen = db.Column(db.Boolean, nullable=False, default=False)
-    curr_rating = db.Column(db.Integer)
+    curr_rating = db.Column(db.Integer, nullable=False, default=0)
+    numFivesInRow = db.Column(db.Integer, nullable=False, default=0)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     
@@ -24,6 +25,7 @@ class Card(db.Model):
             "back": self.back,
             "seen": self.seen,
             "curr_rating": self.curr_rating,
+            "numFivesInRow": self.numFivesInRow,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
         }
