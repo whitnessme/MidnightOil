@@ -10,7 +10,8 @@
 
 .flip-card {
     width: 100%;
-    min-height: 500px;
+    min-height: 400px;
+    height: 50%;
     background-color: lightblue;
 }
 
