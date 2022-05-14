@@ -1,16 +1,16 @@
-const LOAD_BUCKETS = 'buckets/LOAD_BUCKETS';
+const LOAD_STUDY_CARDS = 'buckets/LOAD_STUDY_CARDS';
 
 const load_all = (buckets) => ({
-    type: LOAD_BUCKETS,
+    type: LOAD_STUDY_CARDS,
     buckets,
 });
 
-export const loadConfidenceBuckets = (deckId) => async (dispatch) => {
+export const loadStudyCards = (deckId) => async (dispatch) => {
     const res = await fetch(`/api/buckets/decks/${deckId}`);
     if (res.ok) {
-        const buckets = await res.json();
-        dispatch(load_all(buckets.buckets));
-        return buckets.buckets;
+        const study_cards = await res.json();
+        dispatch(load_all(study_cards));
+        return study_cards
     } else {
         const errors = await res.json();
         return errors;
@@ -25,7 +25,7 @@ const bucketReducer = (state = initialState, action) => {
     let newState;
 
     switch (action.type) {
-        case LOAD_BUCKETS:
+        case LOAD_STUDY_CARDS:
             newState = {...state};
             action.buckets.forEach((bucket) => {
                 newState[bucket.name] = bucket;
