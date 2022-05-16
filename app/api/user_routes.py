@@ -17,3 +17,7 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.errorhandler(500)
+def internal_server_error(e):
+    return {"errors": ["Internal Server Error: Users"]}, 500

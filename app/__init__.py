@@ -77,3 +77,11 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
+
+@app.errorhandler(405)
+def method_not_allowed(e):
+    return {"errors": ["Method Not Allowed"]}, 405
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return {"errors": ["nternal Server Error"]}, 500

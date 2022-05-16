@@ -39,3 +39,7 @@ def study_cards(deckId):
     
     # ------ ADD extra_perfect to the return!! ------ 
     # return {"buckets": [not_at_all, hard, easy, perfect]}
+    
+@study_cards_routes.errorhandler(500)
+def internal_server_error(e):
+    return {"errors": ["Internal Server Error: Study Cards"]}, 500
