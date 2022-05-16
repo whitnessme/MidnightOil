@@ -26,11 +26,7 @@ const studyCardsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case LOAD_STUDY_CARDS:
-            newState = {...state};
-            action.studyCards.forEach((studyCard) => {
-                newState[studyCard.id] = studyCard;
-            });
-        
+            newState = action.studyCards        
             return newState;
 
         default:

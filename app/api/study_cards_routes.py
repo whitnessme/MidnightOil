@@ -15,7 +15,6 @@ def study_cards(deckId):
     perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5)).all()
     extra_perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5) & (Card.numFivesInRow == 3)).all()
     
-    
     # Assign different percentages to each card within each bucket
     d_not_at_all = {card: 0.55 for card in not_at_all_cards}
     d_hard = {card: 0.23 for card in hard_cards}
@@ -39,7 +38,7 @@ def study_cards(deckId):
         # Now we can compare the ids of the cards & put it in the study_cards dictionary with the id as the key to prevent repeats
         if not card["id"] in study_cards:
             study_cards[card["id"]] = card
-    print("----------FINAL--------", list(study_cards.values()))
+
     return {"study_cards": list(study_cards.values())} 
     
     
