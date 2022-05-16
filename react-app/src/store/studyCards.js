@@ -9,8 +9,8 @@ export const loadStudyCards = (deckId) => async (dispatch) => {
     const res = await fetch(`/api/studyCards/decks/${deckId}`);
     if (res.ok) {
         const study_cards = await res.json();
-        dispatch(load_all(study_cards));
-        return study_cards
+        dispatch(load_all(study_cards.study_cards));
+        return study_cards.study_cards
     } else {
         const errors = await res.json();
         return errors;
@@ -30,6 +30,7 @@ const studyCardsReducer = (state = initialState, action) => {
             action.studyCards.forEach((studyCard) => {
                 newState[studyCard.id] = studyCard;
             });
+        
             return newState;
 
         default:
