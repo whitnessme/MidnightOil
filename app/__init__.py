@@ -10,6 +10,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.deck_routes import deck_routes
 from .api.card_routes import card_routes
+from .api.study_cards_routes import study_cards_routes
 
 from .seeds import seed_commands
 
@@ -35,6 +36,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(deck_routes, url_prefix='/api/decks')
 app.register_blueprint(card_routes, url_prefix='/api/cards')
+app.register_blueprint(study_cards_routes, url_prefix='/api/studyCards')
 
 db.init_app(app)
 Migrate(app, db)
@@ -75,3 +77,11 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
+
+@app.errorhandler(405)
+def method_not_allowed(e):
+    return {"errors": ["Method Not Allowed"]}, 405
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return {"errors": ["nternal Server Error"]}, 500

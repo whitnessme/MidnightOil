@@ -75,3 +75,7 @@ def delete_deck(id):
   db.session.commit()
   
   return deleted_deck
+
+@deck_routes.errorhandler(500)
+def internal_server_error(e):
+    return {"errors": ["Internal Server Error: Decks"]}, 500

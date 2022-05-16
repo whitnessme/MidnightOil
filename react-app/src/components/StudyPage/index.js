@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { loadDeck } from "../../store/decks";
+import { loadStudyCards } from '../../store/studyCards';
 import FlipCard from './FlipCard';
 import ProgressBar from './ProgressBar';
 import "./StudyPage.css"
@@ -22,6 +23,14 @@ const StudyPage = () => {
             })
         })()
     }, [dispatch, deckId, history])
+
+    useEffect(() => {
+        (async () => {
+            await dispatch(loadStudyCards(deckId)).then((res) => {
+                if (res.errors) console.log(res)
+            })
+        })()
+    })
 
     if (deck && currUser?.id !== deck?.user_id) {
         history.push('/unauthorized')

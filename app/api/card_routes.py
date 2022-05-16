@@ -73,3 +73,7 @@ def delete_card(id):
   db.session.commit()
   
   return deleted_card
+
+@card_routes.errorhandler(500)
+def internal_server_error(e):
+    return {"errors": ["Internal Server Error: Cards"]}, 500

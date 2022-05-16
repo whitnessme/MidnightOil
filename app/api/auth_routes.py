@@ -81,3 +81,7 @@ def unauthorized():
     Returns unauthorized JSON when flask-login authentication fails
     """
     return {'errors': ['Unauthorized']}, 401
+
+@auth_routes.errorhandler(500)
+def internal_server_error(e):
+    return {"errors": ["Internal Server Erro: Auth"]}, 500
