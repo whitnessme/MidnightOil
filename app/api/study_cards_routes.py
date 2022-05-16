@@ -2,11 +2,11 @@ from flask import Blueprint
 from app.models import Card, db
 from vose_sampler import VoseAlias
 
-bucket_routes = Blueprint('bucket_routes', __name__)
+study_cards_routes = Blueprint('study_cards_routes', __name__)
 
 # GET confidence buckets filled with cards
 
-@bucket_routes.route('/decks/<int:deckId>')
+@study_cards_routes.route('/decks/<int:deckId>')
 def study_cards(deckId):
     not_at_all_cards = Card.query.filter(Card.deck_id == deckId and (Card.curr_rating == 0 or Card.curr_rating == 1)).all()
     hard_cards = Card.query.filter(Card.deck_id == deckId and (Card.curr_rating == 2 or Card.curr_rating == 3)).all()
