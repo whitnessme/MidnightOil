@@ -8,19 +8,28 @@ study_cards_routes = Blueprint('study_cards_routes', __name__)
 
 @study_cards_routes.route('/decks/<int:deckId>')
 def study_cards(deckId):
-    not_at_all_cards = Card.query.filter(Card.deck_id == deckId and (Card.curr_rating == 0 or Card.curr_rating == 1)).all()
-    hard_cards = Card.query.filter(Card.deck_id == deckId and (Card.curr_rating == 2 or Card.curr_rating == 3)).all()
-    easy_cards = Card.query.filter(Card.deck_id == deckId and Card.curr_rating == 4).all()
-    perfect_cards = Card.query.filter(Card.deck_id == deckId and Card.curr_rating == 5).all()
-    extra_perfect_cards = Card.query.filter(Card.deck_id == deckId and Card.curr_rating == 5 and Card.numFivesInRow == 3).all()
+    not_at_all_cards = Card.query.filter((Card.deck_id == deckId) & ((Card.curr_rating == 0) | (Card.curr_rating == 1))).all()
+    hard_cards = Card.query.filter((Card.deck_id == deckId) & ((Card.curr_rating == 2) | (Card.curr_rating == 3))).all()
+    easy_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 4)).all()
+    perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5)).all()
+    extra_perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5) & (Card.numFivesInRow == 3)).all()
     
-    d_not_at_all = {card: 0.55 for card in not_at_all_cards}
-    d_hard = {card: 0.23 for card in hard_cards}
-    d_easy = {card: 0.15 for card in easy_cards}
-    d_perfect = {card: 0.05 for card in perfect_cards}
-    d_extra_perfect = {card: 0.05 for card in extra_perfect_cards}
+    not_at_all = [card.to_dict() for card in not_at_all_cards]
+    hard = [card.to_dict() for card in hard_cards]
+    easy = [card.to_dict() for card in easy_cards]
+    perfect = [card.to_dict() for card in perfect_cards]
+    extra_perfect = [card.to_dict() for card in extra_perfect_cards]
+    print("-----------QUERY--------", not_at_all_cards)
+    
+    d_not_at_all = {card["id"]: 0.55 for card in not_at_all}
+    d_hard = {card["id"]: 0.23 for card in hard}
+    d_easy = {card["id"]: 0.15 for card in easy}
+    d_perfect = {card["id"]: 0.05 for card in perfect}
+    d_extra_perfect = {card["id"]: 0.02 for card in extra_perfect}
+    
     
     d = {**d_not_at_all, **d_hard, **d_easy, **d_perfect, **d_extra_perfect}
+    print("-----Dict-----", d)
     
     va = VoseAlias(d)
     
@@ -31,11 +40,6 @@ def study_cards(deckId):
 
     return study_cards
     
-    # not_at_all = {"name": "not_at_all", "cards": [card.to_dict() for card in not_at_all_cards]}
-    # hard = {"name": "hard", "cards": [card.to_dict() for card in hard_cards]}
-    # easy = {"name": "easy", "cards": [card.to_dict() for card in easy_cards]}
-    # perfect = {"name": "perfect", "cards": [card.to_dict() for card in perfect_cards]}
-    # extra_perfect = {"name": "extra_perfect", "cards": [card.to_dict() for card in extra_perfect_cards]}
     
     # ------ ADD extra_perfect to the return!! ------ 
     # return {"buckets": [not_at_all, hard, easy, perfect]}
