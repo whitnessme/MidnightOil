@@ -15,7 +15,7 @@ class StudySession(db.Model):
     four_count = db.Column(db.Integer, nullable=False, default=0)
     five_count = db.Column(db.Integer, nullable=False, default=0)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
-    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now(), onupdate=datetime.now())
 
     deck = db.relationship("Deck", back_populates="study_sessions")
 
