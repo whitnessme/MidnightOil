@@ -100,3 +100,10 @@ svg {
 #check-path {
     fill-rule: nonzero;
 }
+
+.share-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 2px;
+}

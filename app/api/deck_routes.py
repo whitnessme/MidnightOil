@@ -52,7 +52,6 @@ def edit_deck(id):
     form = DeckForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
-    
     if form.validate_on_submit():
         deck = Deck.query.get(id)
         

@@ -16,5 +16,5 @@ class DeckForm(FlaskForm):
     about = TextAreaField("About", validators=[Length(max=1000, message="Deck description must be less than 1000 characters")])
     user_id = IntegerField('User Id', validators=[DataRequired()])
     owner_id = IntegerField('Owner Id', validators=[DataRequired()])
-    share = BooleanField("Share?")
+    share = BooleanField("Share")
     
