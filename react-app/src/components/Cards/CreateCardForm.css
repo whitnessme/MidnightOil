@@ -20,6 +20,7 @@
 }
 
 .sides-card {
+    position: relative;
     background-color: transparent;
     flex: 1 1 auto;
     display: flex;
@@ -73,4 +74,32 @@
     font-weight: 300;
     padding: 10px;
     color: rgb(189, 189, 189);
+}
+
+.corner-rating-div {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.rating-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: transparent;
+}
+
+.corner-rating-div:hover .rating-text {
+    color:rgb(161, 161, 161);
+}
+
+.rating-num {
+    color:rgb(193, 193, 193);
 }

@@ -8,7 +8,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setSh
     const [errors, setErrors] = useState([]);
     const [front, setFront] = useState('');
     const [back, setBack] = useState('');
-    // const [rating, setRating] = useState();
+    const [rating, setRating] = useState();
 
     const [saved, setSaved] = useState("Save")
 
@@ -30,8 +30,10 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setSh
             if (card) {
                 setFront(card.front)
                 setBack(card.back)
+                if (card.curr_rating) {
+                    setRating(card.curr_rating)
+                } else setRating(0)
                 setErrors([])
-            //   if (card.curr_rating) setRating(card.curr_rating)
           }
         }, [card])
 
@@ -46,7 +48,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setSh
         const handleSubmit = async (e) => {
         if (type === "create") {
             e?.preventDefault();
-            const data = await dispatch(createACard({front, back, deck_id: +deckId}))
+            const data = await dispatch(createACard({front, back, curr_rating: rating, deck_id: +deckId}))
             if (data.errors) {
                 setErrors(data.errors)
             } else {
@@ -57,7 +59,7 @@ const CreateCardForm = ({cardId, selectedNum, type, deckId, setSelectedId, setSh
             }
         } else {
             e?.preventDefault();
-            const data = await dispatch(editACard(card?.id, {front, back, deck_id: +deckId}))
+            const data = await dispatch(editACard(card?.id, {front, back, curr_rating: rating, deck_id: +deckId}))
             if (data.errors) {
                 setErrors(data.errors)
             } else {
