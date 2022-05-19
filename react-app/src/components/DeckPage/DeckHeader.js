@@ -21,7 +21,7 @@ const DeckHeader = ({ deck }) => {
                 </div> */}
             </div>
             <div className='share-status'>
-            <i className={deck?.share ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></i>
+                <i className={deck?.share ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></i>
                 {deck?.share ? " Public" : " Private"}
             </div>
         </div>
