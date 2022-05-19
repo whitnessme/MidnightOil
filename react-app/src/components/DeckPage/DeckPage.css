@@ -79,3 +79,11 @@
     right: 0;
     bottom: 7px;
 }
+
+.share-status {
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(5, 101, 156, 0.551);
+    padding-top: 7px;
+}

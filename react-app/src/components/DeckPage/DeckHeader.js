@@ -20,6 +20,10 @@ const DeckHeader = ({ deck }) => {
                     <p>{deck?.about}</p>
                 </div> */}
             </div>
+            <div className='share-status'>
+                <i className={deck?.share ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></i>
+                {deck?.share ? " Public" : " Private"}
+            </div>
         </div>
     )
 }

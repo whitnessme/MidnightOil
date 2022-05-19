@@ -73,6 +73,7 @@ export const createADeck = (deck) => async (dispatch) => {
 };
 
 export const editADeck = (deckId, deck) => async (dispatch) => {
+    console.log(deck)
 	const res = await fetch(`/api/decks/${deckId}`, {
 		method: 'PUT',
 		headers: { 'Content-Type': 'application/json' },

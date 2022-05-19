@@ -34,7 +34,8 @@ def create_deck():
     if form.validate_on_submit():
         deck = Deck(
             user_id=data['user_id'],
-            # share=data['share'],
+            owner_id=data['owner_id'],
+            share=data['share'],
             name=data['name'],
             about=data['about']
         )
@@ -51,12 +52,12 @@ def edit_deck(id):
     form = DeckForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
-    
     if form.validate_on_submit():
         deck = Deck.query.get(id)
         
         deck.user_id=data['user_id']
-        # deck.share=data['share']
+        deck.owner_id=data['owner_id']
+        deck.share=data['share']
         deck.name=data['name']
         deck.about=data['about']
       
