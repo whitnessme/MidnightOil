@@ -15,8 +15,7 @@ class Deck(db.Model):
     size = db.Column(db.Integer, default=0)
     points = db.Column(db.Integer, default=0)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
-    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
-    
+    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now(), onupdate=datetime.now)
     user = db.relationship("User",  foreign_keys=[user_id], back_populates="deck_user")
     owner = db.relationship("User", foreign_keys=[owner_id], back_populates="deck_owner")
     
