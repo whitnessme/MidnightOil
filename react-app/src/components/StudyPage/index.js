@@ -30,7 +30,7 @@ const StudyPage = () => {
                 if (res.errors) console.log(res)
             })
         })()
-    })
+    }, [dispatch, deckId])
 
     if (deck && currUser?.id !== deck?.user_id) {
         history.push('/unauthorized')
