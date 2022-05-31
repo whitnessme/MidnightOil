@@ -10,20 +10,22 @@ study_cards_routes = Blueprint('study_cards_routes', __name__)
 def study_cards(deckId):
     # Find all the cards in each confidence "bucket"
     not_at_all_cards = Card.query.filter((Card.deck_id == deckId) & ((Card.curr_rating == 0) | (Card.curr_rating == 1))).all()
-    hard_cards = Card.query.filter((Card.deck_id == deckId) & ((Card.curr_rating == 2) | (Card.curr_rating == 3))).all()
+    difficult_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 2)).all()
+    hard_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 3)).all()
     easy_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 4)).all()
     perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5)).all()
     extra_perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5) & (Card.numFivesInRow == 3)).all()
     
     # Assign different percentages to each card within each bucket
-    d_not_at_all = {card: 0.55 for card in not_at_all_cards}
-    d_hard = {card: 0.23 for card in hard_cards}
-    d_easy = {card: 0.15 for card in easy_cards}
-    d_perfect = {card: 0.05 for card in perfect_cards}
-    d_extra_perfect = {card: 0.02 for card in extra_perfect_cards}
+    d_not_at_all = {card: 0.48 for card in not_at_all_cards}
+    d_difficult = {card: 0.23 for card in difficult_cards}
+    d_hard = {card: 0.16 for card in hard_cards}
+    d_easy = {card: 0.09 for card in easy_cards}
+    d_perfect = {card: 0.03 for card in perfect_cards}
+    d_extra_perfect = {card: 0.01 for card in extra_perfect_cards}
     
     # Combine all the dictionaries into one "probability distribution", each card having their percentage attached
-    d = {**d_not_at_all, **d_hard, **d_easy, **d_perfect, **d_extra_perfect}
+    d = {**d_not_at_all, **d_difficult **d_hard, **d_easy, **d_perfect, **d_extra_perfect}
     
     # Create the "probability and alias table" that we will take a sampling from; O(n)
     va = VoseAlias(d)
