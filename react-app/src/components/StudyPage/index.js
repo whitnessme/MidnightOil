@@ -38,7 +38,6 @@ const StudyPage = () => {
 
     return (
         <div className='study-page-div'>
-            <h2>STUDY</h2>
             <ProgressBar />
             <FlipCard />
         </div>

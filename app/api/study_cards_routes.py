@@ -25,7 +25,7 @@ def study_cards(deckId):
     d_extra_perfect = {card: 0.01 for card in extra_perfect_cards}
     
     # Combine all the dictionaries into one "probability distribution", each card having their percentage attached
-    d = {**d_not_at_all, **d_difficult **d_hard, **d_easy, **d_perfect, **d_extra_perfect}
+    d = {**d_not_at_all, **d_difficult, **d_hard, **d_easy, **d_perfect, **d_extra_perfect}
     
     # Create the "probability and alias table" that we will take a sampling from; O(n)
     va = VoseAlias(d)
@@ -35,7 +35,7 @@ def study_cards(deckId):
     
     # Instead of a sample size of 10 automatically, we need to make sure we don't get a repeat card. 
     while len(study_cards) < 10:
-        # Returns one card in a list, call to_dict on it to make it readable on front-end
+        # Returns one card in a list, call to_dict on it to make it readable on front-end & have the ability to check id
         card = va.sample_n(size=1)[0].to_dict()
         # Now we can compare the ids of the cards & put it in the study_cards dictionary with the id as the key to prevent repeats
         if not card["id"] in study_cards:
