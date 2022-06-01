@@ -3,13 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import decksReducer from './decks';
 import cardsReducer from './cards';
-// import studyCardsReducer from './studyCards';
+import studyCardsReducer from './studyCards';
 
 const rootReducer = combineReducers({
   session,
   decks: decksReducer,
   cards: cardsReducer,
-  // studyCards: studyCardsReducer
+  studyCards: studyCardsReducer
 });
 
 

@@ -4,10 +4,6 @@ from vose_sampler import VoseAlias
 
 study_cards_routes = Blueprint('study_cards_routes', __name__)
 
-# This is the routes version for this. Decided against this--
-# B/c on page refresh, I don't want 10 new cards to be populated--
-# New spot for drawing these cards is in the model study_session.py
-
 # GET confidence buckets filled with cards
 
 @study_cards_routes.route('/decks/<int:deckId>')
