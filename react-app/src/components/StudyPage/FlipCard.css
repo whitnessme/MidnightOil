@@ -1,25 +1,36 @@
 .flip-card-div {
-    width: 50%;
+    width: 100%;
     min-width: 200px;
-    max-width: 1000px;
+    max-width: 800px;
+    height: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .flip-card {
-    width: 100%;
+    width: calc(100% - 24px - 24px);
     min-height: 400px;
-    height: 50%;
-    background-color: lightblue;
+    height: 70%;
+    margin: 24px;
+    /* margin-bottom: 50px; */
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 10px;
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 0 0px 4px rgb(100 100 100 / 25%);
 }
 
 .rating-div {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: calc(100% - 24px - 24px);
     height: 80px;
+    margin-left: 24px;
+    margin-right: 24px;
 }
 
 .rating-button {
@@ -30,13 +41,43 @@
     align-items: center;
     background-color: grey;
     cursor: pointer;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .rate-1, .rate-5 {
     position: relative;
 }
 
+.rate-1 {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.rate-5 {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    
+}
+
 .rate-info {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
     position: absolute;
     bottom: 0;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: 300;
+}
+
+.reveal-button {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 7px;
+    width: calc(100% - 24px - 24px);
+    height: 80px;
+    margin-left: 24px;
+    margin-right: 24px;
+    background-color: #CCCC;
+    border: none;
 }

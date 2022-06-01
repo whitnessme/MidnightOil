@@ -1,3 +1,5 @@
+// NO LONGER USING THIS; handling grabbing 10 cards in the model itself
+
 const LOAD_STUDY_CARDS = 'studyCards/LOAD_STUDY_CARDS';
 
 const load_all = (studyCards) => ({

@@ -30,7 +30,7 @@ const StudyPage = () => {
                 if (res.errors) console.log(res)
             })
         })()
-    })
+    }, [dispatch, deckId])
 
     if (deck && currUser?.id !== deck?.user_id) {
         history.push('/unauthorized')
@@ -38,7 +38,6 @@ const StudyPage = () => {
 
     return (
         <div className='study-page-div'>
-            <h2>STUDY</h2>
             <ProgressBar />
             <FlipCard />
         </div>
