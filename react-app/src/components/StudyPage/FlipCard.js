@@ -1,18 +1,30 @@
 import { useEffect, useState } from "react"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { editACard } from "../../store/cards";
+import { loadStudyCards } from "../../store/studyCards";
 import "./FlipCard.css"
 
-const FlipCard = () => {
+const FlipCard = ({ deckId,
+    showSide,
+    setShowSide,
+    borderColor,
+    fontColor,
+    currCard,
+    front,
+    back
+    }) => {
 
-    const [showSide, setShowSide] = useState("front");
-    const [borderColor, setBorderColor] = useState('#CCCCCC');
-    const [fontColor, setFontColor] = useState("black")
+    const dispatch = useDispatch();
+    
+    console.log(borderColor)
+    const ratingColors = {
+            1: "#CA0081",
+            2: "#ffa500",
+            3: "#FFDA00",
+            4: "#60B024",
+            5: "#00A9DB",
+    }
 
-    useEffect(() => {
-        if (borderColor === '#CCCCCC' || "#FFDA00") {
-            setFontColor('black')
-        } else setFontColor('white')
-    }, [borderColor])
 
     const handleFlipClick = (e) => {
         e.preventDefault();
@@ -22,16 +34,18 @@ const FlipCard = () => {
     }
 
     const handleRate = (num) => {
-        setShowSide("front")
+        currCard.curr_rating = num;
+        (async () => {
+            console.log(currCard)
+            dispatch(editACard(currCard.id, currCard)).then((res) => {
+                if (res.errors) console.log(res.errors)
+                else {   
+                    setShowSide("front")
+                }
+            })
+        })()
     }
 
-    const ratingColors = {
-            1: "#CA0081",
-            2: "#ffa500",
-            3: "#FFDA00",
-            4: "#60B024",
-            5: "#00A9DB",
-    }
 
     // useEffect(() => {
     //     if (card?.curr_rating) {
@@ -45,7 +59,7 @@ const FlipCard = () => {
                 <>
                     <div 
                         className="flip-card study-front"
-                        style={{ "borderBottom": `5px solid ${borderColor}`}}>FRONT</div>
+                        style={{ "borderBottom": `5px solid ${borderColor}`}}>{front}</div>
                     <button
                         className="reveal-button"
                         onClick={handleFlipClick}
@@ -57,7 +71,7 @@ const FlipCard = () => {
                 <>
                     <div
                         className="flip-card study-back"
-                        style={{ "borderBottom": `5px solid ${borderColor}`}}>BACK</div>
+                        style={{ "borderBottom": `5px solid ${borderColor}`}}>{back}</div>
                     <div className="rating-div">
                         {[1, 2, 3, 4, 5].map((ele) => (
                             <div key={ele}

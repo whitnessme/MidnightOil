@@ -6,6 +6,7 @@ const DeckPreview = ({ deck, idx }) => {
     const history = useHistory();
 
     const handleMainClick = () => {
+        localStorage.study = JSON.stringify({deck_id: deck.id, cards: [], one_count: 0, two_count: 0, three_count: 0, four_count: 0, five_count: 0});
         history.push(`/decks/${deck?.id}/study`)
     }
 
