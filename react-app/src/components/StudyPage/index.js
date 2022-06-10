@@ -56,11 +56,11 @@ const StudyPage = () => {
                         localStorage.study = JSON.stringify({deck_id: deckId, cards: res, one_count: 0, two_count: 0, three_count: 0, four_count: 0, five_count: 0});
                         // setStudyCards(res)
                         (async () => {
-                            await dispatch(loadCard(res[0].id)).then((res) => {
+                            await dispatch(loadCard(res[res.length-1].id)).then((res) => {
                                 console.log("RES",res)
                             })
-                            setCurrCardId(res[0].id)
-                            setCurrCard(res[0])
+                            setCurrCardId(res[res.length-1].id)
+                            setCurrCard(res[res.length-1])
                         })()
                     }
                 })
@@ -77,11 +77,17 @@ const StudyPage = () => {
         if (study.cards.length > 0) {
             // let card = study.cards[0]
             setFront(card.front)
+            console.log("setting front")
             setBack(card.back)
             console.log(card.curr_rating)
             setBorderColor(ratingColors[card.curr_rating])
+            console.log(showSide)
+            if (showSide === 'back') {
+                setShowSide('front')
+                console.log(showSide, front)
+            }
         }
-    }, [showSide, currCard])
+    }, [currCard])
 
     useEffect(() => {
         if (borderColor === '#CCCCCC' || "#FFDA00") {
@@ -102,6 +108,8 @@ const StudyPage = () => {
                 borderColor={borderColor}
                 fontColor={fontColor}
                 currCard={currCard}
+                setCurrCard={setCurrCard}
+                setCurrCardId={setCurrCardId}
                 front={front}
                 back={back}
             />

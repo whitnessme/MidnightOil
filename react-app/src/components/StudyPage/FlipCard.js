@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux";
+// import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux";
 import { editACard } from "../../store/cards";
-import { loadStudyCards } from "../../store/studyCards";
+import { loadCard } from "../../store/cards";
 import "./FlipCard.css"
 
 const FlipCard = ({ deckId,
@@ -10,6 +10,8 @@ const FlipCard = ({ deckId,
     borderColor,
     fontColor,
     currCard,
+    setCurrCard,
+    setCurrCardId,
     front,
     back
     }) => {
@@ -35,12 +37,24 @@ const FlipCard = ({ deckId,
 
     const handleRate = (num) => {
         currCard.curr_rating = num;
+
         (async () => {
             console.log(currCard)
             dispatch(editACard(currCard.id, currCard)).then((res) => {
                 if (res.errors) console.log(res.errors)
-                else {   
-                    setShowSide("front")
+                else {
+                    let study = JSON.parse(localStorage.study)
+                    study.cards.pop()
+                    localStorage.study = JSON.stringify(study)
+                    let newCard = study.cards[study.cards.length-1];
+                    
+                    (async () => {
+                        await dispatch(loadCard(newCard.id)).then((res) => {
+                            console.log("RES",res)
+                        })
+                        setCurrCardId(newCard.id)
+                        setCurrCard(newCard)
+                    })()
                 }
             })
         })()
