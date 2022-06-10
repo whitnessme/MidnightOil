@@ -18,7 +18,6 @@ const FlipCard = ({ deckId,
 
     const dispatch = useDispatch();
     
-    console.log(borderColor)
     const ratingColors = {
             1: "#CA0081",
             2: "#ffa500",
@@ -26,7 +25,6 @@ const FlipCard = ({ deckId,
             4: "#60B024",
             5: "#00A9DB",
     }
-
 
     const handleFlipClick = (e) => {
         e.preventDefault();
@@ -55,6 +53,8 @@ const FlipCard = ({ deckId,
                     if (num !== 1) {
                         // If they successfully knew it (even a little bit), we want to remove it from the cards array
                         study.cards.pop()   
+                        // Make sure progress bar has the rating color they chose
+                        study.progress.push(ratingColors[num])
                     } else {
                         // If the rating is 1, we don't remove the card but put it switch it with another card in the array randomly
                         let newIndex = Math.floor(Math.random() * (cards.length - 1))
@@ -63,14 +63,17 @@ const FlipCard = ({ deckId,
                     };
                     // After editing the cards array we want to make sure local Storage has it still, in case of refresh
                     localStorage.study = JSON.stringify(study);
-                    let newCard = cards[cards.length - 1];
-                    (async () => {
-                        await dispatch(loadCard(newCard.id)).then((res) => {
-                            if (res.errors) console.log(res.errors)
-                        })
-                        setCurrCardId(newCard.id)
-                        setCurrCard(newCard)
-                    })()
+                    if (study.cards.length) {
+                        // when there are still cards in line, we want to grab the next one
+                        let newCard = cards[cards.length - 1];
+                        (async () => {
+                            await dispatch(loadCard(newCard.id)).then((res) => {
+                                if (res.errors) console.log(res.errors)
+                            })
+                            setCurrCardId(newCard.id)
+                            setCurrCard(newCard)
+                        })()
+                    }
                 }
             })
         })()

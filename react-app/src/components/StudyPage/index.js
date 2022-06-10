@@ -30,6 +30,7 @@ const StudyPage = () => {
     const [showSide, setShowSide] = useState("front");
     const [borderColor, setBorderColor] = useState('#CCCCCC');
     const [fontColor, setFontColor] = useState("black");
+    const [progressColors, setProgressColors] = useState([]);
     
     const [currCard, setCurrCard] = useState();
     const [currCardId, setCurrCardId] = useState();
@@ -49,20 +50,21 @@ const StudyPage = () => {
     
     useEffect(() => {
         (async () => {
+            // Grab study obj from localStorage
             let study = JSON.parse(localStorage.study)
+
             if (study.cards.length === 0) {
                 // This occurs when someone presses the study button on a deck--study.cards is empty in localStorage
                await dispatch(loadStudyCards(deckId)).then((res) => {
                     if (res.errors) console.log(res)
                     else {
-                        localStorage.study = JSON.stringify({deck_id: deckId, cards: res, count_1: 0, count_2: 0, count_3: 0, count_4: 0, count_5: 0});
-                        // setStudyCards(res)
+                        localStorage.study = JSON.stringify({deck_id: deckId, progress: [], cards: res, count_1: 0, count_2: 0, count_3: 0, count_4: 0, count_5: 0});
                         (async () => {
-                            await dispatch(loadCard(res[res.length-1].id)).then((res) => {
-                                console.log("RES",res)
+                            await dispatch(loadCard(res[res.length - 1].id)).then((res) => {
+                                if (res.errors) console.log(res.errors)
                             })
-                            setCurrCardId(res[res.length-1].id)
-                            setCurrCard(res[res.length-1])
+                            setCurrCardId(res[res.length - 1].id)
+                            setCurrCard(res[res.length - 1])
                         })()
                     }
                 })
@@ -76,6 +78,7 @@ const StudyPage = () => {
                     setCurrCardId(study.cards[0].id)
                     setCurrCard(study.cards[0])
                 })()
+                setProgressColors(study.progress)
             }
         })()
     }, [dispatch, deckId])
@@ -84,16 +87,12 @@ const StudyPage = () => {
         // This occurs whenever currCard is changed, to see all the right values
         let study = JSON.parse(localStorage.study)
         if (study.cards.length > 0 && card) {
-            // let card = study.cards[0]
             setFront(card.front)
-            console.log("setting front")
             setBack(card.back)
-            console.log(card.curr_rating)
             setBorderColor(ratingColors[card.curr_rating])
-            console.log(showSide)
+            setProgressColors(study.progress)
             if (showSide === 'back') {
                 setShowSide('front')
-                console.log(showSide, front)
             }
         }
     }, [currCard])
@@ -112,7 +111,10 @@ const StudyPage = () => {
 
     return (
         <div className='study-page-div'>
-            <ProgressBar color={borderColor} />
+            <ProgressBar
+            progressColors={progressColors}
+            />
+
             <FlipCard deckId={deckId}
                 showSide={showSide}
                 setShowSide={setShowSide}
