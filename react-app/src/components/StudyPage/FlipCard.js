@@ -37,20 +37,36 @@ const FlipCard = ({ deckId,
 
     const handleRate = (num) => {
         currCard.curr_rating = num;
-
+        
         (async () => {
-            console.log(currCard)
+            // Change the current rating for the currnt card!
             dispatch(editACard(currCard.id, currCard)).then((res) => {
                 if (res.errors) console.log(res.errors)
                 else {
+                    // Grab study obj from localStorage
                     let study = JSON.parse(localStorage.study)
-                    study.cards.pop()
-                    localStorage.study = JSON.stringify(study)
-                    let newCard = study.cards[study.cards.length-1];
-                    
+
+                    // Update the count for the specific rating they chose
+                    let countKey = `count_${num}`
+                    study[countKey]++
+
+                    let cards = study.cards
+        
+                    if (num !== 1) {
+                        // If they successfully knew it (even a little bit), we want to remove it from the cards array
+                        study.cards.pop()   
+                    } else {
+                        // If the rating is 1, we don't remove the card but put it switch it with another card in the array randomly
+                        let newIndex = Math.floor(Math.random() * (cards.length - 1))
+                        study.cards[cards.length - 1] = study.cards[newIndex]
+                        study.cards[newIndex] = res
+                    };
+                    // After editing the cards array we want to make sure local Storage has it still, in case of refresh
+                    localStorage.study = JSON.stringify(study);
+                    let newCard = cards[cards.length - 1];
                     (async () => {
                         await dispatch(loadCard(newCard.id)).then((res) => {
-                            console.log("RES",res)
+                            if (res.errors) console.log(res.errors)
                         })
                         setCurrCardId(newCard.id)
                         setCurrCard(newCard)

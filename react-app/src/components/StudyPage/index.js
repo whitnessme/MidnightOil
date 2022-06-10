@@ -39,6 +39,7 @@ const StudyPage = () => {
     // Local Storage to Store 10 cards:
     
     useEffect( () => {
+        // If the deck doesn't exist, then pushed to unauth page
         (async () => {
             await dispatch(loadDeck(deckId)).then((res) => {
                 if (res.errors) history.push('/unauthorized')
@@ -50,10 +51,11 @@ const StudyPage = () => {
         (async () => {
             let study = JSON.parse(localStorage.study)
             if (study.cards.length === 0) {
+                // This occurs when someone presses the study button on a deck--study.cards is empty in localStorage
                await dispatch(loadStudyCards(deckId)).then((res) => {
                     if (res.errors) console.log(res)
                     else {
-                        localStorage.study = JSON.stringify({deck_id: deckId, cards: res, one_count: 0, two_count: 0, three_count: 0, four_count: 0, five_count: 0});
+                        localStorage.study = JSON.stringify({deck_id: deckId, cards: res, count_1: 0, count_2: 0, count_3: 0, count_4: 0, count_5: 0});
                         // setStudyCards(res)
                         (async () => {
                             await dispatch(loadCard(res[res.length-1].id)).then((res) => {
@@ -66,15 +68,22 @@ const StudyPage = () => {
                 })
             }
             else {
-                let card = study.cards[0]
-                setCurrCard(card)
+                // This occurs during a refresh, when study.cards DOES have something saved in localStorage
+                (async () => {
+                    await dispatch(loadCard(study.cards[0].id)).then((res) => {
+                        console.log("RES",res)
+                    })
+                    setCurrCardId(study.cards[0].id)
+                    setCurrCard(study.cards[0])
+                })()
             }
         })()
     }, [dispatch, deckId])
     
     useEffect(() => {
+        // This occurs whenever currCard is changed, to see all the right values
         let study = JSON.parse(localStorage.study)
-        if (study.cards.length > 0) {
+        if (study.cards.length > 0 && card) {
             // let card = study.cards[0]
             setFront(card.front)
             console.log("setting front")
@@ -90,11 +99,13 @@ const StudyPage = () => {
     }, [currCard])
 
     useEffect(() => {
+        // This occurs whenever borderColor changes to make sure the font is readable
         if (borderColor === '#CCCCCC' || "#FFDA00") {
             setFontColor('black')
         } else setFontColor('white')
     }, [borderColor])
     
+    // If user does not own the deck (like if they change the url manually) they will not be able to study it
     if (deck && currUser?.id !== deck?.user_id) {
         history.push('/unauthorized')
     }
