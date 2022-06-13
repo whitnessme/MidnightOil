@@ -7,6 +7,7 @@ import { loadStudyCards } from '../../store/studyCards';
 import FlipCard from './FlipCard';
 import ProgressBar from './ProgressBar';
 import "./StudyPage.css"
+import StudyResults from './StudyResults';
 
 
 const StudyPage = () => {
@@ -36,6 +37,8 @@ const StudyPage = () => {
     const [currCardId, setCurrCardId] = useState();
     const [front, setFront] = useState();
     const [back, setBack] = useState();
+
+    const [showResults, setShowResults] = useState(true);
 
     // Local Storage to Store 10 cards:
     
@@ -111,11 +114,15 @@ const StudyPage = () => {
 
     return (
         <div className='study-page-div'>
-            <ProgressBar
-            progressColors={progressColors}
-            />
-
-            <FlipCard deckId={deckId}
+            {showResults ? 
+                <StudyResults />
+            :
+            <>
+                <ProgressBar
+                progressColors={progressColors}
+                />
+                
+                <FlipCard deckId={deckId}
                 showSide={showSide}
                 setShowSide={setShowSide}
                 borderColor={borderColor}
@@ -125,7 +132,10 @@ const StudyPage = () => {
                 setCurrCardId={setCurrCardId}
                 front={front}
                 back={back}
-            />
+                setShowResults={setShowResults}
+                />
+            </>
+            }
         </div>
     )
 }
