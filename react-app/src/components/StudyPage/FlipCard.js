@@ -13,7 +13,8 @@ const FlipCard = ({ deckId,
     setCurrCard,
     setCurrCardId,
     front,
-    back
+    back,
+    setShowResults
     }) => {
 
     const dispatch = useDispatch();
@@ -34,7 +35,16 @@ const FlipCard = ({ deckId,
     }
 
     const handleRate = (num) => {
+        // Things that need to change about the card in DB
+        if (num === 5 && currCard.curr_rating === 5) {
+            // Want to count how many times in a row they get 5's
+            currCard.numFivesInRow++
+        } else if (num !== 5) {
+            // If the num isn't five, want to make sure this is reset to 0
+            currCard.numFivesInRow = 0
+        }
         currCard.curr_rating = num;
+        currCard.seen = true;
         
         (async () => {
             // Change the current rating for the currnt card!
@@ -50,12 +60,12 @@ const FlipCard = ({ deckId,
 
                     let cards = study.cards
         
-                    if (num !== 1) {
+                    if (num !== 1 && cards.length > 0) { // need to make sure its not empty
                         // If they successfully knew it (even a little bit), we want to remove it from the cards array
                         study.cards.pop()   
                         // Make sure progress bar has the rating color they chose
                         study.progress.push(ratingColors[num])
-                    } else {
+                    } else if (num === 1 && cards.length > 1) { // still with another card left to switch spots
                         // If the rating is 1, we don't remove the card but put it switch it with another card in the array randomly
                         let newIndex = Math.floor(Math.random() * (cards.length - 1))
                         study.cards[cards.length - 1] = study.cards[newIndex]
@@ -73,6 +83,9 @@ const FlipCard = ({ deckId,
                             setCurrCardId(newCard.id)
                             setCurrCard(newCard)
                         })()
+                    } else {
+                        // No more cards left means the study session is done; time to show the results!
+                        setShowResults(true)
                     }
                 }
             })
