@@ -35,7 +35,16 @@ const FlipCard = ({ deckId,
     }
 
     const handleRate = (num) => {
+        // Things that need to change about the card in DB
+        if (num === 5 && currCard.curr_rating === 5) {
+            // Want to count how many times in a row they get 5's
+            currCard.numFivesInRow++
+        } else if (num !== 5) {
+            // If the num isn't five, want to make sure this is reset to 0
+            currCard.numFivesInRow = 0
+        }
         currCard.curr_rating = num;
+        currCard.seen = true;
         
         (async () => {
             // Change the current rating for the currnt card!
