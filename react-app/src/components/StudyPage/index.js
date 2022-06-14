@@ -115,7 +115,7 @@ const StudyPage = () => {
     return (
         <div className='study-page-div'>
             {showResults ? 
-                <StudyResults />
+                <StudyResults deckId={deckId}/>
             :
             <>
                 <ProgressBar

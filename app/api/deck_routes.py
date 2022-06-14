@@ -34,6 +34,11 @@ def deck_points(id):
     
     for card in deck_cards:
         current_points += card.curr_rating
+        
+    proficiency_percent = (current_points / total_points) * 100
+    deck.points = proficiency_percent
+    db.session.commit()
+    return deck.to_dict()
     
 
 # POST
