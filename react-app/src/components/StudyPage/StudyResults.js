@@ -4,7 +4,7 @@ import { PieChart, Pie, Tooltip, Cell, Label } from 'recharts';
 
 const StudyResults = ({ deckId }) => {
     
-    const [percent, setPercent] = useState(80);
+    const [percent, setPercent] = useState(60);
 
     
     const proficiencyData = [
@@ -61,12 +61,14 @@ const StudyResults = ({ deckId }) => {
     ]
 
     const [posData, setPosData] = useState();
+    const [posData2, setPosData2] = useState();
+
     const RADIAN = Math.PI / 180;
     let xPos = 0;
     let yPos = 0;
     if (posData) {
         const radius = posData.innerRadius + (posData.outerRadius - posData.innerRadius) *
-        (posData.midAngle < 225 && posData.midAngle > 120 ? 4.5 : 1.5);
+        (posData.midAngle < 225 && posData.midAngle > 120 ? 4.5 : posData.midAngle > 60 && posData.midAngle <= 120 ? 2.8 : 1.8);
         xPos = posData.cx + radius * Math.cos(-posData.midAngle * RADIAN);
         yPos = posData.cy + radius * Math.sin(-posData.midAngle * RADIAN);
         console.log(xPos)
@@ -105,15 +107,37 @@ const StudyResults = ({ deckId }) => {
         );
     };
 
+    const CustomLabelRound = ({ viewBox }) => {
+        const { cx, cy } = viewBox;
+        return (
+            <>
+                <text x={ cx - 20} y={cy} style={{
+                    fontSize: "35px",
+                    fontWeight: "400",
+                    fontFamily: 'Montserrat'
+                }}>
+                    10
+                </text>
+                <text x={cx - 30} y={cy + 30} style={{
+                            fontSize: "22px",
+                            fontWeight: "300",
+                            fontFamily: 'Montserrat'
+                        }}>
+                    cards
+                </text>
+            </>
+        );
+    };
+
 
     return (
         <div className="study-results-div">
-            <PieChart width={500} height={500}>
+            <PieChart width={700} height={500}>
 
                 <Pie
                     dataKey="value"
                     data={ratingData}
-                    cx="50%"
+                    cx="75%"
                     cy="50%"
                     nameKey="name"
                     innerRadius={98}
@@ -131,6 +155,31 @@ const StudyResults = ({ deckId }) => {
                         ))}
                     <Label
                         content={CustomLabel}
+                        position="center"
+                        fill="grey"
+                    />
+                </Pie>
+                <Pie
+                    dataKey="value"
+                    data={ratingData}
+                    cx="25%"
+                    cy="50%"
+                    nameKey="name"
+                    innerRadius={98}
+                    outerRadius={120}
+                    labelLine={false}
+                    animationBegin={2}
+                    onMouseOver={(data) => {
+                        console.log("data", data.midAngle);
+                        setPosData(data);
+                      }}
+                >
+                    {ratingData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={ratingColors[index]}
+                         />
+                        ))}
+                    <Label
+                        content={CustomLabelRound}
                         position="center"
                         fill="grey"
                     />
