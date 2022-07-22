@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PieChart, Pie, Tooltip, Cell, Label } from 'recharts';
+import { PieChart, Pie, Tooltip, Cell, Label, ResponsiveContainer } from 'recharts';
 import { useHistory } from 'react-router-dom';
 
 
@@ -8,6 +8,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
     const [percent, setPercent] = useState(20);
     const [totalCardCounts, setTotalCardCounts] = useState({});
     const [totalCards, setTotalCards] = useState(0)
+    const [showCurrent, setShowCurrent] = useState(false)
 
     const history = useHistory()
     
@@ -157,73 +158,82 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
 
     return (
         <div className="study-results-div">
-            <h1>Checkpoint!</h1>
-            <div>
-                <h4>What is this?</h4>
-                <div>
-                    <p>The leading cognitive science research indicates that periodic feedback about your progress reinforces the retention of information.</p>
+            <h1 className='checkpoint'>Checkpoint!</h1>
+            <div className='checkpoint-info-div'>
+                <div className='what-div'>
+                    <p className='what-is-this'>What is this?</p>
+                    <div className='info-popup-div'>
+                        <p>The leading cognitive science research indicates that periodic feedback about your progress reinforces the retention of information.</p>
+                    </div>
                 </div>
             </div>
-            <PieChart width={700} height={500}>
-                <Pie
-                    id='this-round-pie-chart'
-                    dataKey="value"
-                    data={ratingData}
-                    cx="75%"
-                    cy="50%"
-                    nameKey="name"
-                    innerRadius={98}
-                    outerRadius={120}
-                    labelLine={false}
-                    animationBegin={2}
-                    onMouseOver={(data) => {
-                        setPosData(data);
-                      }}
-                >
-                    {ratingData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={ratingColors[index]}
-                         />
-                        ))}
-                    <Label
-                        content={CustomLabel}
-                        position="center"
-                        fill="grey"
-                    />
-                </Pie>
-                <Pie
-                    id='overall-pie-chart'
-                    dataKey="value"
-                    data={ratingData10}
-                    cx="25%"
-                    cy="50%"
-                    nameKey="name"
-                    innerRadius={98}
-                    outerRadius={120}
-                    labelLine={false}
-                    animationBegin={2}
-                    onMouseOver={(data) => {
-                        setPosData(data);
-                      }}
-                >
-                    {ratingData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={ratingColors[index]}
-                         />
-                        ))}
-                    <Label
-                        content={CustomLabelRound}
-                        position="center"
-                        fill="grey"
-                    />
-                </Pie>
-                <Tooltip
-                    content={renderCustomToolTip}
-                    position={{x:xPos, y:yPos}}
-                />
-            </PieChart>
+            <div className='piechart-div'>
+                <ResponsiveContainer>
+                    <PieChart>
+                        {!showCurrent ?
+                            <Pie
+                            id='overall-pie-chart'
+                            dataKey="value"
+                            data={ratingData}
+                            cx="50%"
+                            cy="50%"
+                            nameKey="name"
+                            innerRadius={98}
+                            outerRadius={120}
+                            labelLine={false}
+                            animationBegin={2}
+                            onMouseOver={(data) => {
+                                setPosData(data);
+                            }}
+                            >
+                            {ratingData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={ratingColors[index]}
+                                />
+                                ))}
+                            <Label
+                                content={CustomLabel}
+                                position="center"
+                                fill="grey"
+                                />
+                        </Pie>
+                        :
+                        <Pie
+                        id='current-pie-chart'
+                        dataKey="value"
+                        data={ratingData10}
+                        cx="50%"
+                        cy="50%"
+                        nameKey="name"
+                        innerRadius={98}
+                        outerRadius={120}
+                        labelLine={false}
+                        animationBegin={2}
+                        onMouseOver={(data) => {
+                            setPosData(data);
+                        }}
+                        >
+                            {ratingData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={ratingColors[index]}
+                                />
+                                ))}
+                            <Label
+                                content={CustomLabelRound}
+                                position="center"
+                                fill="grey"
+                                />
+                        </Pie>
+                        }
+                        <Tooltip
+                            content={renderCustomToolTip}
+                            position={{x:xPos, y:yPos}}
+                            />
+                    </PieChart>
+                </ResponsiveContainer>
+            </div>
             <div>
                 {totalCardCounts['0'] ?
                     <h2>{totalCardCounts['0']} more cards till you've studied the whole deck!</h2>
-                :
+                    :
                     <h2>{100 - percent}% left to reach 100% proficiency!</h2>
                 }
             </div>

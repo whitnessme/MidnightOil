@@ -8,3 +8,34 @@
     overflow: auto;
     background-color: rgb(241, 241, 241);
 }
+
+.piechart-div {
+    width: 100%;
+    height: 350px;
+}
+
+.checkpoint {
+    font-size: 8vh;
+}
+
+.checkpoint-info-div {
+    position: relative;
+}
+
+.info-popup-div {
+    display: none;
+    background-color: azure;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+.what-is-this {
+    font-size: 2vh;
+}
+
+.what-div:hover .info-popup-div{
+    background-color: pink;
+    display: block;
+}
+
