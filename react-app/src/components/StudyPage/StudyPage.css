@@ -4,10 +4,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     flex: 1 1 auto;
     overflow: auto;
-    background-color: rgb(241, 241, 241);
-}
+    background-color: #324054;}
 
 .piechart-div {
     width: 100%;
@@ -16,26 +16,42 @@
 
 .checkpoint {
     font-size: 8vh;
+    color: white;
 }
 
 .checkpoint-info-div {
     position: relative;
 }
 
+.what-div {
+    display: flex;
+    justify-content: center;
+    width: 24%;
+    margin: auto;
+}
+
 .info-popup-div {
-    display: none;
-    background-color: azure;
     position: absolute;
-    width: 50px;
-    height: 50px;
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    top: 55px;
+    padding: 8px 15px;
+    background-color: #ffcf75;
+    display: none;
+    z-index: 5;
+    width: 60%;
 }
 
 .what-is-this {
     font-size: 2vh;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.593)
 }
 
 .what-div:hover .info-popup-div{
-    background-color: pink;
-    display: block;
+    display: flex;
 }
 

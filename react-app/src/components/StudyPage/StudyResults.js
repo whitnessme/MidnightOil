@@ -84,7 +84,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
         "#FFDA00",
         "#ffa500",
         "#CA0081",
-        "lightgrey"
+        "#1c242f"
     ]
 
     const [posData, setPosData] = useState();
@@ -115,14 +115,14 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
         const { cx, cy } = viewBox;
         return (
             <>
-                <text x={percent < 10 ? cx - 20 : percent === 100 ? cx - 43 : cx - 30} y={cy} style={{
+                <text x={percent < 10 ? cx - 20 : percent === 100 ? cx - 43 : cx - 30} y={cy} fill='white' style={{
                     fontSize: "35px",
                     fontWeight: "400",
                     fontFamily: 'Montserrat'
                 }}>
                     {percent}%
                 </text>
-                <text x={cx - 60} y={cy + 30} style={{
+                <text x={cx - 60} y={cy + 30} fill='white' style={{
                             fontSize: "22px",
                             fontWeight: "300",
                             fontFamily: 'Montserrat'
@@ -137,14 +137,14 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
         const { cx, cy } = viewBox;
         return (
             <>
-                <text x={ cx - 20} y={cy} style={{
+                <text x={ cx - 20} y={cy} fill='white' style={{
                     fontSize: "35px",
                     fontWeight: "400",
                     fontFamily: 'Montserrat'
                 }}>
                     10
                 </text>
-                <text x={cx - 30} y={cy + 30} style={{
+                <text x={cx - 30} y={cy + 30} fill='white' style={{
                             fontSize: "22px",
                             fontWeight: "300",
                             fontFamily: 'Montserrat'
@@ -163,6 +163,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
                 <div className='what-div'>
                     <p className='what-is-this'>What is this?</p>
                     <div className='info-popup-div'>
+                        <div className='triangle'></div>
                         <p>The leading cognitive science research indicates that periodic feedback about your progress reinforces the retention of information.</p>
                     </div>
                 </div>
@@ -175,6 +176,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
                             id='overall-pie-chart'
                             dataKey="value"
                             data={ratingData}
+                            stroke="none"
                             cx="50%"
                             cy="50%"
                             nameKey="name"
@@ -201,6 +203,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
                         id='current-pie-chart'
                         dataKey="value"
                         data={ratingData10}
+                        stroke="none"
                         cx="50%"
                         cy="50%"
                         nameKey="name"
@@ -232,7 +235,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
             </div>
             <div>
                 {totalCardCounts['0'] ?
-                    <h2>{totalCardCounts['0']} more cards till you've studied the whole deck!</h2>
+                    <h2>{totalCardCounts['0']} more card{!totalCardCounts['0'] === 1 ? 's' : ''} till you've studied the whole deck!</h2>
                     :
                     <h2>{100 - percent}% left to reach 100% proficiency!</h2>
                 }
