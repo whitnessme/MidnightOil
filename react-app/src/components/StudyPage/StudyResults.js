@@ -1,53 +1,79 @@
 import { useEffect, useState } from 'react';
 import { PieChart, Pie, Tooltip, Cell, Label } from 'recharts';
+import { useHistory } from 'react-router-dom';
 
 
-const StudyResults = ({ deckId }) => {
+const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
     
-    const [percent, setPercent] = useState(60);
+    const [percent, setPercent] = useState(20);
+    const [totalCardCounts, setTotalCardCounts] = useState({});
+    const [totalCards, setTotalCards] = useState(0)
 
+    const history = useHistory()
     
-    const proficiencyData = [
-        { name: `Percent completed`, value: percent },
-    ]
+    useEffect(() => {
+        // Use points route to calculate the profiency percentage (current points/total points)--from card curr_ratings
+        (async () => {
+            await fetch(`/api/decks/${deckId}/points`).then( async (res) => {
+                if (res.ok) {
+                    await res.json().then(async (res) => {
+                        console.log(res)
+                        setPercent(res.total_points)
+                        setTotalCardCounts(res)
+                        setTotalCards(res.total_cards)
+                        console.log(totalCards)
+                    })
+                } else {
+                    await res.json().then(res => {
+                        console.log(res)
+                    })
+                }
+            })
+        })();
+    }, [])
+
+    const handleMoreStudy = () => {
+        // Reset study object
+        localStorage.study = JSON.stringify({deck_id: deckId, progress: [], cards: [], count_1: 0, count_2: 0, count_3: 0, count_4: 0, count_5: 0});
+        // Reset progress shapes filled
+        setProgressColors([])
+        // Go back to seeing the cards
+        setShowResults(false)
+    }
     
-    // useEffect(() => {
-    //     // Use points route to calculate the profiency percentage (current points/total points)--from card curr_ratings
-    //     (async () => {
-    //         await fetch(`/api/decks/${deckId}/points`).then( async (res) => {
-    //             if (res.ok) {
-    //                 await res.json().then(async (res) => {
-    //                     setPercent(res.points)
-    //                 })
-    //             } else {
-    //                 await res.json().then(res => {
-    //                     console.log(res)
-    //                 })
-    //             }
-    //         })
-    //     })();
-    // }, [])
-    
-    // -- REAL VERSION -- COMMENT BACK IN --
     const study = JSON.parse(localStorage.study)
     const totalCount = study.count_5 + study.count_4 + study.count_3 + study.count_2 + study.count_1
-    const ratingData = [
-        { name: `Perfect:`, value: (2 / 12) * percent },
-        { name: `Easy:`, value: (1 / 12) * percent },
-        { name: `Hard:`, value: (2 / 12) * percent },
-        { name: `Difficult:`, value: (5 / 12) * percent },
-        { name: `Not at all:`, value: (2 / 12) * percent },
-        { name: `${100 - percent}% left`, value: (100 - percent) }
-    ]
+    
+    // const proficiencyData = [
+    //     { name: `Percent completed`, value: percent },
+    // ]
+    // Fake version for testing: 
     // const ratingData = [
-    //     { name: `Perfect: ${study.count_5}`, value: (study.count_5 / totalCount) * percent },
-    //     { name: `Easy: ${study.count_4}`, value: (study.count_4 / totalCount) * percent },
-    //     { name: `Hard: ${study.count_3}`, value: (study.count_3 / totalCount) * percent },
-    //     { name: `Difficult: ${study.count_2}`, value: (study.count_2 / totalCount) * percent },
-    //     { name: `Not at all: ${study.count_1}`, value: (study.count_1 / totalCount) * percent },
+    //     { name: `Perfect:`, value: (2 / 12) * percent },
+    //     { name: `Easy:`, value: (1 / 12) * percent },
+    //     { name: `Hard:`, value: (2 / 12) * percent },
+    //     { name: `Difficult:`, value: (5 / 12) * percent },
+    //     { name: `Not at all:`, value: (2 / 12) * percent },
     //     { name: `${100 - percent}% left`, value: (100 - percent) }
     // ]
+
+    // -- REAL VERSION -- COMMENT BACK IN --
+    const ratingData = [
+        { name: `Perfect: ${totalCardCounts['5']}`, value: (totalCardCounts['5'] / totalCards) * percent },
+        { name: `Easy: ${totalCardCounts['4']}`, value: (totalCardCounts['4'] / totalCards) * percent },
+        { name: `Hard: ${totalCardCounts['3']}`, value: (totalCardCounts['3'] / totalCards) * percent },
+        { name: `Difficult: ${totalCardCounts['2']}`, value: (totalCardCounts['2'] / totalCards) * percent },
+        { name: `Not at all: ${totalCardCounts['1']}`, value: (totalCardCounts['1'] / totalCards) * percent },
+        { name: `${100 - percent}% left`, value: (100 - percent) }
+    ]
     
+    const ratingData10 = [
+        { name: `Perfect: ${study.count_5}`, value: (study.count_5 / totalCount) * percent },
+        { name: `Easy: ${study.count_4}`, value: (study.count_4 / totalCount) * percent },
+        { name: `Hard: ${study.count_3}`, value: (study.count_3 / totalCount) * percent },
+        { name: `Difficult: ${study.count_2}`, value: (study.count_2 / totalCount) * percent },
+        { name: `Not at all: ${study.count_1}`, value: (study.count_1 / totalCount) * percent }
+    ]
     
 
     // Added grey for the percentage that isn't done for pie chart
@@ -71,7 +97,6 @@ const StudyResults = ({ deckId }) => {
         (posData.midAngle < 225 && posData.midAngle > 120 ? 4.5 : posData.midAngle > 60 && posData.midAngle <= 120 ? 2.8 : 1.8);
         xPos = posData.cx + radius * Math.cos(-posData.midAngle * RADIAN);
         yPos = posData.cy + radius * Math.sin(-posData.midAngle * RADIAN);
-        console.log(xPos)
     }
     
     let renderCustomToolTip = ({ active, payload, cx }) => {
@@ -132,9 +157,16 @@ const StudyResults = ({ deckId }) => {
 
     return (
         <div className="study-results-div">
+            <h1>Checkpoint!</h1>
+            <div>
+                <h4>What is this?</h4>
+                <div>
+                    <p>The leading cognitive science research indicates that periodic feedback about your progress reinforces the retention of information.</p>
+                </div>
+            </div>
             <PieChart width={700} height={500}>
-
                 <Pie
+                    id='this-round-pie-chart'
                     dataKey="value"
                     data={ratingData}
                     cx="75%"
@@ -145,7 +177,6 @@ const StudyResults = ({ deckId }) => {
                     labelLine={false}
                     animationBegin={2}
                     onMouseOver={(data) => {
-                        console.log("data", data.midAngle);
                         setPosData(data);
                       }}
                 >
@@ -160,8 +191,9 @@ const StudyResults = ({ deckId }) => {
                     />
                 </Pie>
                 <Pie
+                    id='overall-pie-chart'
                     dataKey="value"
-                    data={ratingData}
+                    data={ratingData10}
                     cx="25%"
                     cy="50%"
                     nameKey="name"
@@ -170,7 +202,6 @@ const StudyResults = ({ deckId }) => {
                     labelLine={false}
                     animationBegin={2}
                     onMouseOver={(data) => {
-                        console.log("data", data.midAngle);
                         setPosData(data);
                       }}
                 >
@@ -187,12 +218,19 @@ const StudyResults = ({ deckId }) => {
                 <Tooltip
                     content={renderCustomToolTip}
                     position={{x:xPos, y:yPos}}
-                    // position={{
-                    //     x: ( (posData < 110 && posData > 80) ? 220 : (posData < 288 && posData > 250) ? 220 : (posData > 90 && posData < 270) ? 58 : 380),
-                    //     y: (posData < 110 && posData > 80) ? 85 : (posData < 288 && posData > 250) ? 380 : "auto"
-                    // }}
                 />
             </PieChart>
+            <div>
+                {totalCardCounts['0'] ?
+                    <h2>{totalCardCounts['0']} more cards till you've studied the whole deck!</h2>
+                :
+                    <h2>{100 - percent}% left to reach 100% proficiency!</h2>
+                }
+            </div>
+            <div className='checkpoint-buttons-div'>
+                <button onClick={() => history.push('/dashboard')} >Back to Dashboard</button>
+                <button onClick={handleMoreStudy} >Study 10 more cards</button>
+            </div>
         </div>
     );
 };

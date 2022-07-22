@@ -38,7 +38,7 @@ const StudyPage = () => {
     const [front, setFront] = useState();
     const [back, setBack] = useState();
 
-    const [showResults, setShowResults] = useState(true);
+    const [showResults, setShowResults] = useState(false);
 
     // Local Storage to Store 10 cards:
     
@@ -50,6 +50,7 @@ const StudyPage = () => {
             })
         })()
     }, [dispatch, deckId, history])
+    
     
     useEffect(() => {
         (async () => {
@@ -115,7 +116,7 @@ const StudyPage = () => {
     return (
         <div className='study-page-div'>
             {showResults ? 
-                <StudyResults deckId={deckId}/>
+                <StudyResults deckId={deckId} setShowResults={setShowResults} setProgressColors={setProgressColors}/>
             :
             <>
                 <ProgressBar
