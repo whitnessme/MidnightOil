@@ -42,9 +42,9 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
         setShowResults(false)
     };
 
-    const handlePieSwitch = (e) => {
-        e.preventDefault();
-        setShowCurrent(!showCurrent);
+    const handlePieSwitch = (type) => {
+        if (type === "this") setShowCurrent(true);
+        else if (type === "all") setShowCurrent(false)
     };
     
     const study = JSON.parse(localStorage.study)
@@ -179,8 +179,8 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
                 </div>
             </div>
             <div className='progress-button'>
-                <div>Overall Progress:</div>
-                <div>This Round:</div>
+                <div className={`selected-${!showCurrent}`} onClick={() => handlePieSwitch("all")} >Overall Progress:</div>
+                <div className={`selected-${showCurrent}`} onClick={() => handlePieSwitch("this")} >This Round:</div>
             </div>
             <div className='piechart-div'>
                 <ResponsiveContainer>
@@ -247,16 +247,24 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
                     </PieChart>
                 </ResponsiveContainer>
             </div>
-            <div>
+            <div className='motivate-div'>
                 {totalCardCounts['0'] ?
-                    <h2>{totalCardCounts['0']} more card{!totalCardCounts['0'] === 1 ? 's' : ''} till you've studied the whole deck! ({totalCards} cards)</h2>
+                    <p className='motivate-text'>{totalCardCounts['0']} more card{!totalCardCounts['0'] === 1 ? 's' : ''} till you've studied the whole deck! ({totalCards} cards)</p>
                     :
-                    <h2>{100 - percent}% left to reach 100% proficiency!</h2>
+                    <p className='motivate-text'>{100 - percent}% left to reach 100% proficiency!</p>
                 }
             </div>
             <div className='checkpoint-buttons-div'>
-                <button onClick={() => history.push('/dashboard')} >Back to Dashboard</button>
-                <button onClick={handleMoreStudy} >Study 10 more cards</button>
+                <div className='checkpoint-button back-button'
+                onClick={() => history.push('/dashboard')} >
+                    <i className="fa-solid fa-angle-left"></i>
+                    <p>Back to<br/> Dashboard</p>
+                </div>
+                <div className='checkpoint-button study-button'
+                onClick={handleMoreStudy} >
+                    <p>Study 10<br/> more Cards</p>
+                    <i className="fa-solid fa-angle-right"></i>
+                </div>
             </div>
         </div>
     );
