@@ -40,7 +40,12 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
         setProgressColors([])
         // Go back to seeing the cards
         setShowResults(false)
-    }
+    };
+
+    const handlePieSwitch = (e) => {
+        e.preventDefault();
+        setShowCurrent(!showCurrent);
+    };
     
     const study = JSON.parse(localStorage.study)
     const totalCount = study.count_5 + study.count_4 + study.count_3 + study.count_2 + study.count_1
@@ -164,9 +169,18 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
                     <p className='what-is-this'>What is this?</p>
                     <div className='info-popup-div'>
                         <div className='triangle'></div>
-                        <p>The leading cognitive science research indicates that periodic feedback about your progress reinforces the retention of information.</p>
+                        <pre>
+                            The leading cognitive science research indicates that periodic feedback about your progress reinforces the retention of information.
+                            <br/>-
+                            <br/>100% proficiency is reached when all cards have a rating of 5/Perfect, but you must self-assess yourself to determine when you adequately know the material. 
+                            <br/>
+                        </pre>
                     </div>
                 </div>
+            </div>
+            <div className='progress-button'>
+                <div>Overall Progress:</div>
+                <div>This Round:</div>
             </div>
             <div className='piechart-div'>
                 <ResponsiveContainer>
@@ -235,7 +249,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
             </div>
             <div>
                 {totalCardCounts['0'] ?
-                    <h2>{totalCardCounts['0']} more card{!totalCardCounts['0'] === 1 ? 's' : ''} till you've studied the whole deck!</h2>
+                    <h2>{totalCardCounts['0']} more card{!totalCardCounts['0'] === 1 ? 's' : ''} till you've studied the whole deck! ({totalCards} cards)</h2>
                     :
                     <h2>{100 - percent}% left to reach 100% proficiency!</h2>
                 }

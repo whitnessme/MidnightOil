@@ -7,7 +7,8 @@
     justify-content: center;
     flex: 1 1 auto;
     overflow: auto;
-    background-color: #324054;}
+    background-color: #324054;
+}
 
 .piechart-div {
     width: 100%;
@@ -26,8 +27,9 @@
 .what-div {
     display: flex;
     justify-content: center;
-    width: 24%;
+    width: 30%;
     margin: auto;
+    cursor: help;
 }
 
 .info-popup-div {
@@ -42,16 +44,44 @@
     background-color: #ffcf75;
     display: none;
     z-index: 5;
-    width: 60%;
+    width: 55%;
+}
+
+.info-popup-div > pre{
+    color: #324054;
+    text-align: center;
 }
 
 .what-is-this {
+    font-family: Montserrat;
     font-size: 2vh;
     margin-top: 10px;
-    color: rgba(255, 255, 255, 0.593)
+    color: rgba(255, 255, 255, 0.429)
 }
 
 .what-div:hover .info-popup-div{
     display: flex;
+}
+
+.progress-button {
+    display: flex;
+    padding-top: 30px;
+    width: 100%;
+}
+
+.progress-button > div {
+    width: 50%;
+    border-bottom: 8px solid #888;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+}
+
+.progress-button > div:hover {
+    border-bottom: 8px solid rgba(136, 136, 136, 0.5);
 }
 
