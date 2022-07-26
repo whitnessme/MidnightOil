@@ -1,10 +1,138 @@
 .study-page-div {
-    /* width: 100%;
-    height: 100%; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     flex: 1 1 auto;
     overflow: auto;
-    background-color: rgb(241, 241, 241);
+    background-color: #324054;
+}
+
+.piechart-div {
+    width: 100%;
+    height: 350px;
+}
+
+.checkpoint {
+    font-size: 8vh;
+    color: white;
+}
+
+.checkpoint-info-div {
+    position: relative;
+}
+
+.what-div {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    margin: auto;
+    cursor: help;
+}
+
+.info-popup-div {
+    position: absolute;
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    top: 55px;
+    padding: 8px 15px;
+    background-color: #ffcf75;
+    display: none;
+    z-index: 5;
+    width: 55%;
+}
+
+.info-popup-div > pre{
+    color: #324054;
+    text-align: center;
+}
+
+.what-is-this {
+    font-family: Montserrat;
+    font-size: 2vh;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.429)
+}
+
+.what-div:hover .info-popup-div{
+    display: flex;
+}
+
+.progress-button {
+    display: flex;
+    padding-top: 30px;
+    width: 100%;
+}
+
+.progress-button > div {
+    width: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+}
+
+.selected-false:hover {
+    border-bottom: 8px solid rgba(136, 136, 136, 0.5);
+}
+
+.selected-true {
+    border-bottom: 8px solid #888;
+}
+
+.checkpoint-buttons-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.checkpoint-button {
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    border: 0px solid transparent !important;
+    background-color: #f5b949;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.checkpoint-button > p {
+    text-align: center;
+    color: #324054;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.checkpoint-button > .fa-angle-left {
+    position: absolute;
+    left: 15px;
+    font-size: 20px;
+    color: #324054;
+}
+
+.checkpoint-button > .fa-angle-right {
+    position: absolute;
+    right: 15px;
+    font-size: 20px;
+    color: #324054;
+}
+
+.motivate-div {
+    width: 100%;
+    text-align: center;
+}
+
+.motivate-text {
+    color: white;
+    font-weight: 400;
 }

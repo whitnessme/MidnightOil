@@ -14,6 +14,7 @@ def study_cards(deckId):
     hard_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 3)).all()
     easy_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 4)).all()
     perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5)).all()
+    # numFives in a row needs to be greater than or equal to ????? LOOOK
     extra_perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5) & (Card.numFivesInRow == 3)).all()
     
     # Assign different percentages to each card within each bucket

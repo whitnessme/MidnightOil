@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import Deck, db
+from app.models import Deck, Card, db
 from app.forms.deck_form import DeckForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -22,6 +22,28 @@ def one_deck(id):
         return {"one_deck": one_deck.to_dict()}
     else:
         return {'errors': ['Unauthorized']}, 401
+
+# GET POINTS OF DECK    
+@deck_routes.route('/<int:id>/points')
+@login_required
+def deck_points(id):
+    deck = Deck.query.get(id)
+    deck_cards = Card.query.filter(Card.deck_id == id).all()
+    
+    total_points = len(deck_cards) * 5
+    # A dict that includes the count of each number and then a total for the combined points
+    current_ratings = {'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, 'total_points': 0, 'total_cards': len(deck_cards)}
+    current_points = 0
+    
+    for card in deck_cards:
+        current_ratings[f'{card.curr_rating}'] += 1
+        current_points += card.curr_rating
+        
+    current_ratings['total_points'] = round((current_points / total_points) * 100)
+    deck.points = current_ratings['total_points']
+    db.session.commit()
+    return current_ratings
+    
 
 # POST
 @deck_routes.route('/', methods=["POST"])
