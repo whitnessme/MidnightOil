@@ -38,7 +38,7 @@ const StudyPage = () => {
     const [front, setFront] = useState();
     const [back, setBack] = useState();
 
-    const [showResults, setShowResults] = useState(true);
+    const [showResults, setShowResults] = useState(false);
 
     // Local Storage to Store 10 cards:
     
