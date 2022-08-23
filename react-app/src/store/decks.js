@@ -31,6 +31,7 @@ const remove = (deleteDeck) => ({
 });
 
 export const loadUserDecks = (userId) => async (dispatch) => {
+    // refactor into RESTful conventions
     const res = await fetch(`/api/decks/all/users/${userId}`);
     if (res.ok) {
         const decks = await res.json();
