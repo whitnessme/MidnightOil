@@ -105,7 +105,9 @@ const FlipCard = ({ deckId,
                 <>
                     <div 
                         className="flip-card study-front"
-                        style={{ "borderBottom": `5px solid ${borderColor}`}}>{front}</div>
+                        style={{ "borderBottom": `5px solid ${borderColor}`}}>
+                            <p>{front}</p>
+                            </div>
                     <button
                         className="reveal-button"
                         onClick={handleFlipClick}
@@ -117,7 +119,9 @@ const FlipCard = ({ deckId,
                 <>
                     <div
                         className="flip-card study-back"
-                        style={{ "borderBottom": `5px solid ${borderColor}`}}>{back}</div>
+                        style={{ "borderBottom": `5px solid ${borderColor}`}}>
+                            <p>{back}</p>
+                            </div>
                     <div className="rating-div">
                         {[1, 2, 3, 4, 5].map((ele) => (
                             <div key={ele}
