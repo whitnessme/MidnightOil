@@ -34,12 +34,17 @@ def study_cards(deckId):
     # Initialize the final dictionary to hold the cards
     study_cards = dict()
     
-    # Instead of a sample size of 10 automatically, we need to make sure we don't get a repeat card. 
-    while len(study_cards) < 10:
-        # Returns one card in a list, call to_dict on it to make it readable on front-end & have the ability to check id
-        card = va.sample_n(size=1)[0].to_dict()
-        # Now we can compare the ids of the cards & put it in the study_cards dictionary with the id as the key to prevent repeats
-        if not card["id"] in study_cards:
+    if len(d) >= 10:
+        # Instead of a sample size of 10 automatically, we need to make sure we don't get a repeat card. 
+        while len(study_cards) < 10:
+            # Returns one card in a list, call to_dict on it to make it readable on front-end & have the ability to check id
+            card = va.sample_n(size=1)[0].to_dict()
+            # Now we can compare the ids of the cards & put it in the study_cards dictionary with the id as the key to prevent repeats
+            if not card["id"] in study_cards:
+                study_cards[card["id"]] = card
+    else:
+        for key in d:
+            card = key.to_dict()
             study_cards[card["id"]] = card
 
     return {"study_cards": list(study_cards.values())} 
