@@ -31,6 +31,7 @@ dnspython = "==2.2.1"
 idna = "==3.3"
 pytz = "==2022.1"
 "zope.interface" = "==5.4.0"
+vose-alias-method = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"
