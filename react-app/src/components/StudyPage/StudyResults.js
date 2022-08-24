@@ -3,7 +3,7 @@ import { PieChart, Pie, Tooltip, Cell, Label, ResponsiveContainer } from 'rechar
 import { useHistory } from 'react-router-dom';
 
 
-const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
+const StudyResults = ({ deckId, setShowResults, setProgressColors, numOfCards }) => {
     
     const [percent, setPercent] = useState(20);
     const [totalCardCounts, setTotalCardCounts] = useState({});
@@ -263,7 +263,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
                 </div>
                 <div className='checkpoint-button study-button'
                 onClick={handleMoreStudy} >
-                    <p>Study {totalCards}<br/> more Cards</p>
+                    <p>Study {numOfCards}<br/> more Cards</p>
                     <i className="fa-solid fa-angle-right"></i>
                 </div>
             </div>
