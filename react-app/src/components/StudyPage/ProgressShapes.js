@@ -4,7 +4,7 @@ const ProgressShapes = ({ progressColors, numOfCards }) => {
 
     let numOfShapes = [];
 
-    for (let i = numOfCards; i > 0; i--) numOfShapes.push(i)
+    for (let i = 1; i <= numOfCards; i++) numOfShapes.push(i)
 
     // progressColors is an array of color values 
 
