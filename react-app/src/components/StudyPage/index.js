@@ -37,6 +37,8 @@ const StudyPage = () => {
     const [currCardId, setCurrCardId] = useState();
     const [front, setFront] = useState();
     const [back, setBack] = useState();
+    
+    const [numOfCards, setNumOfCards] = useState();
 
     const [showResults, setShowResults] = useState(false);
 
@@ -67,6 +69,7 @@ const StudyPage = () => {
                             await dispatch(loadCard(res[res.length - 1].id)).then((res) => {
                                 if (res.errors) console.log(res.errors)
                             })
+                            setNumOfCards(res.length)
                             setCurrCardId(res[res.length - 1].id)
                             setCurrCard(res[res.length - 1])
                         })()
@@ -77,7 +80,7 @@ const StudyPage = () => {
                 // This occurs during a refresh, when study.cards DOES have something saved in localStorage
                 (async () => {
                     await dispatch(loadCard(study.cards[0].id)).then((res) => {
-                        console.log("RES",res)
+                        // console.log("RES",res)
                     })
                     setCurrCardId(study.cards[0].id)
                     setCurrCard(study.cards[0])
@@ -116,11 +119,17 @@ const StudyPage = () => {
     return (
         <div className='study-page-div'>
             {showResults ? 
-                <StudyResults deckId={deckId} setShowResults={setShowResults} setProgressColors={setProgressColors}/>
+                <StudyResults
+                    deckId={deckId}
+                    setShowResults={setShowResults}
+                    setProgressColors={setProgressColors}
+                />
             :
             <>
                 <ProgressBar
                 progressColors={progressColors}
+                numOfCards={numOfCards}
+                deckName={deck?.name}
                 />
                 
                 <FlipCard deckId={deckId}

@@ -6,8 +6,13 @@ const DeckPreview = ({ deck, idx }) => {
     const history = useHistory();
 
     const handleMainClick = () => {
-        localStorage.study = JSON.stringify({deck_id: deck.id, progress: [], cards: [], count_1: 0, count_2: 0, count_3: 0, count_4: 0, count_5: 0});
-        history.push(`/decks/${deck?.id}/study`)
+        console.log(deck.Cards)
+        if (deck.Cards.length) {
+            localStorage.study = JSON.stringify({deck_id: deck.id, progress: [], cards: [], count_1: 0, count_2: 0, count_3: 0, count_4: 0, count_5: 0});
+            history.push(`/decks/${deck?.id}/study`)
+        } else {
+            history.push(`/decks/${deck?.id}`)
+        }
     }
 
     let imgs = [
@@ -34,7 +39,7 @@ const DeckPreview = ({ deck, idx }) => {
                     {/* <p>{deck.about}</p> */}
                 </li>
                 <li className='li-info li-length'>
-                    <p>{deck.Cards.length > 2 ? `${deck.Cards.length} cards`
+                    <p>{deck.Cards.length >= 2 ? `${deck.Cards.length} cards`
                     :
                     deck.Cards.length === 1 ? `1 card`
                     :

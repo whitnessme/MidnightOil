@@ -49,6 +49,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
     
     const study = JSON.parse(localStorage.study)
     const totalCount = study.count_5 + study.count_4 + study.count_3 + study.count_2 + study.count_1
+    console.log(totalCount)
     
     // const proficiencyData = [
     //     { name: `Percent completed`, value: percent },
@@ -93,7 +94,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
     ]
 
     const [posData, setPosData] = useState();
-    const [posData2, setPosData2] = useState();
+    // const [posData2, setPosData2] = useState();
 
     const RADIAN = Math.PI / 180;
     let xPos = 0;
@@ -142,19 +143,19 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
         const { cx, cy } = viewBox;
         return (
             <>
-                <text x={ cx - 20} y={cy} fill='white' style={{
+                <text x={ totalCount >= 10 ? cx - 20 : cx - 10} y={cy} fill='white' style={{
                     fontSize: "35px",
                     fontWeight: "400",
                     fontFamily: 'Montserrat'
                 }}>
-                    10
+                    {totalCount}
                 </text>
-                <text x={cx - 30} y={cy + 30} fill='white' style={{
+                <text x={cx - 47} y={cy + 30} fill='white' style={{
                             fontSize: "22px",
                             fontWeight: "300",
                             fontFamily: 'Montserrat'
                         }}>
-                    cards
+                    card flips
                 </text>
             </>
         );
@@ -262,7 +263,7 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors }) => {
                 </div>
                 <div className='checkpoint-button study-button'
                 onClick={handleMoreStudy} >
-                    <p>Study 10<br/> more Cards</p>
+                    <p>Study {totalCards}<br/> more Cards</p>
                     <i className="fa-solid fa-angle-right"></i>
                 </div>
             </div>

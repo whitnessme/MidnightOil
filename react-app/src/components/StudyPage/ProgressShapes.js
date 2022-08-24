@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 
-const ProgressShapes = ({ progressColors }) => {
+const ProgressShapes = ({ progressColors, numOfCards }) => {
 
-    let numOfShapes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let numOfShapes = [];
+
+    for (let i = numOfCards; i > 0; i--) numOfShapes.push(i)
 
     // progressColors is an array of color values 
 
