@@ -23,8 +23,8 @@ const ProgressBar = ({ progressColors, numOfCards, deckName }) => {
     }, [])
     
     useEffect(() => {
-        if (secs >= 5) setMins(Math.floor(secs / 5))
-        setTime(`${mins}:${secs < 10 ? "0" + secs : secs}`)
+        if (secs >= 60) setMins(Math.floor(secs / 60))
+        setTime(`${mins}:${(secs - 1) % 60 < 10 ? "0" + ((secs - 1) % 60) : ((secs - 1) % 60)}`)
     }, [secs])
 
     return (
