@@ -10,21 +10,19 @@ const ProgressBar = ({ progressColors, numOfCards, deckName }) => {
     const [mins, setMins] = useState(0)
     const [time, setTime] = useState("0:00");
 
-
     useEffect(() => {
         const interval = setInterval(() => {
             setSecs(t => t + 1)
-            // let sec = secs % 60
-            // if (sec < 10) sec = `0${sec}`
-            // setTime(`${minutes}:${secs}`)
         }, 1000)
         
         return () => clearInterval(interval)
     }, [])
     
     useEffect(() => {
-        if (secs >= 60) setMins(Math.floor(secs / 60))
-        setTime(`${mins}:${(secs - 1) % 60 < 10 ? "0" + ((secs - 1) % 60) : ((secs - 1) % 60)}`)
+        if(secs < 1800) {
+            if (secs >= 60) setMins(Math.floor(secs / 60))
+            setTime(`${mins}:${(secs - 1) % 60 < 10 ? "0" + ((secs - 1) % 60) : ((secs - 1) % 60)}`)
+        }
     }, [secs])
 
     return (
