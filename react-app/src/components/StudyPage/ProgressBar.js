@@ -7,22 +7,24 @@ import { useEffect, useState } from "react";
 const ProgressBar = ({ progressColors, numOfCards, deckName }) => {
 
     const [secs, setSecs] = useState(1);
-    const [mins, setMins] = useState(0)
+    const [mins, setMins] = useState(0);
     const [time, setTime] = useState("0:00");
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setSecs(t => t + 1)
-        }, 1000)
-        
-        return () => clearInterval(interval)
-    }, [])
-    
-    useEffect(() => {
-        if(secs < 1800) {
-            if (secs >= 60) setMins(Math.floor(secs / 60))
-            setTime(`${mins}:${(secs - 1) % 60 < 10 ? "0" + ((secs - 1) % 60) : ((secs - 1) % 60)}`)
-        }
+        let timer;
+            if (secs <= 1800) {
+                timer = setTimeout(() => setSecs(secs + 1), 1000)
+                if (secs >= 60) setMins(Math.floor(secs / 60))
+                
+                setTime(
+                    `${mins}:${(secs - 1) % 60 < 10 ? "0" + ((secs - 1) % 60)
+                    :
+                    ((secs - 1) % 60)}`
+                    )
+            } else {
+                setTime("30+ minutes--Are you still there?")
+            }
+        return () => clearTimeout(timer)
     }, [secs])
 
     return (
@@ -30,8 +32,8 @@ const ProgressBar = ({ progressColors, numOfCards, deckName }) => {
             <p>Deck: {deckName}</p>
             {/* <ProgressImage /> */}
             <ProgressShapes
-            progressColors={progressColors}
-            numOfCards={numOfCards}
+                progressColors={progressColors}
+                numOfCards={numOfCards}
             />
             <div className="round-timer-div">
                 <p>This Round: {
