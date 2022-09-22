@@ -105,13 +105,13 @@ const FlipCard = ({ deckId,
                 <>
                     <div 
                         className="flip-card study-front"
-                        style={{ "borderBottom": `5px solid ${borderColor}`}}>
+                        style={{ borderBottom: `5px solid ${borderColor}`}}>
                             <p>{front}</p>
                             </div>
                     <button
                         className="reveal-button"
                         onClick={handleFlipClick}
-                        style={{ backgroundColor: {borderColor}, color: `${fontColor}`}}>Reveal Answer</button>
+                        style={{ backgroundColor: `${borderColor}`, color: `${fontColor}`}}>Reveal Answer</button>
                 </>
             }
 
