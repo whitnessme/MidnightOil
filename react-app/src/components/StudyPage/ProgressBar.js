@@ -9,7 +9,9 @@ const ProgressBar = ({ progressColors, numOfCards, deckName }) => {
 
     return (
         <div className="progress-bar-div">
-            <p>Deck: {deckName}</p>
+            <div className="left-bar">
+                <p id="deck-name">{deckName}</p>
+            </div>
             {/* <ProgressImage /> */}
             <ProgressShapes
                 progressColors={progressColors}

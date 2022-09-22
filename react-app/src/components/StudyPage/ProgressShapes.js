@@ -12,14 +12,14 @@ const ProgressShapes = ({ progressColors, numOfCards }) => {
     } 
 
     return (
-        <>
+        <div className="lamps-container">
             {numOfShapes.map((num, i) => (
                 <div key={`progress-lamp-${num, i}`} className="progress-lamp-div">
                     <img alt={`oil lamp ${num}`} className="progress-lamp" src={`../../../../static/progress_lamp_${numOfShapes[i]}.png`}></img>
                 </div>
                 )
                 )}
-        </>
+        </div>
     )
 }
 

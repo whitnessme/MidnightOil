@@ -18,7 +18,7 @@ const StudyTimer = () => {
                     ((secs - 1) % 60)}`
                     )
             } else {
-                setTime("30+ minutes--Are you still there?")
+                setTime("30+ minutes")
             }
         return () => clearTimeout(timer)
     }, [secs])
@@ -26,7 +26,8 @@ const StudyTimer = () => {
 
   return (
     <div className="round-timer-div">
-      <p>This Round: {time}</p>
+      <p id="this-round">This Round:</p>
+      <p id="study-time">{time}</p>
     </div>
   );
 };
