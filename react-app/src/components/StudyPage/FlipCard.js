@@ -21,7 +21,7 @@ const FlipCard = ({ deckId,
     
     const ratingColors = {
             1: "#CA0081",
-            2: "#ffa500",
+            2: "#FFA500",
             3: "#FFDA00",
             4: "#60B024",
             5: "#00A9DB",
@@ -64,7 +64,7 @@ const FlipCard = ({ deckId,
                         // If they successfully knew it (even a little bit), we want to remove it from the cards array
                         study.cards.pop()   
                         // Make sure progress bar has the rating color they chose
-                        study.progress.push(ratingColors[num])
+                        study.progress.push(num)
                     } else if (num === 1 && cards.length > 1) { // still with another card left to switch spots
                         // If the rating is 1, we don't remove the card but put it switch it with another card in the array randomly
                         let newIndex = Math.floor(Math.random() * (cards.length - 1))
@@ -105,13 +105,13 @@ const FlipCard = ({ deckId,
                 <>
                     <div 
                         className="flip-card study-front"
-                        style={{ "borderBottom": `5px solid ${borderColor}`}}>
+                        style={{ borderBottom: `5px solid ${borderColor}`}}>
                             <p>{front}</p>
                             </div>
                     <button
                         className="reveal-button"
                         onClick={handleFlipClick}
-                        style={{ backgroundColor: {borderColor}, color: `${fontColor}`}}>Reveal Answer</button>
+                        style={{ backgroundColor: `${borderColor}`, color: `${fontColor}`}}>Reveal Answer</button>
                 </>
             }
 
