@@ -6,3 +6,16 @@
     height: 110px;
     width: 100%;
 }
+
+.progress-lamp-div {
+    width: 100px;
+    height: 100px;
+}
+
+.progress-lamp {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+/* ['#00A9DB', '#60B024', '#FFDA00', '#FFA500', 1, 2, 3, 4, 5, 6] */

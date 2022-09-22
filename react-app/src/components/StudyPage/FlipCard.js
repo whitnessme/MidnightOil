@@ -21,7 +21,7 @@ const FlipCard = ({ deckId,
     
     const ratingColors = {
             1: "#CA0081",
-            2: "#ffa500",
+            2: "#FFA500",
             3: "#FFDA00",
             4: "#60B024",
             5: "#00A9DB",

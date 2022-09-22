@@ -1,22 +1,27 @@
 import { useEffect } from "react";
+import './ProgressBar.css'
 
 const ProgressShapes = ({ progressColors, numOfCards }) => {
 
-    let numOfShapes = [];
+    let numOfShapes = [...progressColors];
 
-    for (let i = 1; i <= numOfCards; i++) numOfShapes.push(i)
+    for (let i = 1; i <= (numOfCards - progressColors.length); i++) {
+        numOfShapes.push(i)
+    } 
+
+    console.log(numOfShapes)
 
     // progressColors is an array of color values 
 
     return (
-        <div className="progress-image-div">
-            {numOfShapes.map((num) => (
-                <svg width="40" height="70">
-                    <rect id={`shape-${num}`} className="progress-shape" x="5" y="5" rx="10" ry="10" fill={progressColors?.length > 0 ? progressColors[num - 1] : "grey"} width="30" height="60"/>
-                </svg>
+        <>
+            {numOfShapes.map((num, i) => (
+                <div key={`progress-lamp-${num}`} className="progress-lamp-div">
+                    <img alt={`oil lamp ${num}`} className="progress-lamp" src={`../../../../static/progress_lamp_${numOfShapes[i].length > 1 ? numOfShapes[i] : "blank"}.png`}></img>
+                </div>
                 )
-            )}
-        </div>
+                )}
+        </>
     )
 }
 
