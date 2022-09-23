@@ -78,16 +78,23 @@
 ![Screenshot 2022-03-27 171615](https://user-images.githubusercontent.com/89945390/160308902-971dd523-a14b-4192-b40f-78945dc57c1d.png)
 
 -----------------------------
+
+### Study
+-   Users can start a study session that will go through 10 cards, rating how well they did on each card from 1-5.
+-   Users can see their progress bar go up 1/10th with each 2-5 rating, users will redo every 1 rated card in the session.
+-   Users can see the checkpoint/results after finishing the session, how many of each rating they did and the current mastery percentage for the deck.
+
+![checkpoint_gif](https://user-images.githubusercontent.com/89945390/192009089-e8cf5d49-e3b9-430a-82cd-d116b538e590.gif)
+
+
+-------------------------
+
 ### 404 Page
 
 ![Screenshot 2022-03-27 174425](https://user-images.githubusercontent.com/89945390/160308862-41b49f7b-713f-4d95-ac53-2abd07f32f9a.png)
 
 -----------------------------
 ## Future Features
-- **Study Sessions**
-    -   Users can start a study session that will go through 10 cards, rating how well they did on each card from 1-5.
-    -   Users can see their progress bar go up 1/10th with each 2-5 rating, users will redo every 1 rated card in the session.
-    -   Users can see the checkpoint/results after finishing the session, how many of each rating they did and the current mastery percentage for the deck.
 - **Shared Decks**
     -   Users can see a list of decks made by other users and make a copy of them for their account to study
     -   Users can chose to allow their decks to be shared, either on creation or when editing a deck.
