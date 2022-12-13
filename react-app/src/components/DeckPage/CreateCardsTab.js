@@ -19,7 +19,7 @@ const CreateCardsTab = () => {
     const [showCreate, setShowCreate] = useState(false)
     const [showEdit, setShowEdit] = useState(true)
 
-    const cards = useSelector((state) => Object.values(state?.cards?.all))
+    const cards = useSelector((state) => Object.values(state.cards.all))
 
     useEffect(() => {
         if (newCardRef.current) {
@@ -59,7 +59,7 @@ const CreateCardsTab = () => {
         <div className="create-tab-container">
             <div className='left-col-create-container'>
                 <div className='left-col-header'>
-                    <p>{`CARDS (${cards?.length})`}</p>
+                    <p>{`CARDS (${cards.length})`}</p>
                     <div onClick={() => {
                         setShowCreate(true)
                         setShowEdit(false)

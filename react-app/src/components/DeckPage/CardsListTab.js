@@ -8,7 +8,7 @@ const CardsListTab = ({ setSelected, setShowCardsListTab, setShowCreateCardsTab 
     const dispatch = useDispatch()
     const { deckId } = useParams()
 
-    const cards = useSelector((state) => Object.values(state?.cards?.all))
+    const cards = useSelector((state) => Object.values(state.cards.all))
 
     const handleCreate = (e) => {
         e.preventDefault()

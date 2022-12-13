@@ -20,7 +20,7 @@ class Deck(db.Model):
     owner = db.relationship("User", foreign_keys=[owner_id], back_populates="deck_owner")
     
     cards = db.relationship("Card", back_populates="deck", order_by="asc(Card.id)", cascade="all, delete")
-    study_sessions = db.relationship("StudySession", back_populates="deck", cascade="all, delete")
+    # study_sessions = db.relationship("StudySession", back_populates="deck", cascade="all, delete")
     
     def to_dict(self):
         return {

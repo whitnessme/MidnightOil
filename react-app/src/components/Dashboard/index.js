@@ -9,7 +9,7 @@ import { loadUserDecks } from '../../store/decks';
 
 const Dashboard = () => {
     const dispatch = useDispatch()
-    const decks = useSelector((state) => Object.values(state.decks?.all))
+    const decks = useSelector((state) => Object.values(state.decks.all))
     const user = useSelector((state) => state.session?.user)
 
     useEffect(() => {
