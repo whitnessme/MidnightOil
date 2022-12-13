@@ -23,9 +23,9 @@ const StudyPage = () => {
     5: "#00A9DB",
   };
 
-  const deck = useSelector((state) => state.decks?.one[deckId]);
-  const currUser = useSelector((state) => state.session?.user);
-  const card = useSelector((state) => Object.values(state.cards?.one)[0]);
+  const deck = useSelector((state) => state.decks.one[deckId]);
+  const currUser = useSelector((state) => state.session.user);
+  const card = useSelector((state) => Object.values(state.cards.one)[0]);
 
   const [showSide, setShowSide] = useState("front");
   const [borderColor, setBorderColor] = useState("#CCCCCC");
