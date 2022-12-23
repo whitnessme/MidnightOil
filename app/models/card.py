@@ -1,12 +1,14 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from .deck import Deck
 from datetime import datetime
 
 class Card(db.Model):
     __tablename__ = 'cards'
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
     
     id = db.Column(db.Integer, primary_key=True)
-    deck_id = db.Column(db.Integer, db.ForeignKey('decks.id'), nullable=False)
+    deck_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('decks.id')), nullable=False)
     front = db.Column(db.Text,  nullable=False)
     back = db.Column(db.Text,  nullable=False)
     seen = db.Column(db.Boolean, nullable=False, default=False)

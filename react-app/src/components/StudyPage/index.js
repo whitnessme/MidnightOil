@@ -57,7 +57,6 @@ const StudyPage = () => {
       (async () => {
         // Grab study obj from localStorage
         let study = JSON.parse(localStorage.study);
-        console.log("running grab cards...........", showResults);
 
         if (study.cards.length === 0) {
           // This occurs when someone presses the study button on a deck--study.cards is empty in localStorage
