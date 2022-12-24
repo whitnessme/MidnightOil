@@ -45,8 +45,6 @@ const CreateCardsTab = () => {
         }
     }, [])
 
-    console.log(selectedId)
-
     useEffect(() => {
         (async () => {
             if (selectedId) {

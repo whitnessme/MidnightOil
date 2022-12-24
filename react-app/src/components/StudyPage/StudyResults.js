@@ -18,11 +18,9 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors, numOfCards })
             await fetch(`/api/decks/${deckId}/points`).then( async (res) => {
                 if (res.ok) {
                     await res.json().then(async (res) => {
-                        console.log(res)
                         setPercent(res.total_points)
                         setTotalCardCounts(res)
                         setTotalCards(res.total_cards)
-                        console.log(totalCards)
                     })
                 } else {
                     await res.json().then(res => {
@@ -49,7 +47,6 @@ const StudyResults = ({ deckId, setShowResults, setProgressColors, numOfCards })
     
     const study = JSON.parse(localStorage.study)
     const totalCount = study.count_5 + study.count_4 + study.count_3 + study.count_2 + study.count_1
-    console.log(totalCount)
     
     // const proficiencyData = [
     //     { name: `Percent completed`, value: percent },
