@@ -14,8 +14,8 @@ def study_cards(deckId):
     hard_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 3)).all()
     easy_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 4)).all()
     perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5)).all()
-    # numFives in a row needs to be greater than or equal to ????? LOOOK
-    extra_perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5) & (Card.numFivesInRow == 3)).all()
+    # if card has been given rating of 5 more than 3 times in a row:
+    extra_perfect_cards = Card.query.filter((Card.deck_id == deckId) & (Card.curr_rating == 5) & (Card.numFivesInRow >= 3)).all()
     
     # Assign different percentages to each card within each bucket
     d_not_at_all = {card: 0.48 for card in not_at_all_cards}
@@ -37,7 +37,7 @@ def study_cards(deckId):
     if len(d) >= 10:
         # Instead of a sample size of 10 automatically, we need to make sure we don't get a repeat card. 
         while len(study_cards) < 10:
-            # Returns one card in a list, call to_dict on it to make it readable on front-end & have the ability to check id
+            # Returns one card in a list, call to_dict on it to make it readable on front-end & have the ability to check id - O(1)
             card = va.sample_n(size=1)[0].to_dict()
             # Now we can compare the ids of the cards & put it in the study_cards dictionary with the id as the key to prevent repeats
             if not card["id"] in study_cards:
